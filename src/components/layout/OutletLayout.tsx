@@ -9,7 +9,7 @@ const OutletLayout: React.FC<PropsWithChildren> = (props) => {
   const { children } = props;
   return (
     <Box
-      className="ml-28 border-2 border-solid"
+      className="ml-32 h-screen"
     >
       { children }
     </Box>

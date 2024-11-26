@@ -28,7 +28,7 @@ const PhotoCardGroup: React.FC<Props> = (props) => {
           let classRotate = "";
 
           if(childIdx < middleIndex && countChildren > 1) {
-            classRotate = "-rotate-12 translate-y-8 hover:-translate-y-1";
+            classRotate = "-rotate-12 translate-y-8 hover:-translate-y-0";
           } else if(childIdx > middleIndex && countChildren > 1) {
             classRotate = "rotate-12 translate-x-32 translate-y-2 hover:-translate-y-5";
           } else {

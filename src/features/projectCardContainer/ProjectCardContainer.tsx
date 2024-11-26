@@ -20,7 +20,7 @@ const ProjectCardContainer: React.FC<Props> = (props) => {
     <Box className="
       flex
       max-w-xl
-      mt-24
+      mt-10
       ml-10
       w-[576px]
       h-[170px]
@@ -37,7 +37,7 @@ const ProjectCardContainer: React.FC<Props> = (props) => {
       <PhotoCardGroup
         className='
         absolute
-        -top-10
+        -top-5
         -left-10
         '
       >

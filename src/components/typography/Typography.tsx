@@ -33,7 +33,7 @@ const Typography: React.FC<ITypographyProps> = (props) => {
 
   return (
     <Component
-      className={tailwindUtil(className, variantClass)}
+      className={tailwindUtil(variantClass, className)}
     >
       { children }
     </Component>
