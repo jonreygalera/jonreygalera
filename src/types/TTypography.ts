@@ -1,6 +1,7 @@
 export type TTypographyVariant =
   | 'display1'
   | 'display2'
+  | 'title'
   | 'h1'
   | 'h2'
   | 'h3'

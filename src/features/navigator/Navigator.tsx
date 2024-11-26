@@ -32,7 +32,7 @@ const Navigator: React.FC = () => {
   };
 
   return (
-    <Navigation className="top-36">
+    <Navigation className="ml-5 top-36">
       {NAVIGATOR_ITEMS.map((navigationItem) => (
         <IconButton
           key={navigationItem.key}

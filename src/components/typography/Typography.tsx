@@ -6,6 +6,7 @@ import { TTypographyVariant } from '../../types/TTypography';
 const variantClasses: Record<TTypographyVariant, string> = {
   display1: 'text-6xl font-extrabold',
   display2: 'text-5xl font-bold',
+  title: 'text-9xl font-bold',
   h1: 'text-4xl font-bold',
   h2: 'text-3xl font-semibold',
   h3: 'text-2xl font-medium',

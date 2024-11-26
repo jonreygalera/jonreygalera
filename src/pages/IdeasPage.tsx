@@ -13,8 +13,9 @@ interface Props {
 }
 const IMAGE_SETS = [
   "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg",
   "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
 ];
 
 const SAMPLE_DATA = [
@@ -44,7 +45,7 @@ const IdeasPage: React.FC<Props> = (props) => {
           Project
         </Typography>
       </Box>
-      <Box className='flex flex-col  rounded-3xl my-8 mr-10 h-2/3 overflow-hidden border'>
+      <Box className='flex flex-col rounded-3xl my-8 mr-10 h-2/3 overflow-hidden border-t border-dotted shadow-md shadow-primary-300'>
         <Box className='flex justify-center w-full'>
           <Box className='flex justify-center items-center bg-primary-950 w-48 h-14 rounded-b-3xl'>
             <Typography className='text-primary-50 underline'>Ideas</Typography>
@@ -55,12 +56,12 @@ const IdeasPage: React.FC<Props> = (props) => {
           <Box className='flex flex-col w-full p-10 gap-10'>
             <Box className='flex w-full flex-col gap-5'>
               <Box>
-                <Typography variant='h1' className="text-9xl">
+                <Typography variant='title'>
                   Project
                 </Typography>
               </Box>
               <Box>
-                <Typography>
+                <Typography variant='h5'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eros nulla, eleifend pretium magna ut, 
                   consectetur dictum lacus. Vivamus fringilla, sapien at maximus suscipit, orci dolor pharetra nunc, 
                   quis sagittis quam sapien eu ipsum. Phasellus blandit efficitur libero id mattis. 
@@ -80,6 +81,7 @@ const IdeasPage: React.FC<Props> = (props) => {
                 rounded-3xl
                 relative
                 justify-center
+                mb-2
               '
             >
               <Splatter className='absolute w-full rotate-180 -translate-y-32 -z-10'/>
@@ -95,6 +97,7 @@ const IdeasPage: React.FC<Props> = (props) => {
                   hover:scale-90
                   transition
                   duration-700
+                  cursor-pointer
                 '
               />
             </Box>
