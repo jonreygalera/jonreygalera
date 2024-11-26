@@ -92,6 +92,7 @@ const IdeasPage: React.FC<Props> = (props) => {
                   shadow-2xl 
                   shadow-primary-700
                   hover:rotate-6
+                  hover:scale-90
                   transition
                   duration-700
                 '
