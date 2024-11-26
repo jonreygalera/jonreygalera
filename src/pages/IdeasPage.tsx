@@ -83,7 +83,19 @@ const IdeasPage: React.FC<Props> = (props) => {
               '
             >
               <Splatter className='absolute w-full rotate-180 -translate-y-32 -z-10'/>
-              <img src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" className='w-2/3 rounded-3xl h-[370px] shadow-2xl shadow-primary-700'/>
+              <img 
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" 
+                className='
+                  w-2/3 
+                  h-[370px] 
+                  rounded-3xl 
+                  shadow-2xl 
+                  shadow-primary-700
+                  hover:rotate-6
+                  transition
+                  duration-700
+                '
+              />
             </Box>
 
             <Box className="flex gap-2">
