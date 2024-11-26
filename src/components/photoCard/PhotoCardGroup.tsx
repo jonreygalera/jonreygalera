@@ -3,8 +3,7 @@ import Box from '../box/Box';
 import { tailwindUtil } from '../../utils/tailwindUtil';
 
 interface Props extends PropsWithChildren {
-  className?: string;
-  
+  className?: string; 
 }
 
 const PhotoCardGroup: React.FC<Props> = (props) => {
