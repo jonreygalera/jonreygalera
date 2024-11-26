@@ -44,14 +44,14 @@ const IdeasPage: React.FC<Props> = (props) => {
           Project
         </Typography>
       </Box>
-      <Box className='flex flex-col border rounded-3xl my-8 mr-10 h-2/3 overflow-hidden'>
+      <Box className='flex flex-col  rounded-3xl my-8 mr-10 h-2/3 overflow-hidden border'>
         <Box className='flex justify-center w-full'>
           <Box className='flex justify-center items-center bg-primary-950 w-48 h-14 rounded-b-3xl'>
             <Typography className='text-primary-50 underline'>Ideas</Typography>
           </Box>
         </Box>
 
-        <Box className='flex h-full w-full'>
+        <Box className='flex h-full w-full '>
           <Box className='flex flex-col w-full p-10 gap-10'>
             <Box className='flex w-full flex-col gap-5'>
               <Box>
@@ -83,7 +83,7 @@ const IdeasPage: React.FC<Props> = (props) => {
               '
             >
               <Splatter className='absolute w-full rotate-180 -translate-y-32 -z-10'/>
-              <img src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" className='w-2/3 rounded-3xl h-[370px]'/>
+              <img src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" className='w-2/3 rounded-3xl h-[370px] shadow-2xl shadow-primary-700'/>
             </Box>
 
             <Box className="flex gap-2">
