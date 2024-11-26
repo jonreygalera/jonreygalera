@@ -4,7 +4,6 @@ import { tailwindUtil } from '../../utils/tailwindUtil';
 
 interface Props extends PropsWithChildren {
   className?: string; 
-  
 }
 
 const PhotoCardGroup: React.FC<Props> = (props) => {
