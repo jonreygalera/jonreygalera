@@ -2,6 +2,7 @@ import React, { Children } from 'react';
 import Box from '../box/Box';
 import INavigationProps from '../../interface/INavigationProps';
 import { tailwindUtil } from '../../utils/tailwindUtil';
+import Typography from '../typography/Typography';
 
 const Navigation: React.FC<INavigationProps> = (props) => {
   const { children, className, activeItem } = props;
@@ -38,18 +39,21 @@ const Navigation: React.FC<INavigationProps> = (props) => {
         '
       >
         {
-          Children.map(children, (child, childIdx) => (
-            <Box
-              key={childIdx}
-              className={
-                tailwindUtil(
-                  'h-14 w-2.5 rounded-e-full bg-primary-300',
-                  activeItem?.index === childIdx && 'bg-primary-800'
-                )
-              }
-            >
-            </Box>
-          ))
+          Children.map(children, (child, childIdx) => {
+            const label = React.isValidElement(child) ? (child?.props?.children?.props?.label ?? '') : '';
+            return  (
+              <Box
+                data-content={label}
+                key={childIdx}
+                className={
+                  tailwindUtil(
+                    'h-14 w-2.5 rounded-e-full bg-primary-300',
+                    activeItem?.index === childIdx && 'bg-primary-800',
+                  )
+                }
+              />
+            )
+          })
         }
       </Box>
     </Box>

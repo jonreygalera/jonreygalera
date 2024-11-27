@@ -12,7 +12,7 @@ const ButtonGroup: React.FC<IButtonGroupProps> = (props) => {
   const childLastIndex = childLength - 1;
 
   return (
-    <Box className="inline-flex" role="group">
+    <Box className="inline-flex " role="group">
       { 
         childrenContainer.map((child: any, childIdx) => {
           let cornerClass = 'border-x-0';
@@ -28,7 +28,7 @@ const ButtonGroup: React.FC<IButtonGroupProps> = (props) => {
           return (<Box>
             {
               React.cloneElement(child, {
-                className: tailwindUtil(cornerClass, 'border')
+                className: tailwindUtil(cornerClass, 'border bg-primary-50')
               })
             }
           </Box>)

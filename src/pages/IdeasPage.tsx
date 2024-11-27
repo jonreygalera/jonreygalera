@@ -40,10 +40,19 @@ const IdeasPage: React.FC<Props> = (props) => {
   return (
     <Box className='h-screen relative'>
 
-      <Box className='absolute -z-10'>
-        <Typography variant='h1' className="text-[250px] text-primary-300">
+      <Box 
+        className='
+          absolute
+          -z-10
+        '
+      >
+        <Typography 
+          variant='h1' 
+          className="text-[250px] text-primary-50 text-stroke-light">
           Project
         </Typography>
+      </Box>
+      <Box className='absolute -z-10 w-8/12 h-[400px] blur-lg inset-0 bg-gradient-to-t from-primary-400 via-transparent to-transparent opacity-25'>
       </Box>
       <Box className='flex flex-col rounded-3xl my-8 mr-10 h-2/3 overflow-hidden border-primary-950 border-t-2 shadow-md shadow-primary-300'>
         <Box className='flex justify-center w-full'>
@@ -101,34 +110,28 @@ const IdeasPage: React.FC<Props> = (props) => {
                 '
               />
             </Box>
-
-            <Box className="flex gap-2">
-              <Button className='flex h-full w-[100px] border items-center rounded-s-2xl'>
-                {'<'}
-              </Button>
+            <Carousel>
               {
                 IMAGE_SETS.map(data => (
                   <img src={data} className='w-44 h-36'/>
                 ))
               }
-            </Box>
+            </Carousel>
           </Box>
 
         </Box>
       </Box>
-
-      <Box className="h-1/4 flex gap-2">
-        <Button className='flex h-full w-[100px] border items-center rounded-s-2xl'>
-            {'<'}
-        </Button>
-        <Box className='flex w-full overflow-x-hidden overflow-y-visible gap-2'>
+      <Carousel 
+        CarouselContainerProps={{
+          className: "h-1/4 flex gap-2 mr-10"
+        }}
+      >
+          <ProjectCardContainer title={'Project'} active={true}/>
           <ProjectCardContainer title={'Project'}/>
           <ProjectCardContainer title={'Project'}/>
           <ProjectCardContainer title={'Project'}/>
           <ProjectCardContainer title={'Project'}/>
-          <ProjectCardContainer title={'Project'}/>
-        </Box>
-      </Box>
+        </Carousel>
     </Box>
   );
 }

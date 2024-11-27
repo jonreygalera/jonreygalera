@@ -3,7 +3,23 @@
 @tailwind utilities;
 
 body {
-  background-color: #F9FAFB;
+  background-color: #f4f4f4;
   background-image: url('./assets/iconSvg/bg-hexagon.svg');
   background-blend-mode: lighten;
+}
+
+.nav-item:after {
+  content: attr(data-content);
+  position: fixed;
+  color: #A1A1AA;
+  rotate: 90deg;
+  transform-origin: 50% 40%;
+}
+
+
+.text-stroke-light {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 12px #eff0f1;
+  text-stroke: 12px #eff0f1;/* Lighter stroke */
 }
