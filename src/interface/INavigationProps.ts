@@ -1,5 +1,5 @@
-import { PropsWithChildren } from "react";
+import INavigationItem from "./INavigationItem";
 
-export default interface INavigationProps extends PropsWithChildren<{}>{
-  className?: string
+export default interface INavigationProps extends React.HTMLAttributes<HTMLDivElement> {
+  activeItem?: INavigationItem & { index: number };
 }

@@ -21,16 +21,16 @@ const IconButton: React.FC<IIconButtonProps> = (props) => {
       className={tailwindUtil(
         'flex flex-col items-center min-w-11 min-h-11 p-2.5 rounded-xl', 
         ButtonComponentProps?.className, 
-        active ? 'border-b-2 border-solid border-primary-50 ' : ''
+        // active ? 'border-b-2 border-solid border-primary-50 ' : ''
       )}
     >
       {
         React.createElement(icon, {
           ...IconComponentProps, 
-          className: tailwindUtil(IconComponentProps?.className, "size-7", active ? 'text-primary-50 size-9' : 'text-primary-500')
+          className: tailwindUtil(IconComponentProps?.className, "size-7", active ? 'text-primary-50 size-8' : 'text-primary-500')
         })
       }
-      { label && <Typography className={active ? 'text-primary-50' : 'text-primary-500'}>{label}</Typography>}
+      {/* { label && <Typography className={active ? 'text-primary-950' : 'text-primary-500'}>{label}</Typography>} */}
     </Button>
   );
 }

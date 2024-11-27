@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: #F9FAFB;
+  background-image: url('./assets/iconSvg/bg-hexagon.svg');
+  background-blend-mode: lighten;
+}

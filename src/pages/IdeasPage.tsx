@@ -45,7 +45,7 @@ const IdeasPage: React.FC<Props> = (props) => {
           Project
         </Typography>
       </Box>
-      <Box className='flex flex-col rounded-3xl my-8 mr-10 h-2/3 overflow-hidden border-t border-dotted shadow-md shadow-primary-300'>
+      <Box className='flex flex-col rounded-3xl my-8 mr-10 h-2/3 overflow-hidden border-primary-950 border-t-2 shadow-md shadow-primary-300'>
         <Box className='flex justify-center w-full'>
           <Box className='flex justify-center items-center bg-primary-950 w-48 h-14 rounded-b-3xl'>
             <Typography className='text-primary-50 underline'>Ideas</Typography>

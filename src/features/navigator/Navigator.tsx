@@ -9,6 +9,8 @@ import {
 import Navigation from '../../components/navigation/Navigation';
 import IconButton from '../../components/iconButton/IconButton';
 import INavigationItem from '../../interface/INavigationItem';
+import Box from '../../components/box/Box';
+import { tailwindUtil } from '../../utils/tailwindUtil';
 
 const NAVIGATOR_ITEMS: INavigationItem[] = [
   { key: 'nav-item-home', label: 'Home', icon: HomeIcon, path: '/' },
@@ -23,25 +25,42 @@ const Navigator: React.FC = () => {
   const [selectedNavigationItem, setSelectedNavigationItem] = useState<INavigationItem>(
     NAVIGATOR_ITEMS[0]
   );
+  const [ navigationItemIndex, setNavigationItemIndex ] = useState(0);
 
-  const handleOnSelectedItem = (navigationItem: INavigationItem) => {
+  const handleOnSelectedItem = (navigationItem: INavigationItem, itemIndex: number) => {
     setSelectedNavigationItem(navigationItem);
+    setNavigationItemIndex(itemIndex);
     if (navigationItem.path) {
       navigate(navigationItem.path);
     }
   };
 
   return (
-    <Navigation className="ml-5 top-36">
-      {NAVIGATOR_ITEMS.map((navigationItem) => (
-        <IconButton
+    <Navigation 
+      className="ml-4 top-36"
+      activeItem={{...selectedNavigationItem, index: navigationItemIndex}}
+    >
+      
+      {NAVIGATOR_ITEMS.map((navigationItem, navigationItemIdx) => (
+        <Box 
           key={navigationItem.key}
-          icon={navigationItem.icon}
-          onClick={() => handleOnSelectedItem(navigationItem)}
-          active={selectedNavigationItem.key === navigationItem.key}
-          label={navigationItem.label}
-        />
-      ))}
+          className={
+            tailwindUtil(
+              " rounded-e-3xl rounded-s-full",
+              // selectedNavigationItem.key === navigationItem.key && (
+              //   "bg-primary-50 "
+              // )
+            )
+          } 
+        >
+          <IconButton
+            icon={navigationItem.icon}
+            onClick={() => handleOnSelectedItem(navigationItem, navigationItemIdx)}
+            active={selectedNavigationItem.key === navigationItem.key}
+            label={navigationItem.label}
+          />
+        </Box>
+        ))}
     </Navigation>
   );
 };
