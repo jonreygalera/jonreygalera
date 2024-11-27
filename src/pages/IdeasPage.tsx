@@ -7,6 +7,7 @@ import Carousel from '../components/carousel/Carousel';
 import Typography from '../components/typography/Typography';
 import Button from '../components/button/Button';
 import Splatter from '../components/icons/Splatter';
+import Chip from '../components/chip/Chip';
 
 interface Props {
 
@@ -78,11 +79,24 @@ const IdeasPage: React.FC<Props> = (props) => {
               </Box>
             </Box>
 
-            <hr className='mr-24'/>
-            <Box className='flex w-full'>
-              dasdsds
+            <hr className='mr-24 border-primary-300'/>
+
+            <Box className='flex flex-col gap-2'>
+                <Box className='grid grid-cols-3 gap-2 h-[75px]'>
+                  <Chip/>
+                  <Chip/>
+                  <Chip/>
+                  <Chip/>
+                </Box>
+                <Box className="flex justify-end">
+                  <Button
+                    className="border border-primary-950 font-bold rounded-lg py-1 w-64 bg-primary-50"
+                  >
+                    visit
+                  </Button>
+                </Box>
+              </Box>
             </Box>
-          </Box>
 
           <Box className='flex flex-col w-full gap-2 '>
             <Box className='
