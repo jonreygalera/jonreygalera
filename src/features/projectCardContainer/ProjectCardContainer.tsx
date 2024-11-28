@@ -23,7 +23,7 @@ const ProjectCardContainer: React.FC<Props> = (props) => {
 
   return (
     <Box className={tailwindUtil(
-      "border-2 flex flex-col max-w-xl mt-10 ml-10 w-[576px] h-[170px] relative rounded-3xl py-2 pr-5 hover:-translate-y-2 transition duration-500 gap-5 hover:bg-primary-400 bg-primary-50 bg-blend-lighten hover:border-primary-400",
+      "border-2 flex flex-col max-w-xl mt-10 ml-10 w-[520px] h-[170px] relative rounded-3xl py-2 pr-5 hover:-translate-y-2 transition duration-500 gap-5 hover:bg-primary-400 bg-primary-50 bg-blend-lighten hover:border-primary-400",
       active && "border-primary-400 bg-primary-400",
     )}
       style={{
@@ -54,9 +54,10 @@ const ProjectCardContainer: React.FC<Props> = (props) => {
             flex-col 
             w-full
             gap-5
+            
           "
         >
-          <Box className="flex">
+          <Box className="flex ">
             <Typography variant='h2'>{title}</Typography>
           </Box>
           <Box className="flex gap-1">
@@ -85,6 +86,7 @@ const ProjectCardContainer: React.FC<Props> = (props) => {
           View
         </Button>
       </Box>
+      {/* <Button className="absolute w-2 rounded-e-xl -right-0 top-16 flex flex-row-reverse pl-2 pr-3 text-primary-50 bg-primary-950"></Button> */}
     </Box>
   );
 }

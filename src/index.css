@@ -16,7 +16,6 @@ body {
   transform-origin: 50% 40%;
 }
 
-
 .text-stroke-light {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

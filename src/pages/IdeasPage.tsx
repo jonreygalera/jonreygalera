@@ -8,6 +8,11 @@ import Typography from '../components/typography/Typography';
 import Button from '../components/button/Button';
 import Splatter from '../components/icons/Splatter';
 import Chip from '../components/chip/Chip';
+import {
+ ArrowRightIcon
+} from '@heroicons/react/24/outline';
+import IconButton from '../components/iconButton/IconButton';
+import Slide from '../components/slide/Slide';
 
 interface Props {
 
@@ -16,6 +21,8 @@ const IMAGE_SETS = [
   "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg",
   "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg",
   "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
   "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
 ];
 
@@ -81,22 +88,25 @@ const IdeasPage: React.FC<Props> = (props) => {
 
             <hr className='mr-24 border-primary-300'/>
 
-            <Box className='flex flex-col gap-2'>
-                <Box className='grid grid-cols-3 gap-2 h-[75px]'>
-                  <Chip/>
-                  <Chip/>
-                  <Chip/>
-                  <Chip/>
-                </Box>
-                <Box className="flex justify-end">
-                  <Button
-                    className="border border-primary-950 font-bold rounded-lg py-1 w-64 bg-primary-50"
-                  >
-                    visit
-                  </Button>
-                </Box>
+            <Box className='flex w-full h-full relative'>
+              <Box className='grid grid-cols-3 gap-x-2 gap-y-0 w-full border border-primary-400 rounded-br-[35px] p-2 rounded-s-lg'>
+                <Chip/>
+                <Chip/>
+                <Chip/>
+                <Chip/>
+                <Button className='w-10'>More</Button>
+              </Box>
+
+              <Box className='absolute flex items-center gap-2 bottom-0 right-0 w-[300px]'>
+                <Slide
+                  className='w-full'
+                  label={'Slide to Visit'}
+                  labelSlided={'Visited!'}
+                  onSlided={() => alert('das')}
+                />
               </Box>
             </Box>
+          </Box>
 
           <Box className='flex flex-col w-full gap-2 '>
             <Box className='

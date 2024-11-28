@@ -12,7 +12,7 @@ const ButtonGroup: React.FC<IButtonGroupProps> = (props) => {
   const childLastIndex = childLength - 1;
 
   return (
-    <Box className="inline-flex " role="group">
+    <Box className="inline-flex" role="group">
       { 
         childrenContainer.map((child: any, childIdx) => {
           let cornerClass = 'border-x-0';
@@ -35,7 +35,6 @@ const ButtonGroup: React.FC<IButtonGroupProps> = (props) => {
         })
       
       }
-      <Button className="rounded-full m-1 border-none">{'>'}</Button>
     </Box>
   );
 }
