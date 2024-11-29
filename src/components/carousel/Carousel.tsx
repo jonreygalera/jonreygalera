@@ -16,20 +16,21 @@ const Carousel: React.FC<ICarouselProps> = (props) => {
     return childrenArray;
   }, [childrenArray]);
 
-  const handleOnSelected = (index: number) => {
+  const handleOnSelected = (index: number, child: any) => {
     const cloneChildrenArray = [...childrenArray];
-    onItemSelected?.(index, cloneChildrenArray[index]);
+    onItemSelected?.(child, index);
     const childrenContainer = [...cloneChildrenArray.slice(index), ...cloneChildrenArray.splice(0, index)];
     setChildrenArray(childrenContainer);
   }
 
   const handleForward = () => {
-    handleOnSelected(1);
+    const cloneChildrenArray = [...childrenArray];
+    handleOnSelected(1, cloneChildrenArray[1]);
   };
 
   const handleBackward = () => {
     const cloneChildrenArray = [...childrenArray];
-    handleOnSelected(cloneChildrenArray.length - 1);
+    handleOnSelected(cloneChildrenArray.length - 1, cloneChildrenArray[cloneChildrenArray.length - 1]);
   };
 
   return (
@@ -50,7 +51,7 @@ const Carousel: React.FC<ICarouselProps> = (props) => {
             return ((
               React.cloneElement(child, { 
                 ...propsChild, 
-                onClick: !('onClick' in propsChild) && (() => handleOnSelected(index)),
+                onClick: !('onClick' in propsChild) && (() => handleOnSelected(index, child)),
                 className: tailwindUtil(
                   propsChild?.className ?? '', 
                   'cursor-pointer',

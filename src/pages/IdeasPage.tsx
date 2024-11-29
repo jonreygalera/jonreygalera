@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PhotoCard from '../components/photoCard/PhotoCard';
 import PhotoCardGroup from '../components/photoCard/PhotoCardGroup';
 import Box from '../components/box/Box';
@@ -18,32 +18,62 @@ interface Props {
 
 }
 const IMAGE_SETS = [
-  "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg",
-  "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+  {
+    id: 1,
+    source: "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg",
+  },
+  {
+    id: 2,
+    source: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg",
+  },
+  {
+    id: 3,
+    source: "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80",
+  },
+  {
+    id: 4,
+    source: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+  },
+  {
+    id: 5,
+    source: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+  },
+  {
+    id: 6,
+    source: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+  },
 ];
+
 
 const SAMPLE_DATA = [
   {
     key: 'my-project-1',
+    title: 'Project I',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eros nulla, eleifend pretium magna ut, consectetur dictum lacus. Vivamus fringilla, sapien at maximus suscipit.",
     imageSets: IMAGE_SETS,
-    title: 'My Project'
   }, {
     key: 'my-project-2',
+    title: 'Project II',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eros nulla, eleifend pretium magna ut, consectetur dictum lacus. Vivamus fringilla, sapien at maximus suscipit.",
     imageSets: IMAGE_SETS,
-    title: 'My Project'
   }, {
     key: 'my-project-3',
+    title: 'Project III',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eros nulla, eleifend pretium magna ut, consectetur dictum lacus. Vivamus fringilla, sapien at maximus suscipit.",
     imageSets: IMAGE_SETS,
-    title: 'My Project'
+  }, {
+    key: 'my-project-4',
+    title: 'Project IV',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eros nulla, eleifend pretium magna ut, consectetur dictum lacus. Vivamus fringilla, sapien at maximus suscipit.",
+    imageSets: IMAGE_SETS,
   }
 ]
 
 
 const IdeasPage: React.FC<Props> = (props) => {
+
+  const [ selectedProject, setSelectedProject ] = useState(SAMPLE_DATA[0]);
+  const [ selectedProjectImage, setSelectedProjectImage ] = useState(selectedProject.imageSets[0]);
 
   return (
     <Box className='h-screen relative'>
@@ -57,7 +87,7 @@ const IdeasPage: React.FC<Props> = (props) => {
         <Typography 
           variant='h1' 
           className="text-[250px] text-primary-50 text-stroke-light">
-          Project
+          {selectedProject.title}
         </Typography>
       </Box>
       <Box className='absolute -z-10 w-8/12 h-[400px] blur-lg inset-0 bg-gradient-to-t from-primary-400 via-transparent to-transparent opacity-25'>
@@ -74,14 +104,12 @@ const IdeasPage: React.FC<Props> = (props) => {
             <Box className='flex w-full flex-col gap-5'>
               <Box>
                 <Typography variant='title'>
-                  Project
+                  {selectedProject.title}
                 </Typography>
               </Box>
               <Box>
                 <Typography variant='h5'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eros nulla, eleifend pretium magna ut, 
-                  consectetur dictum lacus. Vivamus fringilla, sapien at maximus suscipit, orci dolor pharetra nunc, 
-                  quis sagittis quam sapien eu ipsum. Phasellus blandit efficitur libero id mattis. 
+                  {selectedProject.description}
                 </Typography>
               </Box>
             </Box>
@@ -119,7 +147,7 @@ const IdeasPage: React.FC<Props> = (props) => {
             >
               <Splatter className='absolute w-full rotate-180 -translate-y-32 -z-10'/>
               <img 
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" 
+                src={selectedProjectImage.source}
                 className='
                   w-2/3 
                   h-[370px] 
@@ -135,13 +163,18 @@ const IdeasPage: React.FC<Props> = (props) => {
               />
             </Box>
             <Carousel
+              onItemSelected={(child) => {
+                const propsChild : any = React.isValidElement(child) ? (child?.props ?? null) : null;
+                const dataImage: any = selectedProject.imageSets.find(imgSet => imgSet.id === propsChild['data-content']['id']);
+                setSelectedProjectImage(dataImage)
+              }}
               CarouselContainerProps={{
                 className: 'flex mr-1'
               }}
             >
               {
-                IMAGE_SETS.map(data => (
-                  <img src={data} className='w-44 h-36'/>
+                selectedProject.imageSets.map(data => (
+                  <img src={data.source} className='w-44 h-36' data-content={data}/>
                 ))
               }
             </Carousel>
