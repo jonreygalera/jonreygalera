@@ -145,7 +145,6 @@ const IdeasPage: React.FC<Props> = (props) => {
                 mb-2
               '
             >
-              <Splatter className='absolute w-full rotate-180 -translate-y-32 -z-10'/>
               <img 
                 src={selectedProjectImage.source}
                 className='
