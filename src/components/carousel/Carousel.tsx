@@ -1,72 +1,74 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Box from '../box/Box';
 import ICarouselProps from '../../interface/ICarouselProps';
 import Button from '../button/Button';
+import { tailwindUtil } from '../../utils/tailwindUtil';
 
 const Carousel: React.FC<ICarouselProps> = (props) => {
-  const { children, CarouselContainerProps } = props;
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleItems, setVisibleItems] = useState(3); // Default to show 3 items
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const { 
+    children, 
+    CarouselContainerProps,
+    onItemSelected 
+  } = props;
+  const [ childrenArray, setChildrenArray ] = useState<any[]>(React.Children.toArray(children));
 
-  // Calculate how many items can be shown based on the container width
-  const calculateVisibleItems = () => {
-    if (carouselRef.current) {
-      const containerWidth = carouselRef.current.offsetWidth;
-      const itemWidth = 150; // You can adjust this based on your item size
-      const items = Math.floor(containerWidth / itemWidth);
-      setVisibleItems(items > 1 ? items : 1); // Show at least one item
-    }
+  const memoizeChildren = useMemo(() => {
+    return childrenArray;
+  }, [childrenArray]);
+
+  const handleOnSelected = (index: number) => {
+    const cloneChildrenArray = [...childrenArray];
+    onItemSelected?.(index, cloneChildrenArray[index]);
+    const childrenContainer = [...cloneChildrenArray.slice(index), ...cloneChildrenArray.splice(0, index)];
+    setChildrenArray(childrenContainer);
+  }
+
+  const handleForward = () => {
+    handleOnSelected(1);
   };
 
-  useEffect(() => {
-    calculateVisibleItems(); // Calculate visible items on mount
-    window.addEventListener('resize', calculateVisibleItems); // Recalculate on window resize
-
-    return () => {
-      window.removeEventListener('resize', calculateVisibleItems);
-    };
-  }, []);
-
-  // Calculate the previous and next indices
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? React.Children.count(children) - visibleItems : prevIndex - visibleItems));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + visibleItems >= React.Children.count(children) ? 0 : prevIndex + visibleItems));
+  const handleBackward = () => {
+    const cloneChildrenArray = [...childrenArray];
+    handleOnSelected(cloneChildrenArray.length - 1);
   };
 
   return (
-    <Box className="flex items-center gap-2 mr-2 w-[500px]" {...CarouselContainerProps} ref={carouselRef}>
-      {/* Previous Button */}
+    <Box className="flex" {...CarouselContainerProps}>
       <Button 
-        className="flex h-36 w-[100px] border items-center rounded-s-2xl"
-        onClick={handlePrev}
+        className="flex h-36 border hover:border-primary-500 border-primary-300 rounded-s-2xl -sc"
+        onClick={handleForward}
       >
         {'<'}
       </Button>
 
-      {/* Carousel Items (Show based on container size) */}
-      <Box className="flex overflow-x-auto gap-2 items-center rounded-s-2xl w-full">
-        <Box className="flex transition-all duration-300 ease-in-out" style={{ transform: `translateX(-${currentIndex * (100 / visibleItems)}%)` }}>
-          {React.Children.map(children, (child, index) => (
-            <Box
-              key={index}
-              className={`flex-shrink-0 w-[${100 / visibleItems}%] transition-all duration-300 ease-in-out ${
-                index >= currentIndex && index < currentIndex + visibleItems ? 'scale-110' : 'scale-100 opacity-50'
-              }`}
-            >
-              {child}
-            </Box>
-          ))}
+      <Box className="fex w-full overflow-hidden">
+        <Box className="flex">
+          {
+            memoizeChildren?.map((child, index) => {
+            const propsChild : any = React.isValidElement(child) ? (child?.props ?? null) : null;
+
+            return ((
+              React.cloneElement(child, { 
+                ...propsChild, 
+                onClick: !('onClick' in propsChild) && (() => handleOnSelected(index)),
+                className: tailwindUtil(
+                  propsChild?.className ?? '', 
+                  'cursor-pointer',
+                  index != 0 && "opacity-50 scale-75",
+                  index == 0 && "",
+                  (index != 0) && (index % 2 == 0 ? "hover:skew-y-6" : "hover:-skew-y-6"),
+                  "hover:opacity-100  transition-all duration-1000",
+                ),
+              })
+            ))
+            })
+          }
         </Box>
       </Box>
 
-      {/* Next Button */}
       <Button 
-        className="flex h-36 w-[100px] border items-center rounded-e-2xl"
-        onClick={handleNext}
+        className="flex h-36 border hover:border-primary-500 border-primary-300 rounded-e-2xl"
+        onClick={handleBackward}
       >
         {'>'}
       </Button>

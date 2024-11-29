@@ -134,7 +134,11 @@ const IdeasPage: React.FC<Props> = (props) => {
                 '
               />
             </Box>
-            <Carousel>
+            <Carousel
+              CarouselContainerProps={{
+                className: 'flex mr-1'
+              }}
+            >
               {
                 IMAGE_SETS.map(data => (
                   <img src={data} className='w-44 h-36'/>
