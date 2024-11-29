@@ -92,7 +92,7 @@ const IdeasPage: React.FC<Props> = (props) => {
       </Box>
       <Box className='absolute -z-10 w-8/12 h-[400px] blur-lg inset-0 bg-gradient-to-t from-primary-400 via-transparent to-transparent opacity-25'>
       </Box>
-      <Box className='flex flex-col rounded-3xl my-8 mr-10 h-2/3 overflow-hidden border-primary-950 border-t-2 shadow-md shadow-primary-300'>
+      <Box className='flex flex-col rounded-3xl my-8 h-2/3 overflow-hidden border-primary-950 border-t-2 shadow-md shadow-primary-300'>
         <Box className='flex justify-center w-full'>
           <Box className='flex justify-center items-center bg-primary-950 w-48 h-14 rounded-b-3xl'>
             <Typography className='text-primary-50 underline'>Ideas</Typography>
@@ -153,8 +153,10 @@ const IdeasPage: React.FC<Props> = (props) => {
                   rounded-3xl 
                   shadow-2xl 
                   shadow-primary-700
-                  hover:rotate-6
-                  hover:scale-90
+                  rotate-6
+                  scale-90
+                  hover:rotate-0
+                  hover:scale-100
                   transition
                   duration-700
                   cursor-pointer
@@ -183,7 +185,7 @@ const IdeasPage: React.FC<Props> = (props) => {
       </Box>
       <Carousel 
         CarouselContainerProps={{
-          className: "h-1/4 flex gap-2 mr-10"
+          className: "h-1/4 flex gap-2"
         }}
       >
           <ProjectCardContainer title={'Project'} active={true}/>

@@ -55,7 +55,7 @@ const Carousel: React.FC<ICarouselProps> = (props) => {
                 className: tailwindUtil(
                   propsChild?.className ?? '', 
                   'cursor-pointer',
-                  index != 0 && "opacity-50 scale-75",
+                  index != 0 && "opacity-50 scale-75 hover:shadow-md hover:shadow-primary-700",
                   index == 0 && "",
                   (index != 0) && (index % 2 == 0 ? "hover:skew-y-6" : "hover:-skew-y-6"),
                   "hover:opacity-100  transition-all duration-1000",
