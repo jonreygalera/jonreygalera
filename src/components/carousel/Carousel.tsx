@@ -3,6 +3,7 @@ import Box from '../box/Box';
 import ICarouselProps from '../../interface/ICarouselProps';
 import Button from '../button/Button';
 import { tailwindUtil } from '../../utils/tailwindUtil';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 const Carousel: React.FC<ICarouselProps> = (props) => {
   const { 
@@ -36,10 +37,10 @@ const Carousel: React.FC<ICarouselProps> = (props) => {
   return (
     <Box className="flex" {...CarouselContainerProps}>
       <Button 
-        className="flex h-36 border hover:border-primary-500 border-primary-300 rounded-s-2xl -sc"
+        className="flex h-36 border hover:border-primary-500 border-primary-300 rounded-s-2xl relative"
         onClick={handleForward}
       >
-        {'<'}
+        <ChevronLeftIcon className='size-3'/>
       </Button>
 
       <Box className="fex w-full overflow-hidden">
@@ -55,7 +56,7 @@ const Carousel: React.FC<ICarouselProps> = (props) => {
                 className: tailwindUtil(
                   propsChild?.className ?? '', 
                   'cursor-pointer',
-                  index != 0 && "opacity-50 scale-75 hover:shadow-md hover:shadow-primary-700",
+                  index != 0 && "opacity-50 scale-75 hover:shadow-md hover:shadow-primary-700 blur-sm hover:blur-none grayscale hover:grayscale-0",
                   index == 0 && "",
                   (index != 0) && (index % 2 == 0 ? "hover:skew-y-6" : "hover:-skew-y-6"),
                   "hover:opacity-100  transition-all duration-1000",
@@ -68,10 +69,10 @@ const Carousel: React.FC<ICarouselProps> = (props) => {
       </Box>
 
       <Button 
-        className="flex h-36 border hover:border-primary-500 border-primary-300 rounded-e-2xl"
+        className="flex h-36 border hover:border-primary-500 border-primary-300 rounded-e-2xl relative"
         onClick={handleBackward}
       >
-        {'>'}
+        <ChevronRightIcon className='size-3'/>
       </Button>
     </Box>
   );

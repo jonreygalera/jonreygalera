@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react";
 
 export default interface IButtonGroupProps extends PropsWithChildren<{}>{
-  max?: number
+  max?: number;
+  label?: string
 }

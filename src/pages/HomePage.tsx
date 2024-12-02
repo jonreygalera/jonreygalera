@@ -1,6 +1,7 @@
 import React from 'react';
 import Slide from '../components/slide/Slide';
 import Carousel from '../components/carousel/Carousel';
+import HighlightCarousel from '../components/carousel/HighlightCarousel';
 
 interface Props {
 
@@ -21,17 +22,7 @@ const IMAGE_SETS = [
 const HomePage: React.FC<Props> = (props) => {
   return (
     <div className='flex border-green-500 border-8 h-screen items-center'>
-      <Carousel
-        CarouselItemProps={{
-          className: 'w-44 h-36'
-        }}
-      >
-        {
-          IMAGE_SETS.map(data => (
-            <img src={data} className='w-44 h-36'/>
-          ))
-        }
-      </Carousel>
+      <HighlightCarousel/>
     </div>
   );
 }

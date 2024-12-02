@@ -19,7 +19,10 @@ export default {
           900: '#18181B',
           950: '#09090B',
         }
-      }
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
     },
   },
   plugins: [],
