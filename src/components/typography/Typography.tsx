@@ -29,12 +29,13 @@ const variantClasses: Record<TTypographyVariant, string> = {
 };
 
 const Typography: React.FC<ITypographyProps> = (props) => {
-  const { as: Component = 'p', variant = 'body1', children, className } = props;
+  const { as: Component = 'p', variant = 'body1', children, className, style } = props;
   const variantClass = variantClasses[variant] || '';
 
   return (
     <Component
       className={tailwindUtil(variantClass, className)}
+      style={style}
     >
       { children }
     </Component>

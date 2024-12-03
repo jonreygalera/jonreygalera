@@ -41,6 +41,7 @@ const CarouselImageSelection: React.FC<Props> = (props) => {
               hover:scale-100
               transition
               duration-700
+              transform-gpu
             '>
           <Box className='
               w-full 
@@ -55,6 +56,8 @@ const CarouselImageSelection: React.FC<Props> = (props) => {
               hover:scale-100
               transition
               duration-700
+              delay-300
+              transform-gpu
             '>
           <img 
             src={selectedProjectImage?.source}
@@ -71,6 +74,8 @@ const CarouselImageSelection: React.FC<Props> = (props) => {
               transition
               duration-700
               cursor-pointer
+              transform-gpu
+              delay-700
             '
           />
             </Box>

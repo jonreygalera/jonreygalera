@@ -6,7 +6,8 @@ export default interface IProject {
   title: string;
   version?: string;
   description?: string;
-  tags?: string[],
-  roles?: string[],
-  imageSets?: IImageSet[]
+  tags?: string[];
+  roles?: string[];
+  imageSets?: IImageSet[];
+  url?: string|null
 }

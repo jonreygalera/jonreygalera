@@ -1,10 +1,15 @@
-import React, { Children, PropsWithChildren, useState } from 'react';
+import React, { Children, PropsWithChildren, useEffect, useState } from 'react';
+import Box from '../box/Box';
+import Button from '../button/Button';
+import { tailwindUtil } from '../../utils/tailwindUtil';
+import Typography from '../typography/Typography';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 interface Props extends PropsWithChildren {
-  
+  title?: string
 }
 
-const HighlightCarousel: React.FC<Props> = ({ children }) => {
+const HighlightCarousel: React.FC<Props> = ({ children, title }) => {
   const items = Children.toArray(children);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,53 +21,77 @@ const HighlightCarousel: React.FC<Props> = ({ children }) => {
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
   };
+  
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 10000);
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   return (
-    <div id="default-carousel" className="relative w-full" data-carousel="slide">
-      {/* Slides */}
-      <div className="relative h-56 overflow-hidden rounded-lg">
-        <div
-          className="flex transition-transform duration-500"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {items.map((child) => (
-            <div
-              className="min-w-full flex-shrink-0 bg-gray-200 rounded-lg p-5 shadow-lg"
-            >
-              { child }
-            </div>
-          ))}
-        </div>
-      </div>
+    <Box
+      className='relative min-h-full h-[600px] shadow-md rounded-3xl shadow-primary-400'
+    >
 
-      {/* Controls */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full shadow hover:bg-gray-800"
-      >
-        ‹
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full shadow hover:bg-gray-800"
-      >
-        ›
-      </button>
+      <Box className='absolute w-full rounded-3xl border-primary-950 border-t-2 z-50'>
+        <Box className='flex justify-center w-full'>
+          <Box className='flex justify-center items-center bg-primary-950 w-48 h-14 rounded-b-3xl'>
+            <Typography className='text-primary-50 underline'>{title}</Typography>
+          </Box>
+        </Box>
+      </Box>
 
+      <Box
+        className='relative flex overflow-hidden min-h-full min-w-full'
+      >
+        {
+          items.map((child, idx) => {
+            return (
+              <Box
+                className={
+                  tailwindUtil('absolute inset-0 flex min-w-full h-full flex-shrink-0 transition-all duration-1000',
+                    (idx == currentIndex) ? 'translate-x-0' : 'translate-x-full'
+                  )
+                }
+              >
+                { child }
+              </Box>
+            ) 
+          })
+        }
+      </Box>
       {/* Indicators */}
-      <div className="flex justify-center mt-4">
-        {items.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full mx-1 ${
-              currentIndex === index ? 'bg-gray-800' : 'bg-gray-400'
-            }`}
-          />
-        ))}
-      </div>
-    </div>
+      <Box
+        className='absolute flex top-[568px] justify-center mt-4 ml-4'
+      >
+        {
+          items.map((child, idx) => {
+            return (
+              <button
+                onClick={() => setCurrentIndex(idx)}
+                className={tailwindUtil(
+                  'rounded-full mx-1 w-3 h-3',
+                  idx === currentIndex ? 'bg-primary-300' : 'bg-primary-400'
+                )}
+              >
+              </button>
+            ) 
+          })
+        }
+      </Box>
+      <Button 
+        onClick={prevSlide}
+        className='absolute flex items-center bg-primary-900 text-primary-50 rounded-e-3xl h-[100px] top-64 hover:bg-primary-950'
+      >
+        <ChevronLeftIcon className='size-3'/>
+      </Button>
+      <Button 
+        onClick={nextSlide}
+        className='absolute flex items-center bg-primary-900 text-primary-50 rounded-s-3xl h-[100px] top-64 right-0 hover:bg-primary-950'
+      >
+        <ChevronRightIcon className='size-3'/>
+      </Button>
+    </Box>
   );
 };
 
-export default HighlightCarousel;
+export default React.memo(HighlightCarousel);

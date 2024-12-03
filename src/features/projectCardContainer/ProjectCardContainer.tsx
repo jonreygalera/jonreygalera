@@ -8,6 +8,7 @@ import ButtonGroup from '../../components/button/ButtonGroup';
 import backgroundImage from '../../assets/iconSvg/bg-hexagon.svg';
 import { tailwindUtil } from '../../utils/tailwindUtil';
 import IImageSet from '../../interface/IImageSet';
+import { StarIcon as StarIconOutline, BookOpenIcon as BookOpenIconOutline, ArrowUpRightIcon} from '@heroicons/react/24/outline';
 
 interface Props {
   data?: Record<string, any>,
@@ -66,33 +67,13 @@ const ProjectCardContainer: React.FC<Props> = (props) => {
           </Box>
           <Box className="flex gap-1">
             <ButtonGroup>
-              {
-                ([...Array(10)]).map((data, idx) => (
-                  <Button
-                    key={`button-group-tech-stack-${idx}`}
-                    onClick={() => console.log('test')}
-                    startComponent={<svg className="w-3 h-3 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
-                      </svg>
-                    }
-                  >
-                    Laravel
-                  </Button>
-                ))
-              }
+              <Button startComponent={<ArrowUpRightIcon className='size-3 mx-1 items-center'/>} onClick={() => console.log('test')}>Visit</Button>
+              <Button startComponent={<StarIconOutline className='size-3 mx-1 items-center'/>} onClick={() => console.log('test')}>Bookmark</Button>
+              <Button startComponent={<BookOpenIconOutline className='size-3 mx-1 items-center'/>} onClick={() => console.log('open')}>Open</Button>
             </ButtonGroup>
           </Box>
         </Box>
       </Box>
-      <Box className="flex justify-end">
-        <Button
-          className="border border-primary-950 font-bold rounded-lg py-1 w-64 bg-primary-50"
-          onClick={() => onClickView?.()}
-        >
-          View
-        </Button>
-      </Box>
-      {/* <Button className="absolute w-2 rounded-e-xl -right-0 top-16 flex flex-row-reverse pl-2 pr-3 text-primary-50 bg-primary-950"></Button> */}
     </Box>
   );
 }
