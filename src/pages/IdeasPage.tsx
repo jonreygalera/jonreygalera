@@ -67,43 +67,61 @@ const IdeasPage: React.FC<Props> = (props) => {
           })
         }
       </HighlightCarousel>
-      <Box className='flex gap-2 mt-2 h-[850px] overflow-hidden'>
+      <Box className='flex gap-2 mt-2 mb-10 h-full'>
         <Box className='flex-grow wide-screen:px-28'>
-          <Box className='grid grid-cols-2 gap-2 h-[850px] pb-5 overflow-scroll '>
-            {
-              dataProjectModel?.map((data: IProject) => {
-                return (
-                  <ProjectCardContainer 
-                    key={`project-container-${data?.key}`}
-                    active={data?.key === selectedProject?.key}
-                    data={data}
-                    onClickView={() => {
-                      setSelectedProject(data)
-                    }}
-                  />
-                )
-              })
-            }
+          <Box>
+            <Box className='p-5 border-b border-primary-300 bg-primary-950'>
+              <Typography variant='h1' className='text-primary-300'>Projects</Typography>
+            </Box>
+            <Box className='grid grid-cols-2 gap-2 pb-5'>
+              {
+                dataProjectModel?.map((data: IProject) => {
+                  return (
+                    <ProjectCardContainer 
+                      key={`project-container-${data?.key}`}
+                      active={data?.key === selectedProject?.key}
+                      data={data}
+                      onClickView={() => {
+                        setSelectedProject(data)
+                      }}
+                    />
+                  )
+                })
+              }
+            </Box>
+            <Box className='p-5 border-b border-primary-300 bg-primary-950'>
+              <Typography variant='h1' className='text-primary-300'>Experimental</Typography>
+            </Box>
+            <Box className='grid grid-cols-2 gap-2 pb-5'>
+              {
+                dataProjectModel?.map((data: IProject) => {
+                  return (
+                    <ProjectCardContainer 
+                      key={`project-container-${data?.key}`}
+                      active={data?.key === selectedProject?.key}
+                      data={data}
+                      onClickView={() => {
+                        setSelectedProject(data)
+                      }}
+                    />
+                  )
+                })
+              }
+            </Box>
           </Box>
+
         </Box>
         <InfiniteScroll>
-          {
-            dataTechStackModel.map((techStack, idx) => (
-              <Box className='flex items-center gap-2 w-[150px] rotate-90'>
-                <Typography 
-                  variant='title' 
-                  className={
-                    tailwindUtil(
-                      'text-primary-50',
-                    )
-                  }
-                >
-                  {techStack.label}
-                </Typography>
-              </Box>
-            ))
-          }
-       </InfiniteScroll>
+          {dataTechStackModel.map((techStack, idx) => (
+            <Typography
+              variant="title"
+              className=" text-primary-50"
+            >
+            {techStack.label}
+          </Typography>
+          ))}
+        </InfiniteScroll>
+
       </Box>
 
       {/* Dialog */}

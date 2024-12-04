@@ -46,6 +46,7 @@ export default {
         'infinite-scroll-v': 'infinite-scroll-vertical 60s linear infinite',
         'infinite-scroll-h': 'infinite-scroll-horizontal 60s linear infinite',
         'fade-in': 'fade-in 0.3s ease-in-out',
+        'around': 'around 5s linear infinite',
       },
       keyframes: {
         'infinite-scroll-vertical': {
@@ -59,6 +60,13 @@ export default {
         'fade-in': {
           from: { opacity: 0 },
           to: { opacity: 1 },
+        },
+        around: {
+          '0%': { left: '0', top: '0' }, // Top-left
+          '25%': { left: '98%', top: '0' }, // Top-right
+          '50%': { left: '98%', top: '95%' }, // Bottom-right
+          '75%': { left: '0', top: '95%' }, // Bottom-left
+          '100%': { left: '0', top: '0' }, // Back to Top-left
         },
       }
     },

@@ -1,12 +1,12 @@
 import IProject from "../../interface/IProject";
-import projectData from '../data/project.json';
+import project from "../data/project";
 import Model from "./model";
 
 class ProjectModel extends Model
 {
   data()
   {
-    return projectData as IProject[];
+    return project as IProject[];
   }
 }
 

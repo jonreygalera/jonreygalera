@@ -22,6 +22,7 @@ const PhotoCard: React.FC<IPhotoCardProps> = (props) => {
         rounded-3xl 
         overflow-hidden 
         cursor-pointer
+        border-2
       `, 
       typeof height == 'string' ? height : `h-${height}`,
       typeof width == 'string' ? width : `w-${width}`

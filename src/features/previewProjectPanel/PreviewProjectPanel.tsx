@@ -74,7 +74,7 @@ const PreviewProjectPanel: React.FC<Props> = (props) => {
                 className='w-[250px]'
                 label={'Slide to Visit'}
                 labelSlided={'Visited!'}
-                onSlided={() => alert('das')}
+                onSlided={() => alert('Jon Rey Galera | Ongoing')}
               />
             </Box>
           </Box>  

@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import Box from '../box/Box';
+import Typography from '../typography/Typography';
 
 interface Props {
 
@@ -16,8 +17,11 @@ const OutletLayout: React.FC<PropsWithChildren> = (props) => {
       >
         # ONGOING
       </Box>
-      <Box className='ml-32 mr-10 '>
+      <Box className='ml-32 mr-10 hidden laptop:block'>
         { children }
+      </Box>
+      <Box className='ml-32 mr-10 laptop:hidden flex items-center '>
+        <Typography variant='h1'>Lower screen size | Ongoing</Typography>
       </Box>
       {/* <Box
         className='bg-red-500'

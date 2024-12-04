@@ -1,4 +1,9 @@
-[
+import Nmsaccountsv1Image1 from "../../assets/images/nmsaccountsv1/image1.png";
+import Nmsaccountsv1Image2 from "../../assets/images/nmsaccountsv1/image2.png";
+import Nmsaccountsv1Image3 from "../../assets/images/nmsaccountsv1/image3.png";
+import NoImageAvailable from "../../assets/images/no-image-available.png";
+
+const project = [
   {
     "id": 1,
     "key": "hrapp-legacy",
@@ -11,15 +16,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -35,15 +40,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -59,15 +64,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": Nmsaccountsv1Image1
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": Nmsaccountsv1Image2
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": Nmsaccountsv1Image3
       }
     ]
   },
@@ -83,15 +88,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -107,15 +112,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -131,15 +136,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -155,15 +160,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -179,15 +184,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -203,15 +208,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -227,15 +232,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -251,15 +256,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -275,15 +280,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -299,15 +304,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -323,15 +328,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -347,15 +352,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -371,15 +376,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -395,15 +400,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -419,15 +424,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -443,15 +448,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -467,15 +472,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -491,15 +496,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -515,15 +520,15 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
       }
     ]
   },
@@ -539,16 +544,42 @@
     "imageSets": [
       {
         "id": 1,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 2,
-        "source": "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+        "source": NoImageAvailable
       },
       {
         "id": 3,
-        "source": "https://i0.wp.com/picjumbo.com/wp-content/uploads/man-looking-into-the-distance-on-top-of-the-mountain-free-image.jpg?w=600&quality=80"
+        "source": NoImageAvailable
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "key": "gtranslate",
+    "title": "GTranslate",
+    "description": "Led the development of the Dailysteam system.",
+    "version": "v1",
+    "tags": ["system development", "lead developer"],
+    "roles": ["Lead Developer"],
+    "url": null,
+    "imageSets": [
+      {
+        "id": 1,
+        "source": NoImageAvailable
+      },
+      {
+        "id": 2,
+        "source": NoImageAvailable
+      },
+      {
+        "id": 3,
+        "source": NoImageAvailable
       }
     ]
   }
 ]
+
+export default project;

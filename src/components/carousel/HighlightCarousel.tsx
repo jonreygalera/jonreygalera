@@ -13,6 +13,7 @@ const HighlightCarousel: React.FC<Props> = ({ children, title }) => {
   const items = Children.toArray(children);
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [startInterval, setStartInterval] = useState(true);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
@@ -23,13 +24,22 @@ const HighlightCarousel: React.FC<Props> = ({ children, title }) => {
   };
   
   useEffect(() => {
-    const interval = setInterval(nextSlide, 10000);
-    return () => clearInterval(interval);
-  }, [currentIndex]);
+    let interval = null;
+    if(startInterval) {
+      interval = setInterval(nextSlide, 10000);
+    }
+    return () => {
+      if(startInterval && interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [currentIndex, startInterval]);
 
   return (
     <Box
       className='relative min-h-full h-[600px] shadow-md rounded-3xl shadow-primary-400'
+      onMouseEnter={() => setStartInterval(false)}
+      onMouseLeave={() => setStartInterval(true)}
     >
 
       <Box className='absolute w-full rounded-3xl border-primary-950 border-t-2 z-50'>
