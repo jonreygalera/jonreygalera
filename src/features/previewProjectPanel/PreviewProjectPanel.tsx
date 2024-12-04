@@ -10,7 +10,7 @@ import IProject from '../../interface/IProject';
 import ButtonGroup from '../../components/button/ButtonGroup';
 
 interface Props {
-  data?: IProject;
+  data?: IProject | null;
   title?: string;
 }
 

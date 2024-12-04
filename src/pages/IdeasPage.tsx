@@ -15,6 +15,7 @@ import HighlightCarousel from '../components/carousel/HighlightCarousel';
 import { tailwindUtil } from '../utils/tailwindUtil';
 import InfiniteScroll from '../components/carousel/InfiniteScroll';
 import { useTechStackModelHook } from '../hooks/useTechStackModelHook';
+import Dialog from '../components/dialog/Dialog';
 
 interface Props {
 
@@ -41,12 +42,12 @@ const IdeasPage: React.FC<Props> = (props) => {
   const { data: dataProjectModel } = useProjectModelHook({ key: 'all', value: 'all'})
   const { data: dataTechStackModel } = useTechStackModelHook({ key: 'all', value: 'all'})
 
-  const [ selectedProject, setSelectedProject ] = useState<IProject>(dataProjectModel.length > 0 ? dataProjectModel[0] : DRAWBACK_SELECTED_PROJECT);
-  const [ selectedProjectImage, setSelectedProjectImage ] = useState<IImageSet | null | undefined>((selectedProject?.imageSets as IImageSet[]).length > 0 ? (selectedProject?.imageSets as IImageSet[])[0] : DRAWBACK_SELECTED_PROJECT_IMAGE);
+  const [ selectedProject, setSelectedProject ] = useState<IProject | null>(null);
+  // const [ selectedProjectImage, setSelectedProjectImage ] = useState<IImageSet | null | undefined>((selectedProject?.imageSets as IImageSet[]).length > 0 ? (selectedProject?.imageSets as IImageSet[])[0] : DRAWBACK_SELECTED_PROJECT_IMAGE);
 
-  const imageSets = useMemo(() => {
-    return selectedProject.imageSets ?? []
-  }, [selectedProject]);
+  // const imageSets = useMemo(() => {
+  //   return selectedProject?.imageSets ?? []
+  // }, [selectedProject]);
 
   return (
     <Box className='relative mt-5'>
@@ -74,7 +75,7 @@ const IdeasPage: React.FC<Props> = (props) => {
                 return (
                   <ProjectCardContainer 
                     key={`project-container-${data?.key}`}
-                    active={data?.key === selectedProject.key}
+                    active={data?.key === selectedProject?.key}
                     data={data}
                     onClickView={() => {
                       setSelectedProject(data)
@@ -104,6 +105,19 @@ const IdeasPage: React.FC<Props> = (props) => {
           }
        </InfiniteScroll>
       </Box>
+
+      {/* Dialog */}
+      <Dialog 
+        isOpen={Boolean(selectedProject)} 
+        title={' '}
+        onClose={() => setSelectedProject(null)}
+      >
+        <Box>
+          <PreviewProjectPanel 
+            data={selectedProject}
+          />
+        </Box>
+      </Dialog>
     </Box>
   );
 }

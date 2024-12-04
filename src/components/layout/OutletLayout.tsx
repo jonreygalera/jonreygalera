@@ -11,14 +11,19 @@ const OutletLayout: React.FC<PropsWithChildren> = (props) => {
     <Box
       className="h-screen"
     >
+      <Box
+        className='bg-primary-950 text-yellow-400 sticky top-0 z-50 px-5'
+      >
+        # ONGOING
+      </Box>
       <Box className='ml-32 mr-10 '>
         { children }
       </Box>
-      <Box
+      {/* <Box
         className='bg-red-500'
       >
         Footer
-      </Box>
+      </Box> */}
     </Box>
   );
 }

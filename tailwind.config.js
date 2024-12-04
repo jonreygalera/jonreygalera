@@ -45,6 +45,7 @@ export default {
         'spin-slow': 'spin 3s linear infinite',
         'infinite-scroll-v': 'infinite-scroll-vertical 60s linear infinite',
         'infinite-scroll-h': 'infinite-scroll-horizontal 60s linear infinite',
+        'fade-in': 'fade-in 0.3s ease-in-out',
       },
       keyframes: {
         'infinite-scroll-vertical': {
@@ -54,7 +55,11 @@ export default {
         'infinite-scroll-horizontal': {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-100%)' },
-        }
+        },
+        'fade-in': {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
       }
     },
   },

@@ -69,7 +69,7 @@ const ProjectCardContainer: React.FC<Props> = (props) => {
             <ButtonGroup>
               <Button startComponent={<ArrowUpRightIcon className='size-3 mx-1 items-center'/>} onClick={() => console.log('test')}>Visit</Button>
               <Button startComponent={<StarIconOutline className='size-3 mx-1 items-center'/>} onClick={() => console.log('test')}>Bookmark</Button>
-              <Button startComponent={<BookOpenIconOutline className='size-3 mx-1 items-center'/>} onClick={() => console.log('open')}>Open</Button>
+              <Button startComponent={<BookOpenIconOutline className='size-3 mx-1 items-center'/>} onClick={() => onClickView?.()}>Open</Button>
             </ButtonGroup>
           </Box>
         </Box>
