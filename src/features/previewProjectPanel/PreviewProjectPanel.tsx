@@ -1,11 +1,9 @@
 import React from 'react';
 import Box from '../../components/box/Box';
 import Typography from '../../components/typography/Typography';
-import Chip from '../../components/chip/Chip';
 import Button from '../../components/button/Button';
 import Slide from '../../components/slide/Slide';
 import CarouselImageSelection from '../carouselImageSelection/CarouselImageSelection';
-import backgroundImage from '../../assets/iconSvg/bg-hexagon.svg';
 import IProject from '../../interface/IProject';
 import ButtonGroup from '../../components/button/ButtonGroup';
 
@@ -17,7 +15,6 @@ interface Props {
 const PreviewProjectPanel: React.FC<Props> = (props) => {
   const {
     data,
-    title = '',
   } = props;
 
   return (
@@ -52,7 +49,7 @@ const PreviewProjectPanel: React.FC<Props> = (props) => {
             <Box className='flex w-full h-full relative flex-col gap-2'>
               <ButtonGroup>
               {
-                  ([...Array(10)]).map((data, idx) => (
+                  ([...Array(10)]).map((_, idx) => (
                     <Button
                       key={`button-group-tech-stack-${idx}`}
                       onClick={() => console.log('test')}
@@ -67,7 +64,6 @@ const PreviewProjectPanel: React.FC<Props> = (props) => {
                 }
               </ButtonGroup> 
             </Box>
-
 
             <Box className='absolute flex items-center gap-2 bottom-0 right-0'>
               <Slide
@@ -86,30 +82,7 @@ const PreviewProjectPanel: React.FC<Props> = (props) => {
             imageSets={data?.imageSets ?? []}
           />
         </Box>
-          {/* <Box className='flex w-full h-full relative'>
-            <Box className='grid grid-cols-3 gap-x-2 gap-y-0 w-full border border-primary-400 rounded-br-[35px] p-2 rounded-s-lg'>
-              <Chip/>
-              <Chip/>
-              <Chip/>
-              <Chip/>
-              <Button className='w-10'>More</Button>
-            </Box>
-
-            <Box className='absolute flex items-center gap-2 bottom-0 right-0 w-[300px]'>
-              <Slide
-                className='w-full'
-                label={'Slide to Visit'}
-                labelSlided={'Visited!'}
-                onSlided={() => alert('das')}
-              />
-            </Box>
-          </Box> */}
       </Box>
-
-      {/* <Box>
-        <CarouselImageSelection/>
-      </Box> */}
-
     </Box>
   );
 }

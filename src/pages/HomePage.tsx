@@ -1,18 +1,18 @@
 import React from 'react';
-import Slide from '../components/slide/Slide';
-import Carousel from '../components/carousel/Carousel';
-import HighlightCarousel from '../components/carousel/HighlightCarousel';
 import Box from '../components/box/Box';
+import Typography from '../components/typography/Typography';
 
 interface Props {
 
 }
 
-
-const HomePage: React.FC<Props> = (props) => {
+const HomePage: React.FC<Props> = () => {
   return (
-    <Box className='flex h-screen items-center justify-center'>
-      Jon Rey Galera | Ongoing
+    <Box className='flex flex-col h-screen items-center justify-center'>
+      <Typography>
+        Jon Rey Galera | Ongoing
+      </Typography>
+       <a href='/ideas' className=''>Click here to check my project</a>
     </Box>
   );
 }

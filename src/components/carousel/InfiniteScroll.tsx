@@ -1,20 +1,30 @@
-import React, { Children, memo } from 'react';
+import React, { memo } from 'react';
 import IInfiniteScrollProps from '../../interface/IInfiniteScrollProps';
 import Box from '../box/Box';
 import { tailwindUtil } from '../../utils/tailwindUtil';
 
-const InfiniteScroll: React.FC<IInfiniteScrollProps> = ({ children, orientation = 'vertical' }) => {
+const InfiniteScroll: React.FC<IInfiniteScrollProps> = ({ className, children, orientation = 'horizontal' }) => {
   const scrollAnimationClass = orientation === 'vertical' 
     ? 'animate-infinite-scroll-v' 
     : 'animate-infinite-scroll-h';
 
-  const items = Children.toArray(children)
+  const childArray = React.Children.toArray(children);
+  const clonedChildren = [...childArray];
 
   return (
-    <Box className="bg-primary-950 overflow-hidden w-[100px] wide-screen:w-[150px]">
-      <Box className={tailwindUtil('flex flex-col gap-[180px]', scrollAnimationClass)}>
-        { children }
-      </Box>
+    <Box className={
+      tailwindUtil("w-full inline-flex flex-nowrap", className)
+    }>
+      {
+        [...Array(4)].map((_, idx) => (
+          <ul key={idx} className={tailwindUtil('flex items-center justify-center md:justify-start [&_li]:mx-8', scrollAnimationClass)}>
+            {clonedChildren.map((child, index) => (
+              <li key={index}>{child}</li>
+            ))}
+          </ul>
+        ))
+      }
+      
     </Box>
   );
 };

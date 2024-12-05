@@ -2,14 +2,13 @@ import React, { Children } from 'react';
 import Box from '../box/Box';
 import INavigationProps from '../../interface/INavigationProps';
 import { tailwindUtil } from '../../utils/tailwindUtil';
-import Typography from '../typography/Typography';
 
 const Navigation: React.FC<INavigationProps> = (props) => {
   const { children, className, activeItem } = props;
   
   return (
     <Box
-      className='fixed h-full pt-32 pr-5 top-0'
+      className='fixed h-full pt-32 pr-5 -top-10'
     >
       <Box 
         className={
@@ -23,7 +22,7 @@ const Navigation: React.FC<INavigationProps> = (props) => {
       <Box 
         className='
           fixed
-          top-28 
+          top-16 
           left-11 
           w-10 
           h-[47%] 

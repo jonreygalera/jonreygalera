@@ -5,7 +5,7 @@ interface Props {
 
 }
 
-const Chip: React.FC<Props> = (props) => {
+const Chip: React.FC<Props> = () => {
   return (
     <Button className="bg-primary-50 border border-primary-950 font-medium rounded-full text-sm px-5 py-1 text-center inline-flex items-center max-h-8">
     <svg aria-hidden="true" className="w-5 h-5 me-2 -ms-1" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">

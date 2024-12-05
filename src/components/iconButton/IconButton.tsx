@@ -1,7 +1,6 @@
 import React from 'react';
 import IIconButtonProps from '../../interface/IIconButtonProps';
 import Button from '../button/Button';
-import Typography from '../typography/Typography';
 import { tailwindUtil } from '../../utils/tailwindUtil';
 
 const IconButton: React.FC<IIconButtonProps> = (props) => {
@@ -10,7 +9,6 @@ const IconButton: React.FC<IIconButtonProps> = (props) => {
     IconComponentProps,
     ButtonComponentProps,
     onClick,
-    label,
     active = false 
   } = props;
 
@@ -21,7 +19,6 @@ const IconButton: React.FC<IIconButtonProps> = (props) => {
       className={tailwindUtil(
         'flex flex-col items-center min-w-11 min-h-11 p-2.5 rounded-xl', 
         ButtonComponentProps?.className, 
-        // active ? 'border-b-2 border-solid border-primary-50 ' : ''
       )}
     >
       {
@@ -30,7 +27,6 @@ const IconButton: React.FC<IIconButtonProps> = (props) => {
           className: tailwindUtil(IconComponentProps?.className, "size-7", active ? 'text-primary-50 size-8' : 'text-primary-500')
         })
       }
-      {/* { label && <Typography className={active ? 'text-primary-950' : 'text-primary-500'}>{label}</Typography>} */}
     </Button>
   );
 }

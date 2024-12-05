@@ -43,18 +43,18 @@ export default {
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
-        'infinite-scroll-v': 'infinite-scroll-vertical 60s linear infinite',
-        'infinite-scroll-h': 'infinite-scroll-horizontal 60s linear infinite',
+        'infinite-scroll-v': 'infinite-scroll-vertical 5s linear infinite',
+        'infinite-scroll-h': 'infinite-scroll-horizontal 30s linear infinite',
         'fade-in': 'fade-in 0.3s ease-in-out',
         'around': 'around 5s linear infinite',
       },
       keyframes: {
         'infinite-scroll-vertical': {
-          from: { transform: 'translateY(0)' },
-          to: { transform: 'translateY(-100%)' },
-        }, 
+          '0%': { transform: 'translateY(0%)' },
+          '100%': { transform: 'translateY(10%)' },
+        },
         'infinite-scroll-horizontal': {
-          from: { transform: 'translateX(0)' },
+          from: { transform: 'translateX(0%)' },
           to: { transform: 'translateX(-100%)' },
         },
         'fade-in': {

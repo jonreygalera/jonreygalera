@@ -16,17 +16,20 @@ import {
 
 interface Props {
   data?: Record<string, any>;
-  imageSets?: string[];
   active?: boolean;
   onClickView?: () => void;
 }
 
 const ProjectCardContainer: React.FC<Props> = ({
   data = {},
-  imageSets = [],
   active = false,
   onClickView,
 }) => {
+
+  const handleOnVisitUrl = () => {
+
+  }
+
   return (
     <Box
       className={tailwindUtil(
@@ -37,7 +40,7 @@ const ProjectCardContainer: React.FC<Props> = ({
       }}
     >
       {/* Content box */}
-      <Box className="h-full w-full bg-primary-50 hover:bg-primary-75 hover:border-primary-400 rounded-2xl shadow-primary-950">
+      <Box className="h-full w-full bg-primary-50 hover:bg-primary-75 hover:border-primary-400 rounded-2xl shadow-primary-950 glassmorphic">
         {/* Image group */}
         <PhotoCardGroup className="absolute -top-5 -left-10">
           {data.imageSets?.slice(0, 3).map((image: IImageSet, idx: number) => (
@@ -56,7 +59,7 @@ const ProjectCardContainer: React.FC<Props> = ({
               <ButtonGroup>
                 <Button
                   startComponent={<ArrowUpRightIcon className="size-3 mx-1 items-center" />}
-                  onClick={() => console.log('Visit')}
+                  onClick={handleOnVisitUrl}
                 >
                   Visit
                 </Button>

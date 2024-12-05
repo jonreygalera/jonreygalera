@@ -5,7 +5,7 @@ interface Props {
 
 }
 
-const ProfilePage: React.FC<Props> = (props) => {
+const ProfilePage: React.FC<Props> = () => {
   return (
     <Box className='flex h-screen items-center justify-center'>
       Jon Rey Galera | Ongoing

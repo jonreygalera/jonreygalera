@@ -7,20 +7,18 @@ import Button from '../button/Button';
 const ChipGroup: React.FC<IChipGroupProps> = (props) => {
   const { children } = props;
 
-  const countChildren = Children.count(children);
-
   return (
     <Box
       className={tailwindUtil("flex gap-2")}
     >
-      { Children.map(children, (child, childIdx) => (
-        (childIdx < 3) ? (
-          <Box>
-          { child }
-        </Box>
-        ) : <Button>More</Button>
-      ))
-      
+      {
+        Children.map(children, (child, childIdx) => (
+          (childIdx < 3) ? (
+            <Box>
+            { child }
+          </Box>
+          ) : <Button>More</Button>
+        ))
       }
     </Box>
   );

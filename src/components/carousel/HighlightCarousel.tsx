@@ -6,10 +6,11 @@ import Typography from '../typography/Typography';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 interface Props extends PropsWithChildren {
-  title?: string
+  title?: string;
+  timeInterval?: number;
 }
 
-const HighlightCarousel: React.FC<Props> = ({ children, title }) => {
+const HighlightCarousel: React.FC<Props> = ({ children, title, timeInterval = 10 }) => {
   const items = Children.toArray(children);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -26,14 +27,14 @@ const HighlightCarousel: React.FC<Props> = ({ children, title }) => {
   useEffect(() => {
     let interval = null;
     if(startInterval) {
-      interval = setInterval(nextSlide, 10000);
+      interval = setInterval(nextSlide, timeInterval * 1000);
     }
     return () => {
       if(startInterval && interval) {
         clearInterval(interval);
       }
     };
-  }, [currentIndex, startInterval]);
+  }, [currentIndex, startInterval, timeInterval]);
 
   return (
     <Box
@@ -74,7 +75,7 @@ const HighlightCarousel: React.FC<Props> = ({ children, title }) => {
         className='absolute flex top-[568px] justify-center mt-4 ml-4'
       >
         {
-          items.map((child, idx) => {
+          items.map((_, idx) => {
             return (
               <button
                 onClick={() => setCurrentIndex(idx)}

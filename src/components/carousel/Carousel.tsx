@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import Box from '../box/Box';
 import ICarouselProps from '../../interface/ICarouselProps';
 import Button from '../button/Button';
