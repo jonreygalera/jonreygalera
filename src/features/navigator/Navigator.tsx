@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   ChatBubbleLeftRightIcon,
   EllipsisHorizontalCircleIcon,
@@ -22,9 +22,12 @@ const NAVIGATOR_ITEMS: INavigationItem[] = [
 
 const Navigator: React.FC = () => {
   const navigate = useNavigate();
+  const routeLocation = useLocation();
+
   const [selectedNavigationItem, setSelectedNavigationItem] = useState<INavigationItem>(
     NAVIGATOR_ITEMS[0]
   );
+
   const [ navigationItemIndex, setNavigationItemIndex ] = useState(0);
 
   const handleOnSelectedItem = (navigationItem: INavigationItem, itemIndex: number) => {
@@ -34,6 +37,12 @@ const Navigator: React.FC = () => {
       navigate(navigationItem.path);
     }
   };
+
+  useEffect(() => {
+    if(routeLocation) {
+      setSelectedNavigationItem(NAVIGATOR_ITEMS.find(nav => nav.path == routeLocation.pathname) as INavigationItem)
+    }
+  }, [routeLocation]);
 
   return (
     <Navigation 
