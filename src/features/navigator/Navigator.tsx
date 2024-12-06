@@ -40,7 +40,8 @@ const Navigator: React.FC = () => {
 
   useEffect(() => {
     if(routeLocation) {
-      setSelectedNavigationItem(NAVIGATOR_ITEMS.find(nav => nav.path == routeLocation.pathname) as INavigationItem)
+      setSelectedNavigationItem(NAVIGATOR_ITEMS.find(nav => nav.path == routeLocation.pathname) as INavigationItem);
+      setNavigationItemIndex(NAVIGATOR_ITEMS.findIndex(nav => nav.path == routeLocation.pathname));
     }
   }, [routeLocation]);
 
