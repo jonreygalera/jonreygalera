@@ -1,5 +1,15 @@
 # 💫 About Me:
-I'm a professional software engineer with over 5 years of experience, specializing in web development. <br>Currently, I work at a company leveraging AI technologies to drive innovation. <br>Our tech stack includes ReactJS, Laravel, and Docker, which I use daily to build scalable and efficient solutions.<br>I'm diving into data science automation with n8n and expanding my knowledge of Python.<br><br>Outside of work, I'm also a hobbyist C# developer, exploring the world of gaming development.<br><br>I'm passionate about learning new technologies and always looking for ways to improve my skills. <br>Feel free to connect if you're interested in collaborating on interesting projects
+I'm a professional software engineer with over 5 years of experience, specializing in web development.  
+Currently, I work at a company leveraging AI technologies to drive innovation.  
+Our tech stack includes ReactJS, Laravel, and Docker, which I use daily to build scalable and efficient solutions.
+
+I'm currently diving into data science automation using **n8n**, creating low-code workflows to streamline processes and connect services effortlessly. Alongside this, I'm expanding my knowledge of Python to explore machine learning and automation opportunities.
+
+Outside of work, I'm also a hobbyist C# developer, exploring the world of game development.
+
+I'm passionate about learning new technologies and always looking for ways to improve my skills.  
+Feel free to connect if you're interested in collaborating on exciting and meaningful projects.
+
 
 
 ## 🌐 Socials:
