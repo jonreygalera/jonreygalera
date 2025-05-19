@@ -1,14 +1,11 @@
 # 💫 About Me:
-I'm a professional software engineer with over 5 years of experience, specializing in web development.  
-Currently, I work at a company leveraging AI technologies to drive innovation.  
-Our tech stack includes ReactJS, Laravel, and Docker, which I use daily to build scalable and efficient solutions.
+I'm a software engineer with over 5 years of experience building modern web applications, currently working at the intersection of AI and scalable software. I specialize in full-stack development using ReactJS, Laravel, and Docker, delivering efficient solutions that power real-world innovation.
 
-I'm also exploring data science automation and have hands-on experience with **n8n**, building low-code workflows for fun and experimentation. I'm gradually expanding my knowledge of Python to complement this with machine learning capabilities.
+Outside of work, I enjoy experimenting with automation and low-code tools—especially n8n, where I build creative workflows just for fun. I'm also the creator of [Prompts for LLM](https://github.com/jonreygalera/prompts), a growing resource for crafting better prompts for large language models.
 
-Outside of work, I'm a hobbyist C# developer, exploring the world of game development.
+Lately, I’ve been diving deeper into Python and machine learning, bridging the gap between traditional software engineering and data-driven systems.
 
-I'm passionate about learning new technologies and always looking for ways to improve my skills.  
-Feel free to connect if you're interested in collaborating on exciting and meaningful projects.
+Always learning. Always building. Open to collaboration on meaningful tech projects.
 
 
 ## 🌐 Socials:
