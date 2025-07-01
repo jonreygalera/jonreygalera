@@ -1,7 +1,4 @@
-import Nmsaccountsv1Image1 from "../../assets/images/nmsaccountsv1/image1.png";
-import Nmsaccountsv1Image2 from "../../assets/images/nmsaccountsv1/image2.png";
-import Nmsaccountsv1Image3 from "../../assets/images/nmsaccountsv1/image3.png";
-import NoImageAvailable from "../../assets/images/no-image-available.png";
+import MreyIcon from "../../assets/icon.svg";
 
 const project = [
   {
@@ -13,18 +10,19 @@ const project = [
     "tags": ["payroll", "attendance", "employee management"],
     "roles": ["Assistant Developer", "Maintainer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -37,66 +35,69 @@ const project = [
     "tags": ["client requests", "system enhancement"],
     "roles": ["Assistant Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
   {
     "id": 3,
     "key": "nmsapps-accounts-v1",
-    "title": "NMS Accounts",
+    "title": "Accounts v1",
     "description": "Gathered and analyzed system requirements. Developed core features, including Single-Sign-On (SSO) to connect various platforms using a single account.",
     "version": "v1",
     "tags": ["single-sign-on", "account management"],
     "roles": ["Lead Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": Nmsaccountsv1Image1
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": Nmsaccountsv1Image2
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": Nmsaccountsv1Image3
+        "source": MreyIcon
       }
     ]
   },
   {
     "id": 4,
     "key": "nmsapps-hr-v1",
-    "title": "NMS HR",
+    "title": "HR v1",
     "description": "Co-led the development of the HR system, focusing on implementing core functionalities.",
     "version": "v1",
     "tags": ["human resources", "core development"],
     "roles": ["Co-Lead Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -109,90 +110,94 @@ const project = [
     "tags": ["finance", "payroll invoicing", "loan system"],
     "roles": ["Lead Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
   {
     "id": 6,
     "key": "nmsapps-accounts-v2",
-    "title": "NMS Accounts",
+    "title": "Accounts",
     "description": "Assisted in backend development tasks and feature enhancements.",
     "version": "v2",
     "tags": ["backend", "feature enhancement"],
     "roles": ["Assistant Backend Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
   {
     "id": 7,
     "key": "nmsapps-finance-dashboard",
-    "title": "NMS Finance-Dashboard",
+    "title": "Finance-Dashboard - script",
     "description": "Developed the script for downloading forex PDFs from the Bangko Sentral ng Pilipinas website. Maintained and enhanced the financial dashboard.",
     "version": "v1",
     "tags": ["forex", "financial dashboard"],
     "roles": ["Assistant Developer and Maintainer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
   {
     "id": 8,
     "key": "nmsapps-core-finance",
-    "title": "NMS Core-Finance",
+    "title": "Core-Finance",
     "description": "Led the development of the financial system. Managed maintenance and feature updates.",
     "version": "v1",
     "tags": ["finance", "core system"],
     "roles": ["Lead Developer and Maintainer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -205,18 +210,19 @@ const project = [
     "tags": ["exam simulator", "recruitment"],
     "roles": ["Lead Developer and Maintainer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -229,18 +235,19 @@ const project = [
     "tags": ["email processing", "backend"],
     "roles": ["Co-Lead Backend Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -253,18 +260,19 @@ const project = [
     "tags": ["development tasks", "feature implementation"],
     "roles": ["Assistant Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -277,18 +285,19 @@ const project = [
     "tags": ["chat simulator", "maintenance"],
     "roles": ["Lead Developer and Maintainer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -301,42 +310,44 @@ const project = [
     "tags": ["oauth", "composer"],
     "roles": ["Developer and Maintainer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
   {
     "id": 14,
     "key": "nms-laravel-utility-composer",
-    "title": "NMS Laravel Utility",
+    "title": "Laravel Utility",
     "description": "Developed a system to standardize system responses and codes for developers.",
     "version": "v1",
     "tags": ["standardization", "laravel utility"],
     "roles": ["Lead Developer and Maintainer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -349,18 +360,19 @@ const project = [
     "tags": ["chat", "react", "npm", "NMS Recruitment"],
     "roles": ["Lead Developer and Maintainer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -373,42 +385,44 @@ const project = [
     "tags": ["oauth", "npm", "NMS Accounts", "integration"],
     "roles": ["Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
   {
     "id": 17,
     "key": "nms-booking",
-    "title": "NMS Booking",
+    "title": "Recruitment Booking",
     "description": "Developed core features such as interview appointment scheduling.",
     "version": "v1",
     "tags": ["booking system", "appointments"],
     "roles": ["Assistant Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -421,18 +435,19 @@ const project = [
     "tags": ["loop", "moderation", "maintenance"],
     "roles": ["Assistant Developer and Maintainer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -445,18 +460,19 @@ const project = [
     "tags": ["loop", "moderation", "development"],
     "roles": ["Assistant Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -469,18 +485,19 @@ const project = [
     "tags": ["IMv3", "watcher", "system"],
     "roles": ["Developer and Maintainer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -493,18 +510,19 @@ const project = [
     "tags": ["node-mapper", "imv3", "development"],
     "roles": ["Assistant Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
@@ -517,47 +535,49 @@ const project = [
     "tags": ["bridge", "IMv3", "development"],
     "roles": ["Assistant Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
   {
-    "id": 24,
+    "id": 23,
     "key": "portfolio",
     "title": "Portfolio",
     "description": "Led the development of the Dailysteam system.",
     "version": "v1",
     "tags": ["system development", "lead developer"],
     "roles": ["Lead Developer"],
-    "url": null,
+    "url": "https://jonreygalera.mreys.net",
+    "fallbackUrl": null,
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
       }
     ]
   },
   {
-    "id": 25,
+    "id": 24,
     "key": "gtranslate",
     "title": "GTranslate",
     "description": "Led the development of the Dailysteam system.",
@@ -565,18 +585,44 @@ const project = [
     "tags": ["system development", "lead developer"],
     "roles": ["Lead Developer"],
     "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
     "imageSets": [
       {
         "id": 1,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 2,
-        "source": NoImageAvailable
+        "source": MreyIcon
       },
       {
         "id": 3,
-        "source": NoImageAvailable
+        "source": MreyIcon
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "key": "ft-hiring",
+    "title": "FT Hiring",
+    "description": "Led the development of the Dailysteam system.",
+    "version": "v1",
+    "tags": ["system development", "lead developer"],
+    "roles": ["Lead Developer"],
+    "url": null,
+    "fallbackUrl": "https://nms.ph?ref=https://jonreygalera.mreys.net",
+    "imageSets": [
+      {
+        "id": 1,
+        "source": MreyIcon
+      },
+      {
+        "id": 2,
+        "source": MreyIcon
+      },
+      {
+        "id": 3,
+        "source": MreyIcon
       }
     ]
   }

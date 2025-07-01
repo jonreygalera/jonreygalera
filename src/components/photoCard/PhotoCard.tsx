@@ -23,6 +23,8 @@ const PhotoCard: React.FC<IPhotoCardProps> = (props) => {
         overflow-hidden 
         cursor-pointer
         border-2
+        border-primary-950
+        bg-primary-50
       `, 
       typeof height == 'string' ? height : `h-${height}`,
       typeof width == 'string' ? width : `w-${width}`
@@ -40,7 +42,7 @@ const PhotoCard: React.FC<IPhotoCardProps> = (props) => {
         />
       </a>
       <Box 
-        className={tailwindUtil("border-4 border-primary-500 w-9 fixed left-8 top-[120px] rounded-t-full", showHighlight && "border-primary-50")}
+        className={tailwindUtil("border-4 border-primary-950 w-9 fixed left-8 top-[120px] rounded-t-full", showHighlight && "border-primary-600")}
       />
     </Box>
   )

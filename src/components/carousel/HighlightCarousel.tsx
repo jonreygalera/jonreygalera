@@ -2,7 +2,6 @@ import React, { Children, PropsWithChildren, useEffect, useState } from 'react';
 import Box from '../box/Box';
 import Button from '../button/Button';
 import { tailwindUtil } from '../../utils/tailwindUtil';
-import Typography from '../typography/Typography';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 interface Props extends PropsWithChildren {
@@ -10,7 +9,7 @@ interface Props extends PropsWithChildren {
   timeInterval?: number;
 }
 
-const HighlightCarousel: React.FC<Props> = ({ children, title, timeInterval = 10 }) => {
+const HighlightCarousel: React.FC<Props> = ({ children, timeInterval = 10 }) => {
   const items = Children.toArray(children);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -38,18 +37,18 @@ const HighlightCarousel: React.FC<Props> = ({ children, title, timeInterval = 10
 
   return (
     <Box
-      className='relative min-h-full h-[600px] shadow-md rounded-3xl shadow-primary-400'
+      className='relative h-[350px] laptop:min-h-full laptop:h-[600px] bg-primary-50 border-2 border-primary-900 rounded-3xl shadow-solid'
       onMouseEnter={() => setStartInterval(false)}
       onMouseLeave={() => setStartInterval(true)}
     >
 
-      <Box className='absolute w-full rounded-3xl border-primary-950 border-t-2 z-50'>
+      {/* <Box className='absolute w-full border-primary-950 border-t-2 z-50'>
         <Box className='flex justify-center w-full'>
-          <Box className='flex justify-center items-center bg-primary-950 w-48 h-14 rounded-b-3xl'>
+          <Box className='flex justify-center items-center bg-primary-800 w-48 h-14 rounded-b-3xl'>
             <Typography className='text-primary-50 underline'>{title}</Typography>
           </Box>
         </Box>
-      </Box>
+      </Box> */}
 
       <Box
         className='relative flex overflow-hidden min-h-full min-w-full'
@@ -72,7 +71,7 @@ const HighlightCarousel: React.FC<Props> = ({ children, title, timeInterval = 10
       </Box>
       {/* Indicators */}
       <Box
-        className='absolute flex top-[568px] justify-center mt-4 ml-4'
+        className='absolute hidden laptop:flex top-[568px] justify-center items-center mt-4 ml-4'
       >
         {
           items.map((_, idx) => {
@@ -80,8 +79,8 @@ const HighlightCarousel: React.FC<Props> = ({ children, title, timeInterval = 10
               <button
                 onClick={() => setCurrentIndex(idx)}
                 className={tailwindUtil(
-                  'rounded-full mx-1 w-3 h-3',
-                  idx === currentIndex ? 'bg-primary-300' : 'bg-primary-400'
+                  'rounded-full mx-1',
+                  idx === currentIndex ? 'bg-primary-500 w-3 h-3' : 'bg-primary-400 w-2 h-2'
                 )}
               >
               </button>
@@ -91,15 +90,15 @@ const HighlightCarousel: React.FC<Props> = ({ children, title, timeInterval = 10
       </Box>
       <Button 
         onClick={prevSlide}
-        className='absolute flex items-center bg-primary-900 text-primary-50 rounded-e-3xl h-[100px] top-64 hover:bg-primary-950'
+        className='absolute flex items-center bg-primary-900 opacity-80 hover:opacity-100 text-primary-50 rounded-full h-[50px] w-[50px] top-[44%] laptop:top-64 border-2 border-primary-500 shadow-solid mx-2'
       >
-        <ChevronLeftIcon className='size-3'/>
+        <ChevronLeftIcon className='size-4 laptop:size-7'/>
       </Button>
       <Button 
         onClick={nextSlide}
-        className='absolute flex items-center bg-primary-900 text-primary-50 rounded-s-3xl h-[100px] top-64 right-0 hover:bg-primary-950'
+        className='absolute flex items-center bg-primary-900 opacity-80 hover:opacity-100 text-primary-50 rounded-full h-[50px] w-[50px] top-[44%] right-0 laptop:top-64 border-2 border-primary-500 shadow-solid mx-2'
       >
-        <ChevronRightIcon className='size-3'/>
+        <ChevronRightIcon className='size-4 laptop:size-7'/>
       </Button>
     </Box>
   );
