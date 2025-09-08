@@ -12,14 +12,6 @@ export default function HomePage() {
           Sorry, the website is currently under construction.
         </p>
       </div>
-    <div className="mt-8 overflow-hidden">
-      <div className="animate-marquee whitespace-nowrap">
-        <span className="text-2xl mx-4">Frontend Developer</span>
-        <span className="text-2xl mx-4">Web Designer</span>
-        <span className="text-2xl mx-4">UI/UX Enthusiast</span>
-        <span className="text-2xl mx-4">React Specialist</span>
-      </div>
-    </div>
     </section>
   );
 }
