@@ -7,7 +7,6 @@ interface HeroProps {
   className?: string
 }
 
-
 export default function Hero(props: HeroProps) {
   const { src, alt = 'Image', className = '' } = props;
   return (

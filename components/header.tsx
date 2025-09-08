@@ -4,10 +4,10 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <nav className="bg-primary-200 fixed w-full z-20 top-0 start-0">
+    <nav className="bg-primary-200 sticky w-full z-20 top-0 start-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1">
         <div>
-          <Link href="/">
+          <Link href="home">
             <Image src={LogoImage} alt="Jon Rey Galera"/>
           </Link>
         </div>
@@ -19,13 +19,13 @@ export default function Header() {
       <div className="items-center justify-between w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
         <ul className="flex flex-col p-4 md:p-0 mt-4 font-semibold md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-white">
           <li>
-            <Link href="/">Home</Link>
+            <Link href="#home">Home</Link>
           </li>
           <li>
-            <Link href="#">About</Link>
+            <Link href="#about">About</Link>
           </li>
           <li>
-            <Link href="#">Services</Link>
+            <Link href="#services">Services</Link>
           </li>
           <li>
             <Link href="#projects">Projects</Link>
