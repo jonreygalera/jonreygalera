@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <nav className="bg-main dark:bg-main fixed w-full z-20 top-0 start-0">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="bg-primary-200 fixed w-full z-20 top-0 start-0">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1">
         <div>
           <Link href="/">
             <Image src={LogoImage} alt="Jon Rey Galera"/>

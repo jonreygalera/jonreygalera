@@ -1,15 +1,17 @@
+import { cn } from "@/lib/utils";
 import Image, { StaticImageData } from "next/image";
 
 interface HeroProps {
   src: StaticImageData;
   alt?: string;
+  className?: string
 }
 
 
 export default function Hero(props: HeroProps) {
-  const { src, alt = 'Image' } = props;
+  const { src, alt = 'Image', className = '' } = props;
   return (
-    <div className="absolute -z-10 inset-0">
+    <div className={cn("-z-10 inset-0", className, "absolute")}>
       <Image
         src={src}
         alt={alt}
