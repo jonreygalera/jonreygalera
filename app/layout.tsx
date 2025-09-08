@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
-import BackgroundImage from '/public/bg-grid.png';
-import Hero from "@/components/hero";
 
 const lexendSans = Lexend({
   variable: "--font-lexend-sans",
@@ -23,11 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lexendSans.variable} antialiased`}
+        id="home"
+        className={`${lexendSans.className} antialiased`}
       >
         <Header/>
-        <Hero src={BackgroundImage} alt="Jon Rey Galera"/>
-        <div className="pt-16">
+        <div className="">
           {children}
         </div>
       </body>
