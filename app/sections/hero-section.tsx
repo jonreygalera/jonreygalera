@@ -25,9 +25,8 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="flex flex-col">
-      <div className="w-full px-40 relative items-start flex flex-col pt-18 gap-10 h-[52rem]">
-      <GridPattern/>
+    <section className="flex flex-col w-full">
+      <div className="w-full px-40 relative items-start flex flex-col pt-18 gap-10 md:h-[88dvh]">
 
         <div className={cn(internSans.className, "leading-48 font-black antialiased")}>
           <h1 className="text-[264px] italic">

@@ -17,7 +17,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="flex flex-col">
       <div className="w-full px-40 relative items-start flex flex-col pt-18 gap-10 h-[52rem]">
-      <GridPattern/>
+      {/* <GridPattern/> */}
 
         <div className={cn(internSans.className, "leading-48 font-black antialiased")}>
           <h1 className="text-[264px] italic">
