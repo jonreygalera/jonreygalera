@@ -25,7 +25,7 @@ export default function BreakpointLogger() {
   }, []);
 
   return (
-    <div className="fixed bottom-2 left-1/2 -translate-x-1/2 z-50
+    <div className="fixed top-1/2 left-1/2 -translate-x-1/2 z-50
                     bg-black text-white text-xs sm:text-sm 
                     px-3 py-1 rounded-full shadow-lg opacity-80">
       {breakpoint}

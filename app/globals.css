@@ -4,3 +4,15 @@
   --color-primary-100: #0B0F10;
   --color-primary-200: #1A2325;
 }
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 60s linear infinite;
+}

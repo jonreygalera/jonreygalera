@@ -12,7 +12,7 @@ export default function NavBar() {
             <Image 
               src={LogoImage} 
               alt="Jon Rey Galera"
-              className="h-8 w-auto sm:h-10"
+              className="sm:h-8 w-auto md:h-10"
             />
           </Link>
         </div>
