@@ -1,11 +1,13 @@
 'use client';
 import Image from "next/image";
-import BackgroundImage from '/public/image1.png';
+import BImage2 from '/public/image2.png';
 import Button from "@/components/button";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
-import Divider from "@/components/divider";
+import Divider from "@/components/marquee-section";
 import GridPattern from "@/components/grid-pattern";
+import SectionContainer from "@/components/snap-section-container";
+import SnapSection from "@/components/snap-section";
 
 const internSans = Inter({
   variable: "--font-intern-sans",
@@ -15,41 +17,48 @@ const internSans = Inter({
 export default function AboutSection() {
 
   return (
-    <section id="about" className="flex flex-col">
-      <div className="w-full px-40 relative items-start flex flex-col pt-18 gap-10 h-[52rem]">
-      <GridPattern/>
-
-        <div className={cn(internSans.className, "leading-48 font-black antialiased")}>
-          <h1 className="text-[264px] italic">
-            Jon Rey
-          </h1>
-          <h1 className="text-6xl italic">
-            Galera
-          </h1>
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <p className="mt-6 max-w-xl text-2xl ">
-            I bring together creativity, logic, and empathy to build beautiful and functional products. The future of code is a step toward better, smarter, and more human-centric experiences.
-          </p>
-          <div className="mt-8 flex space-x-4">
-            <Button>
-              HIRE ME
-            </Button>
-            <Button>
-              DOWNLOAD CV
-            </Button>
-          </div>
-        </div>
-      
+    <SnapSection id="section-about">
+      <div className="w-full relative flex px-40">
         <Image 
-          src={BackgroundImage}
-          alt="Image 1"
-          className="absolute w-1/2 -top-10 right-0"
+          src={BImage2}
+          alt="Image 2"
+          width={500}
+          height={500}
+          className="w-auto h-auto"
+          priority
+          style={{ objectFit: 'cover' }}
         />
-        
+
+       <div className="flex flex-col gap-2 w-full">
+          <div className={cn(internSans.className, "font-black antialiased")}>
+            <h1 className="text-[75px] italic">
+              About me
+            </h1>
+          </div>
+
+          <div className="flex flex-col gap-2 w-full">
+            <p className="mt-6 w-full text-2xl ">
+              I'm a software engineer with over 5 years of professional experience building modern web applications, 
+              currently working at the intersection of AI and scalable software. I specialize in full-stack 
+              development using ReactJS, Laravel, and Docker, delivering efficient solutions that power 
+              real-world innovation.
+              <br/><br/>
+              Outside of work, I enjoy experimenting with automation and low-code tools—especially n8n, 
+              where I build creative workflows just for fun. I'm also the creator of <a href="https://github.com/jonreygalera/prompts" target="__blank" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Prompts for LLM</a>, 
+              a growing resource for crafting better prompts for large language models.
+              <br/><br/>
+              Lately, I've been diving deeper into AI Agent Automation, bridging the gap between 
+              traditional software engineering and data-driven systems.
+            </p>
+            <div className={cn(internSans.className, "antialiased")}>
+              <h1 className="text-[30px] font-black italic">
+                Hobbies
+              </h1>
+                [icon list here]
+            </div>
+          </div>
+       </div>
       </div>
-        <Divider />
-      </section>
+    </SnapSection>
   );
 }
