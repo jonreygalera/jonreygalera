@@ -5,7 +5,7 @@ import ButtonAnim from "./button-anim";
 
 export default function NavBar() {
   return (
-    <nav className="bg-primary-200 sticky w-full z-20 top-0 start-0">
+    <nav className="bg-primary-200 fixed w-full z-20 top-0 start-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="flex items-center">
           <Link href="/">
@@ -30,10 +30,10 @@ export default function NavBar() {
       <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
         <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0">
           <li>
-            <Link href="#home" className="text-white block px-3 py-2 font-medium">Home</Link>
+            <Link href="#section-hero" className="text-white block px-3 py-2 font-medium">Home</Link>
           </li>
           <li>
-            <a href="#about" className="text-white block px-3 py-2 font-medium">About</a>
+            <a href="#section-about" className="text-white block px-3 py-2 font-medium">About</a>
           </li>
           <li>
             <a href="#services" className="text-white block px-3 py-2 font-medium">Services</a>

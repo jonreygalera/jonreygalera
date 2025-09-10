@@ -26,12 +26,10 @@ export default function RootLayout({
         <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
       </head>
       <body
-        id="home"
         className={`${lexendSans.className} antialiased`}
       >
         <GridPattern>
           <NavBar/>
-
           {children}
           <BreakpointLogger/>
         </GridPattern>
