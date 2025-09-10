@@ -29,14 +29,15 @@ const internSans = Inter({
 
 export default function HeroSection({ id }: { id?: string}) {
 
-  const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.target = '__blank';
-    link.href = '/files/Jon Rey Galera - CV.pdf';
-    link.download = 'Jon Rey Galera - CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleViewResume = () => {
+    // const link = document.createElement('a');
+    // link.target = '__blank';
+    // link.href = '/files/Jon Rey Galera - CV.pdf';
+    // link.download = 'Jon Rey Galera - CV.pdf';
+    // document.body.appendChild(link);
+    // link.click();
+    // document.body.removeChild(link);
+    window.open('https://docs.google.com/document/d/1mIHbUQSwzZyNyKS2R4GZV_xmpNCHm3uax-q8vk3TVAA/edit?usp=sharing', '_blank');
   };
 
   return (
@@ -59,8 +60,8 @@ export default function HeroSection({ id }: { id?: string}) {
             <Button>
               HIRE ME
             </Button>
-            <Button onClick={handleDownloadCV}>
-              DOWNLOAD CV
+            <Button onClick={handleViewResume}>
+              VIEW RESUME
             </Button>
           </div>
         </div>
