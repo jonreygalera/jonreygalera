@@ -11,13 +11,6 @@ export default function SnapSectionContainer(props: SnapSectionContainerProps) {
     ...others
   } = props;
   
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div {...others} className={
       cn(others.className, 

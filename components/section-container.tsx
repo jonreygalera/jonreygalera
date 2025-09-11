@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
 
-interface SnapSectionProps extends React.HTMLAttributes<HTMLDivElement> {
+interface SectionContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   contentClass?: string;
   id: string
 }
 
-export default function SnapSection(props: SnapSectionProps) {
+export default function SectionContainer(props: SectionContainerProps) {
   const {
     children,
     contentClass = '',
@@ -17,10 +17,10 @@ export default function SnapSection(props: SnapSectionProps) {
       id={id}
       className={cn(
         others?.className,
-        "h-screen w-screen flex flex-col snap-start transition-colors duration-500 ease-in-out"
+        "h-screen w-screen flex flex-col"
       )}
     >
-        { children }
+      { children }
     </div>
   );
 }

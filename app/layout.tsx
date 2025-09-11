@@ -4,6 +4,7 @@ import "./globals.css";
 import BreakpointLogger from "@/components/breakpoint-logger";
 import NavBar from "@/components/nav-bar";
 import GridPattern from "@/components/grid-pattern";
+import UnderConstruction from "@/ui/under-construction";
 
 const lexendSans = Lexend({
   variable: "--font-lexend-sans",
@@ -33,19 +34,9 @@ export default function RootLayout({
             <NavBar/>
             {children}
             <BreakpointLogger/>
-            </div>
+          </div>
 
-            <section className="min-h-screen 2xl:hidden">
-            <div className="container mx-auto px-4 py-16 text-primary-200">
-              <h1 className="text-4xl font-bold mb-4">Hello my name is Jon Rey Galera</h1>
-              <p className="text-xl">
-                {(new Date().getFullYear() - 2019)} years of professional experience.
-              </p>
-              <p className="mt-4 text-gray-600">
-                Sorry, the website is currently only available in desktop view.
-              </p>
-            </div>
-          </section>
+          <UnderConstruction/>
         </GridPattern>
         
         <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
