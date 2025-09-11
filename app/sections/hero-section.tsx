@@ -9,6 +9,7 @@ import GridPattern from "@/components/grid-pattern";
 import SnapSectionContainer from "@/components/snap-section-container";
 import SnapSection from "@/components/snap-section";
 import MarqueeSection from "@/components/marquee-section";
+import SectionContainer from "@/components/section-container";
 
 const marqueeData = [
   "• develop",
@@ -41,7 +42,7 @@ export default function HeroSection({ id }: { id?: string}) {
   };
 
   return (
-    <SnapSection id={'section-hero'}>
+    <SectionContainer id={'section-hero'}  className="items-center justify-center">
       <div className="w-full px-40 relative items-start flex flex-col md:mt-56 gap-10 md:h-[80dvh]">
         <div className={cn(internSans.className, "leading-48 font-black antialiased")}>
           <h1 className="text-[264px] italic">
@@ -74,6 +75,6 @@ export default function HeroSection({ id }: { id?: string}) {
 
         </div>
       <MarqueeSection data={marqueeData}/>
-    </SnapSection>
+    </SectionContainer>
   );
 }

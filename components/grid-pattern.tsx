@@ -1,10 +1,10 @@
 "use client";
 export default function GridPattern({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen w-full relative">
+    <div className="relative min-h-screen w-full">
       {/* Grid Background */}
       <div
-        className="absolute inset-0 -z-10"
+        className="fixed inset-0 -z-10 min-h-screen w-full"
         style={{
           backgroundImage: `
             linear-gradient(to right, #e5e7eb 1px, transparent 1px),
@@ -13,7 +13,7 @@ export default function GridPattern({ children }: { children: React.ReactNode })
           backgroundSize: "40px 40px",
         }}
       />
-        {children}
+      {children}
     </div>
   );
 }

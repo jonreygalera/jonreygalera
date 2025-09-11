@@ -1,10 +1,13 @@
 'use client';
 import Image from "next/image";
 import BImage2 from '/public/image2.png';
+import Button from "@/components/button";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Divider from "@/components/marquee-section";
+import GridPattern from "@/components/grid-pattern";
+import SectionContainer from "@/components/snap-section-container";
 import SnapSection from "@/components/snap-section";
-import SectionContainer from "@/components/section-container";
 
 const internSans = Inter({
   variable: "--font-intern-sans",
@@ -14,11 +17,13 @@ const internSans = Inter({
 export default function AboutSection() {
 
   return (
-    <SectionContainer id="section-about" className="items-center justify-center">
+    <SnapSection id="section-about">
       <div className="w-full relative flex px-40">
         <Image 
           src={BImage2}
           alt="Image 2"
+          width={500}
+          height={500}
           className="w-auto h-auto"
           priority
           style={{ objectFit: 'cover' }}
@@ -54,6 +59,6 @@ export default function AboutSection() {
           </div>
        </div>
       </div>
-    </SectionContainer>
+    </SnapSection>
   );
 }

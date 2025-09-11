@@ -1,23 +1,20 @@
 'use client';
-import SnapSectionContainer from "@/components/snap-section-container";
 import AboutSection from "./sections/about-section";
 import HeroSection from "./sections/hero-section";
+import ContactMeSection from "./sections/contact-me/contact-me-section";
+import SectionMainContainer from "@/components/section-main-container";
+import Footer from "@/ui/footer";
 
 export default function HomePage() {
 
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div>
-      <SnapSectionContainer>
+      <SectionMainContainer>
         <HeroSection/>
         <AboutSection/>
-      </SnapSectionContainer>
+        <ContactMeSection/>
+        <Footer/>
+      </SectionMainContainer>
     </div>
   );
 }
