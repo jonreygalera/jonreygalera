@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import SnapSection from "@/components/snap-section";
 import SectionContainer from "@/components/section-container";
+import Hobbies from "./hobbies";
 
 const internSans = Inter({
   variable: "--font-intern-sans",
@@ -46,10 +47,7 @@ export default function AboutSection() {
               traditional software engineering and data-driven systems.
             </p>
             <div className={cn(internSans.className, "antialiased")}>
-              <h1 className="text-[30px] font-black italic">
-                Hobbies
-              </h1>
-                [icon list here]
+              <Hobbies/>
             </div>
           </div>
        </div>
