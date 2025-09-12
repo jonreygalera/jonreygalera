@@ -52,9 +52,9 @@ export default function NavBar() {
           <li>
             <Button link={true} onClick={() => handleOnClickSectionItem('section-about')}>About</Button>
           </li>
-          <li>
+          {/* <li>
             <Button link={true} onClick={() => handleOnClickSectionItem('section-contact')} >Services</Button>
-          </li>
+          </li> */}
           <li>
             <Button link={true} onClick={() => handleOnClickSectionItem('section-ideas')}>Ideas</Button>
           </li>

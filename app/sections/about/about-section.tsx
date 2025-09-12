@@ -28,7 +28,7 @@ export default function AboutSection() {
        <div className="flex flex-col gap-2 w-full">
           <div className={cn(internSans.className, "font-black antialiased")}>
             <h1 className="text-[75px] italic">
-              About me
+              {"About me"}
             </h1>
           </div>
 

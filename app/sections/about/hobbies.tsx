@@ -53,7 +53,7 @@ export default function Hobbies() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-[30px] font-black italic">
-                Hobbies
+        {"Hobbies"}
       </h1>
       <div className="flex flex-wrap gap-4">
         {DATA_HOBBIES.map((hobby, index) => (
@@ -63,7 +63,7 @@ export default function Hobbies() {
               data-tooltip-target={`tooltip-${index}`}
               data-tooltip-placement="bottom"
             >
-              {React.createElement(hobby.icon, { size: 20, className: "hover:text-secondary-500" })}
+              {React.createElement(hobby.icon, { size: 20, className: "group-hover:text-secondary-500" })}
             </div>
             <div 
               id={`tooltip-${index}`}
