@@ -10,6 +10,7 @@ import SnapSectionContainer from "@/components/snap-section-container";
 import SnapSection from "@/components/snap-section";
 import MarqueeSection from "@/components/marquee-section";
 import SectionContainer from "@/components/section-container";
+import { PROFILE } from "@/data/profile";
 
 const marqueeData = [
   "• develop",
@@ -31,25 +32,29 @@ const internSans = Inter({
 export default function HeroSection({ id }: { id?: string}) {
 
   const handleViewResume = () => {
-    // const link = document.createElement('a');
-    // link.target = '__blank';
-    // link.href = '/files/Jon Rey Galera - CV.pdf';
-    // link.download = 'Jon Rey Galera - CV.pdf';
-    // document.body.appendChild(link);
-    // link.click();
-    // document.body.removeChild(link);
-    window.open('https://docs.google.com/document/d/1mIHbUQSwzZyNyKS2R4GZV_xmpNCHm3uax-q8vk3TVAA/edit?usp=sharing', '_blank');
+    if(PROFILE.resume.type == 'link') {
+      const link = document.createElement('a');
+      link.target = '__blank';
+      link.href = PROFILE.resume.url;
+      link.download = `${PROFILE.firstName}_${PROFILE.lastName} - CV.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      window.open(PROFILE.resume.url, '_blank');
+    }
+
   };
 
   return (
     <SectionContainer id={'section-hero'}  className="items-center justify-center">
-      <div className="w-full px-40 relative items-start flex flex-col md:mt-56 gap-10 md:h-[80dvh]">
+      <div className="w-full container relative items-start flex flex-col md:mt-56 gap-10 md:h-[80dvh]">
         <div className={cn(internSans.className, "leading-48 font-black antialiased")}>
           <h1 className="text-[264px] italic">
-            Jon Rey
+            {PROFILE.firstName}
           </h1>
           <h1 className="text-6xl italic">
-            Galera
+            {PROFILE.lastName}
           </h1>
         </div>
 
@@ -66,14 +71,12 @@ export default function HeroSection({ id }: { id?: string}) {
             </Button>
           </div>
         </div>
-
+        </div>
         <Image 
           src={BackgroundImage}
           alt="Image 1"
-          className="absolute w-1/2 -top-56 right-0"
+          className="absolute w-1/2 right-0"
         />
-
-        </div>
       <MarqueeSection data={marqueeData}/>
     </SectionContainer>
   );

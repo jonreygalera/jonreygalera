@@ -18,8 +18,8 @@ const internSans = Inter({
 export default function ContactMeSection() {
 
   return (
-    <SectionContainer id="section-contact"  className="items-center justify-center p-24">
-      <div className="w-full relative flex flex-col" id="section-contact">
+    <SectionContainer id="section-contact"  className="items-center justify-center">
+      <div className="w-full relative flex flex-col container" id="section-contact">
         <div className={cn(internSans.className, "font-black antialiased h-auto flex flex-col justify-center items-center px-72 text-center")}>
           <h3 className="text-[40px] italic">
             Let’s turn your ideas into something amazing ready when you are!

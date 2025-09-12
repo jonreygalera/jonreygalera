@@ -26,7 +26,7 @@ export default function TextArea(props: TextAreaProps) {
       <textarea
         {...others}
         rows={rows}
-        className="w-full px-3 py-2 rounded-md shadow-sm transition border min-h-[100px]"
+        className="w-full px-3 py-2 rounded-md shadow-sm transition min-h-[100px] border-2"
       />
     </div>
   );

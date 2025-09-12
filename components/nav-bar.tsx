@@ -3,13 +3,14 @@ import Link from "next/link";
 import LogoImage from "/public/logo.png";
 import Image from "next/image";
 import ButtonAnim from "./button-anim";
+import Button from "./button";
 
 export default function NavBar() {
 
-  const handleOnClickContactMe = () => {
-    const contactSection = document.getElementById('section-contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+  const handleOnClickSectionItem = (section: string) => {
+    const sectionItem = document.getElementById(section);
+      if (sectionItem) {
+        sectionItem.scrollIntoView({ behavior: 'smooth' });
       }
   }
 
@@ -29,7 +30,7 @@ export default function NavBar() {
 
       <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         {/* <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center cursor-pointer">Get started</button> */}
-          <ButtonAnim  onClick={handleOnClickContactMe}/>
+          <ButtonAnim  onClick={() => handleOnClickSectionItem('section-contact')}/>
           <button 
             data-collapse-toggle="navbar-sticky" 
             type="button" 
@@ -46,16 +47,16 @@ export default function NavBar() {
       <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
         <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0">
           <li>
-            <Link href="#section-hero" className="text-white block px-3 py-2 font-medium">Home</Link>
+            <Button link={true} onClick={() => handleOnClickSectionItem('section-hero')}>Home</Button>
           </li>
           <li>
-            <a href="#section-about" className="text-white block px-3 py-2 font-medium">About</a>
+            <Button link={true} onClick={() => handleOnClickSectionItem('section-about')}>About</Button>
           </li>
+          {/* <li>
+            <Button link={true} onClick={() => handleOnClickSectionItem('section-contact')} >Services</Button>
+          </li> */}
           <li>
-            <a href="#section-services" className="text-white block px-3 py-2 font-medium">Services</a>
-          </li>
-          <li>
-            <a href="#section-ideas" className="text-white block px-3 py-2 font-medium">Ideas</a>
+            <Button link={true} onClick={() => handleOnClickSectionItem('section-ideas')}>Ideas</Button>
           </li>
         </ul>
       </div>

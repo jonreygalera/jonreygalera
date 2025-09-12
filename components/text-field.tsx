@@ -15,7 +15,7 @@ export default function TextField(props: TextFieldProps) {
   } = props;
 
   return (
-    <div className={cn("space-y-2 w-full", containerClass)}>
+    <div className={cn("space-y-2 w-full bg-white", containerClass)}>
       {label && (
         <label htmlFor={props.id} className="block text-sm font-medium">
           {label}
@@ -23,7 +23,7 @@ export default function TextField(props: TextFieldProps) {
       )}
       <input
         {...others}
-        className="w-full px-3 py-2 rounded-md shadow-sm transition border"
+        className="w-full px-3 py-2 rounded-md shadow-sm transition border-2"
       />
     </div>
   );
