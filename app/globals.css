@@ -1,8 +1,26 @@
 @import "tailwindcss";
 
 @theme{
-  --color-primary-100: #0B0F10;
+  --color-primary-100: #0B0F10; /* darkest */
   --color-primary-200: #1A2325;
+  --color-primary-300: #243033;
+  --color-primary-400: #324244;
+  --color-primary-500: #415658;
+  --color-primary-600: #597274;
+  --color-primary-700: #7D9A9C;
+  --color-primary-800: #A7BFC1;
+  --color-primary-900: #D1E0E1; /* lightest */
+
+  --color-secondary-50:  #F9FCF3;
+  --color-secondary-100: #EEF6DF;
+  --color-secondary-200: #D6E9AF;
+  --color-secondary-300: #C1DD88;
+  --color-secondary-400: #ACD260;
+  --color-secondary-500: #97C738; /* base */
+  --color-secondary-600: #799F2D;
+  --color-secondary-700: #5B7722;
+  --color-secondary-800: #3D5016;
+  --color-secondary-900: #24300D;
 }
 
 @keyframes marquee {

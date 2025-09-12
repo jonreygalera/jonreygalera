@@ -43,7 +43,7 @@ export default function HeroSection({ id }: { id?: string}) {
 
   return (
     <SectionContainer id={'section-hero'}  className="items-center justify-center">
-      <div className="w-full px-40 relative items-start flex flex-col md:mt-56 gap-10 md:h-[80dvh]">
+      <div className="w-full container relative items-start flex flex-col md:mt-56 gap-10 md:h-[80dvh]">
         <div className={cn(internSans.className, "leading-48 font-black antialiased")}>
           <h1 className="text-[264px] italic">
             Jon Rey
@@ -67,13 +67,14 @@ export default function HeroSection({ id }: { id?: string}) {
           </div>
         </div>
 
+
+
+        </div>
         <Image 
           src={BackgroundImage}
           alt="Image 1"
-          className="absolute w-1/2 -top-56 right-0"
+          className="absolute w-1/2 right-0"
         />
-
-        </div>
       <MarqueeSection data={marqueeData}/>
     </SectionContainer>
   );

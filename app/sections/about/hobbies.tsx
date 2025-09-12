@@ -5,7 +5,6 @@ import {
   BookOpen, 
   Music2, 
   Gamepad2, 
-  Dumbbell, 
   Bike,
   ChefHat,
   Coffee
@@ -21,7 +20,7 @@ const DATA_HOBBIES = [
   {
     name: "Reading",
     icon: BookOpen,
-    description: "Tech books, sci-fi novels, and philosophy"
+    description: "Tech books and manga"
   },
   {
     name: "Music",
@@ -31,12 +30,7 @@ const DATA_HOBBIES = [
   {
     name: "Gaming",
     icon: Gamepad2,
-    description: "Strategy games and RPGs"
-  },
-  {
-    name: "Fitness",
-    icon: Dumbbell,
-    description: "Weight training and calisthenics"
+    description: "Strategy games and Shooting game"
   },
   {
     name: "Cycling",
@@ -64,12 +58,20 @@ export default function Hobbies() {
       <div className="flex flex-wrap gap-4">
         {DATA_HOBBIES.map((hobby, index) => (
           <div key={`hobby-${index}`} className="group relative">
-            <div className="flex items-center gap-2 px-2 py-2 bg-gray-100 rounded-lg shadow-sm hover:bg-gray-200 transition-colors border">
-              {React.createElement(hobby.icon, { size: 20 })}
+            <div 
+              className="flex items-center gap-2 px-2 py-2 bg-white rounded-lg shadow-sm hover:bg-primary-200 transition-colors border"
+              data-tooltip-target={`tooltip-${index}`}
+              data-tooltip-placement="bottom"
+            >
+              {React.createElement(hobby.icon, { size: 20, className: "hover:text-secondary-500" })}
             </div>
-            <div className="absolute z-10 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-opacity duration-300 bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm whitespace-nowrap">
+            <div 
+              id={`tooltip-${index}`}
+              role="tooltip"
+              className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-primary-200 rounded-lg shadow-sm opacity-0 tooltip"
+            >
               {hobby.description}
-              <div className="absolute w-2 h-2 bg-gray-900 rotate-45 -bottom-1 left-1/2 -translate-x-1/2"></div>
+              <div className="tooltip-arrow" data-popper-arrow></div>
             </div>
           </div>
         ))}

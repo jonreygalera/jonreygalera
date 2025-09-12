@@ -16,7 +16,7 @@ export default function AboutSection() {
 
   return (
     <SectionContainer id="section-about" className="items-center justify-center">
-      <div className="w-full relative flex px-40">
+      <div className="w-full relative flex container">
         <Image 
           src={BImage2}
           alt="Image 2"
