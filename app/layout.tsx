@@ -30,13 +30,13 @@ export default function RootLayout({
         className={`${lexendSans.className} antialiased`}
       >
         <GridPattern>
-          <div className="hidden 2xl:block">
+          <div className="sx:hidden sm:block 3xl:hidden">
             <NavBar/>
             {children}
             <BreakpointLogger/>
           </div>
 
-          <UnderConstruction/>
+          {/* <UnderConstruction/> */}
         </GridPattern>
         
         <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" async/>
