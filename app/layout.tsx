@@ -33,7 +33,7 @@ export default function RootLayout({
           <div className="sx:hidden sm:block 3xl:hidden">
             <NavBar/>
             {children}
-            <BreakpointLogger/>
+            {/* <BreakpointLogger/> */}
           </div>
 
           {/* <UnderConstruction/> */}
