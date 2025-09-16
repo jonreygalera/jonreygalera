@@ -30,10 +30,10 @@ export default function RootLayout({
         className={`${lexendSans.className} antialiased`}
       >
         <GridPattern>
-          <div className="hidden 2xl:block">
+          <div className="sx:hidden sm:block 3xl:hidden">
             <NavBar/>
             {children}
-            <BreakpointLogger/>
+            {/* <BreakpointLogger/> */}
           </div>
 
           <UnderConstruction/>

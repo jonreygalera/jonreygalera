@@ -12,10 +12,10 @@ export default function HomePage() {
     <div>
       <SectionMainContainer>
         <HeroSection/>
-        <AboutSection/>
+        {/* <AboutSection/>
         <IdeaSection/>
         <ContactMeSection/>
-        <Footer/>
+        <Footer/> */}
       </SectionMainContainer>
     </div>
   );

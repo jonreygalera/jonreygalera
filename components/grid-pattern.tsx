@@ -4,7 +4,7 @@ export default function GridPattern({ children }: { children: React.ReactNode })
     <div className="relative min-h-screen w-full">
       {/* Grid Background */}
       <div
-        className="fixed inset-0 -z-10 min-h-screen w-full"
+        className="fixed inset-0 -z-10 min-h-screen w-full  sm:bg-blue-300 md:bg-green-300 lg:bg-orange-300 xl:bg-purple-300 2xl:bg-amber-300 3xl:bg-red-300"
         style={{
           backgroundImage: `
             linear-gradient(to right, #e5e7eb 1px, transparent 1px),
