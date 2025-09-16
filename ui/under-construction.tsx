@@ -8,7 +8,7 @@ export default function UnderConstruction({
   message = "Sorry, the website is currently only available in desktop view."
 }: UnderConstructionProps) {
   return (
-    <section className="min-h-screen 2xl:hidden">
+    <section className="min-h-screen hidden md:hidden">
       <div className="container mx-auto px-4 py-16 text-primary-200">
         <h1 className="text-4xl font-bold mb-4">Hello my name is Jon Rey Galera</h1>
         <p className="text-xl">
