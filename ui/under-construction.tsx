@@ -5,7 +5,7 @@ interface UnderConstructionProps {
 }
 
 export default function UnderConstruction({ 
-  message = "Sorry, the website is currently only available in desktop view."
+  message = "Sorry, the website is currently only available in mobile view."
 }: UnderConstructionProps) {
   return (
     <section className="min-h-screen hidden sm:block">
