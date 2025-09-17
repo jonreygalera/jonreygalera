@@ -2,6 +2,8 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
 import Button from "./button";
+import { cn } from "@/lib/utils";
+import Grid1Pattern from "./pattern/grid1-pattern";
 
 interface CardImageProps {
   imageSrc: StaticImageData;
@@ -12,6 +14,7 @@ interface CardImageProps {
   linkText: string;
   children?: ReactNode;
   onClick?: () => void;
+  containerClass?: string
 }
 
 export default function CardImage({
@@ -22,7 +25,8 @@ export default function CardImage({
   linkHref,
   linkText,
   children,
-  onClick
+  onClick,
+  containerClass = ''
 }: CardImageProps) {
 
   const handleOnClickButton = () => {
@@ -32,12 +36,13 @@ export default function CardImage({
       window.open(linkHref, '_blank');
     }
   };
-  
+
   return (
-    <div className="flex flex-col justify-center max-w-sm rounded-lg shadow-sm border-2 border-primary-100 bg-white">
-      <Link href={linkHref} className="p-8">
+    <div className={cn(containerClass, "flex flex-col justify-center rounded-lg shadow-sm border-2 border-primary-100 bg-white relative")}>
+      <Grid1Pattern/>
+      <Link href={linkHref} className="absoulute p-8 z-10">
         <Image 
-          className="w-full h-48 object-fit border-2 border-primary-100 rounded-md"
+          className="w-full h-48 object-fit border-2 border-primary-100 rounded-md bg-primary-900/60"
           src={imageSrc}
           alt={imageAlt}
           priority
@@ -53,7 +58,7 @@ export default function CardImage({
           {description}
         </p>
         {children}
-          <Button onClick={handleOnClickButton}>{linkText}</Button>
+          <Button className="w-full" onClick={handleOnClickButton}>{linkText}</Button>
       </div>
     </div>
   );

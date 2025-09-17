@@ -42,6 +42,13 @@ export default function HeroSection({ id }: { id?: string}) {
 
   };
 
+  const handleHireMeClick = () => {
+    const contactSection = document.getElementById("section-contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <SectionContainer id={'section-hero'} className="md:items-center md:justify-center">
 
@@ -85,7 +92,7 @@ export default function HeroSection({ id }: { id?: string}) {
         </div>
 
           <div className="mt-8 flex space-x-4 px-2">
-            <Button className="w-full">
+            <Button className="w-full" onClick={handleHireMeClick}>
               HIRE ME
             </Button>
             <Button className="w-full" onClick={handleViewResume}>
