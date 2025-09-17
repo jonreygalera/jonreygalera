@@ -15,7 +15,7 @@ const internSans = Inter({
 export default function AboutSection() {
 
   return (
-    <SectionContainer id="section-about" className="md:items-center md:justify-center px-2">
+    <SectionContainer id="section-about" className="md:items-center md:justify-center px-2 h-auto">
       <div className="relative container flex flex-col">
 
         <div className={cn(internSans.className, "font-black antialiased")}>

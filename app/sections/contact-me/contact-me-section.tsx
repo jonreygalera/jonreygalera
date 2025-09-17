@@ -1,13 +1,9 @@
 'use client';
 import Image from "next/image";
 import BImage3 from '/public/image3.png';
-import Button from "@/components/button";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
-import Divider from "@/components/marquee-section";
-import GridPattern from "@/components/grid-pattern";
 import SectionContainer from "@/components/section-container";
-import SnapSection from "@/components/snap-section";
 import ContactForm from "./contact-form";
 
 const internSans = Inter({
@@ -18,28 +14,29 @@ const internSans = Inter({
 export default function ContactMeSection() {
 
   return (
-    <SectionContainer id="section-contact"  className="items-center justify-center">
-      <div className="w-full relative flex flex-col container" id="section-contact">
-        <div className={cn(internSans.className, "font-black antialiased h-auto flex flex-col justify-center items-center px-72 text-center")}>
-          <h3 className="text-[40px] italic">
-            Let’s turn your ideas into something amazing ready when you are!
+    <SectionContainer id="section-contact" className="md:items-center md:justify-center px-2 mt-15 h-auto mb-10">
+      <div className="relative flex flex-col">
+        <div className={cn(internSans.className, "font-black antialiased h-auto flex flex-col justify-center items-center text-center")}>
+          <h3 className="text-[17px] italic">
+            Let's turn your ideas into <span className="text-secondary-500 bg-primary-100 px-1 rounded">something amazing</span> - <span className="text-secondary-500 bg-primary-100 px-1 rounded">ready when you are!</span>
           </h3>
         </div>
 
-        <div className="flex">
+        <div className="flex relative">
           <Image 
             src={BImage3}
             alt="Image 2"
-            className="w-auto h-auto"
+            className="w-auto h-auto absolute -z-10 -top-22 -right-0"
             priority
             style={{ objectFit: 'cover' }}
           />
 
-          <div className="flex gap-2 w-full">
+          <div className="flex gap-2 w-full mt-8">
             <ContactForm id="section-contact-form"/>
           </div>
 
         </div>
+
       </div>
     </SectionContainer>
   );

@@ -13,9 +13,9 @@ export default function HomePage() {
       <SectionMainContainer>
         <HeroSection/>
         <AboutSection/>
-        {/* <IdeaSection/>
+        <IdeaSection/>
         <ContactMeSection/>
-        <Footer/> */}
+        <Footer/>
       </SectionMainContainer>
     </div>
   );

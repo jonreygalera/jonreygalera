@@ -30,7 +30,7 @@ export default function ContactForm(props: React.HTMLAttributes<HTMLFormElement>
       onSubmit={handleSubmit}
       {...props}
     >
-      <div className="flex w-full gap-2">
+      <div className="flex flex-col w-full gap-2">
         <TextField 
           id="name"
           name="name"
@@ -58,7 +58,7 @@ export default function ContactForm(props: React.HTMLAttributes<HTMLFormElement>
       </div>
 
       <div className="flex justify-center">
-        <Button type="submit">SUBMIT</Button>
+        <Button type="submit" className="w-full">SUBMIT</Button>
       </div>
     </form>
   );
