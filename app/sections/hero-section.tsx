@@ -52,15 +52,15 @@ export default function HeroSection({ id }: { id?: string}) {
   return (
     <SectionContainer id={'section-hero'} className="md:items-center md:justify-center">
 
-      <div className="absolute bottom-20 w-full flex flex-col items-start order-2 md:relative md:container md:mt-56 md:h-[80dvh] md:top-30 md:gap-10">
+      <div className="absolute bottom-20 w-full flex flex-col items-start order-2 md:relative md:container md:h-[80dvh] md:mt-70 md:gap-10">
 
-        <div className={cn(internSans.className, "w-full leading-15 md:leading-48 font-black antialiased ")}>
+        <div className={cn(internSans.className, "w-full leading-15 md:leading-32 font-black antialiased ")}>
           
-          <h1 className="absolute text-[79px] md:text-[264px] italic text-secondary-500 tracking-widest left-5 md:hidden">
+          <h1 className="absolute text-[79px] italic text-secondary-500 tracking-widest left-5 md:hidden">
             {PROFILE.firstName}
           </h1>
 
-          <h1 className="text-[100px] md:text-[264px] italic">
+          <h1 className="text-[100px] md:text-[170px] italic">
             {PROFILE.firstName}
           </h1>
 
@@ -103,11 +103,18 @@ export default function HeroSection({ id }: { id?: string}) {
         
       </div>
 
-        <div className="relative md:absolute h-1/2 md:w-1/2 right-0 md:top-50 3xl:top-32 -z-10 order-1">
+        <div className="relative 
+                        order-1 
+                        -z-10 
+                        h-1/2 
+                        right-0
+                        md:absolute
+                        md:h-dvh
+                        ">
           <Image 
             src={BackgroundImage}
             alt="Image 1"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover md:object-fit md:h-3"
           />
         </div>
       <MarqueeSection data={marqueeData} className="absolute bottom-0"/>
