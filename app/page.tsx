@@ -12,8 +12,8 @@ export default function HomePage() {
     <div>
       <SectionMainContainer>
         <HeroSection/>
-        {/* <AboutSection/>
-        <IdeaSection/>
+        <AboutSection/>
+        {/* <IdeaSection/>
         <ContactMeSection/>
         <Footer/> */}
       </SectionMainContainer>

@@ -4,10 +4,6 @@ import BackgroundImage from '/public/image1.png';
 import Button from "@/components/button";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
-import Divider from "@/components/marquee-section";
-import GridPattern from "@/components/grid-pattern";
-import SnapSectionContainer from "@/components/snap-section-container";
-import SnapSection from "@/components/snap-section";
 import MarqueeSection from "@/components/marquee-section";
 import SectionContainer from "@/components/section-container";
 import { PROFILE } from "@/data/profile";
@@ -100,15 +96,13 @@ export default function HeroSection({ id }: { id?: string}) {
         
       </div>
 
-          <div className="absolute w-full top-20">
-           <div className="relative md:absolute h-1/2 md:w-1/2 right-0 md:top-50 3xl:top-32 -z-10 order-1">
-              <Image 
-                src={BackgroundImage}
-                alt="Image 1"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+        <div className="relative md:absolute h-1/2 md:w-1/2 right-0 md:top-50 3xl:top-32 -z-10 order-1">
+          <Image 
+            src={BackgroundImage}
+            alt="Image 1"
+            className="w-full h-full object-cover"
+          />
+        </div>
       <MarqueeSection data={marqueeData} className="absolute bottom-0"/>
     </SectionContainer>
   );
