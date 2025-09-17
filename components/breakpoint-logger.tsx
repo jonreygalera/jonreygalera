@@ -8,6 +8,7 @@ export default function BreakpointLogger() {
   useEffect(() => {
     const logBreakpoint = () => {
       const w = window.innerWidth;
+      const h = window.innerHeight;
       let bp = "base (<480px) 📱 mobile";
 
       if (w >= 7680) bp = "7xl (≥7680px) 🖥️ 8K";
@@ -22,7 +23,7 @@ export default function BreakpointLogger() {
       else if (w >= 640) bp = "sm (≥640px) 📱 big mobile";
       else if (w >= 480) bp = "xs (≥480px) 📱 small mobile";
 
-      setBreakpoint(`${w}px → ${bp}`);
+      setBreakpoint(`${w}px × ${h}px → ${bp}`);
     };
 
     logBreakpoint();
