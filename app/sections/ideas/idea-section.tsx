@@ -28,7 +28,7 @@ export default function IdeaSection() {
           </h1>
         </div>
 
-        <div className="flex flex-col justify-around gap-2 w-full">
+        <div className="flex flex-col justify-around gap-2 w-full xl:!flex-row">
           <CardImage
             onClick={handleOnClickButton} 
             imageSrc={ThumbnailImage}

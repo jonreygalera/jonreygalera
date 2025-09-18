@@ -4,17 +4,24 @@ import Image from "next/image";
 import Link from "next/link";
 import LogoImage from "/public/logo.png";
 import Image4 from "/public/image4.png";
+import Image5 from "/public/image5.png";
 import React from "react";
 import { SOCIAL_ACCOUNTS } from "@/data/social-account";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-200 text-white p-8 text-center relative">
-      <div className="absolute flex inset-0 opacity-45">
+    <footer className="bg-primary-200 text-white p-8 text-center relative xl:h-[197px]">
+      <div className="absolute flex opacity-45 top-0 right-0">
         <Image 
           src={Image4}
           alt="Footer decoration"
-          className="w-auto h-auto"
+          className="w-auto h-auto xl:hidden"
+          priority
+        />
+        <Image 
+          src={Image5}
+          alt="Footer decoration"
+          className="w-auto h-auto hidden xl:block"
           priority
         />
       </div>

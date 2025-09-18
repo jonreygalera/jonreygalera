@@ -15,11 +15,12 @@ const internSans = Inter({
 export default function ContactMeSection() {
 
   return (
-    <SectionContainer id="section-contact" className="md:items-center md:justify-center px-2 mt-15 h-auto mb-10">
+    <SectionContainer id="section-contact" className="px-2 mt-15 h-auto mb-10 md:container md:mx-20">
       <div className="relative flex flex-col">
+
         <div className={cn(internSans.className, "font-black antialiased h-auto flex flex-col justify-center items-center text-center")}>
-          <h3 className="text-[17px] italic">
-            Let's turn your ideas into <TextColor>something amazing</TextColor> - <TextColor>ready when you are!</TextColor>
+          <h3 className="text-[17px] xl:text-[32px] italic">
+            Let's turn your ideas into <TextColor className="xl:bg-transparent xl:text-primary-100">something amazing</TextColor> - <TextColor className="xl:bg-transparent xl:text-primary-100">ready when you are!</TextColor>
           </h3>
         </div>
 
@@ -27,7 +28,7 @@ export default function ContactMeSection() {
           <Image 
             src={BImage3}
             alt="Image 2"
-            className="w-auto h-auto absolute -z-10 -top-22 -right-0"
+            className="w-auto h-auto absolute -z-10 -top-22 -right-0 xl:!relative xl:!z-0 xl:!top-0 xl:!right-0"
             priority
             style={{ objectFit: 'cover' }}
           />
