@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import SectionContainer from "@/components/section-container";
 import ContactForm from "./contact-form";
+import TextColor from "@/components/text-color";
 
 const internSans = Inter({
   variable: "--font-intern-sans",
@@ -18,7 +19,7 @@ export default function ContactMeSection() {
       <div className="relative flex flex-col">
         <div className={cn(internSans.className, "font-black antialiased h-auto flex flex-col justify-center items-center text-center")}>
           <h3 className="text-[17px] italic">
-            Let's turn your ideas into <span className="text-secondary-500 bg-primary-100 px-1 rounded">something amazing</span> - <span className="text-secondary-500 bg-primary-100 px-1 rounded">ready when you are!</span>
+            Let's turn your ideas into <TextColor>something amazing</TextColor> - <TextColor>ready when you are!</TextColor>
           </h3>
         </div>
 

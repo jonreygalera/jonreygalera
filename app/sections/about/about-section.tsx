@@ -15,7 +15,7 @@ const internSans = Inter({
 export default function AboutSection() {
 
   return (
-    <SectionContainer id="section-about" className="md:items-center md:justify-center px-2 h-auto">
+    <SectionContainer id="section-about" className="md:items-center md:justify-center px-2 h-auto md:mt-10">
       <div className="relative container flex flex-col">
 
         <div className={cn(internSans.className, "font-black antialiased")}>
@@ -24,29 +24,27 @@ export default function AboutSection() {
           </h1>
         </div>
 
-        <div className="">
-          <div className="mt-6 w-full px-1">
-            <p className="text-2xl">Software engineer with 5+ years experience building modern web applications. 
-            Specializing in ReactJS, Laravel, and Docker to deliver efficient, scalable solutions.
-            </p>
-            <div className="flex my-10">
-              <Image 
-                src={BImage2}
-                alt="Image 2"
-                className="w-auto h-auto"
-                priority
-                style={{ objectFit: 'cover' }}
-              />
-              <div className={cn(internSans.className, "antialiased")}>
-                <Hobbies/>
-              </div>
+        <div className="mt-6 w-full px-1 bg-red-50">
+          <p className="text-2xl">Software engineer with 5+ years experience building modern web applications. 
+          Specializing in ReactJS, Laravel, and Docker to deliver efficient, scalable solutions.
+          </p>
+          <div className="flex my-10">
+            <Image 
+              src={BImage2}
+              alt="Image 2"
+              className="w-auto h-auto"
+              priority
+              style={{ objectFit: 'cover' }}
+            />
+            <div className={cn(internSans.className, "antialiased")}>
+              <Hobbies/>
             </div>
-            
-            <p className="text-xl">
-              Passionate about AI automation and creator of <a href="https://github.com/jonreygalera/prompts" target="__blank" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Prompts for LLM</a>.
-              Currently exploring AI Agent Automation to bridge software engineering with data-driven systems.
-            </p>
           </div>
+          
+          <p className="text-xl">
+            Passionate about AI automation and creator of <a href="https://github.com/jonreygalera/prompts" target="__blank" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Prompts for LLM</a>.
+            Currently exploring AI Agent Automation to bridge software engineering with data-driven systems.
+          </p>
         </div>
       </div>
     </SectionContainer>
