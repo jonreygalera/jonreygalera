@@ -21,7 +21,7 @@ export default function Footer() {
         <Image 
           src={Image5}
           alt="Footer decoration"
-          className="w-auto h-auto hidden xl:block"
+          className="w-auto h-auto hidden xl:block xl:!h-[394px]"
           priority
         />
       </div>

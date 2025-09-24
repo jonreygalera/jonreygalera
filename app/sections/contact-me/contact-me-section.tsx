@@ -15,7 +15,7 @@ const internSans = Inter({
 export default function ContactMeSection() {
 
   return (
-    <SectionContainer id="section-contact" className="px-2 mt-15 h-auto mb-10 md:container md:!mx-20 3xl:!mx-0">
+    <SectionContainer id="section-contact" className="px-2 mt-15 h-auto mb-10 xl:!px-25">
       <div className="relative flex flex-col">
 
         <div className={cn(internSans.className, "font-black antialiased h-auto flex flex-col justify-center items-center text-center")}>
@@ -24,7 +24,7 @@ export default function ContactMeSection() {
           </h3>
         </div>
 
-        <div className="flex relative">
+        <div className="flex relative xl:container">
           <Image 
             src={BImage3}
             alt="Image 2"
@@ -33,7 +33,7 @@ export default function ContactMeSection() {
             style={{ objectFit: 'cover' }}
           />
 
-          <div className="w-full mt-8">
+          <div className="w-full mt-8 xl:!w-1/2">
             <ContactForm id="section-contact-form"/>
           </div>
 
