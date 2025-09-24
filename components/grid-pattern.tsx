@@ -10,7 +10,7 @@ export default function GridPattern({ children }: { children: React.ReactNode })
           lg:bg-orange-300
           xl:bg-transparent
           2xl:bg-amber-300
-          3xl:bg-red-300"
+          3xl:bg-transparent"
         style={{
           backgroundImage: `
             linear-gradient(to right, #e5e7eb 1px, transparent 1px),
