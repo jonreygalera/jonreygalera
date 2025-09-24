@@ -53,9 +53,9 @@ export default function HeroSection({ id }: { id?: string}) {
   return (
     <SectionContainer id={'section-hero'} className="md:items-center md:justify-center">
 
-      <div className="absolute bottom-20 w-full flex flex-col items-start order-2 md:relative md:container md:h-[80dvh] md:mt-70 md:gap-10">
+      <div className="absolute bottom-20 w-full flex flex-col items-start order-2 md:!relative md:!container md:h-[80dvh] md:mt-70 md:gap-10 3xl:px-75">
 
-        <div className={cn(internSans.className, "w-full leading-15 md:leading-32 font-black antialiased ")}>
+        <div className={cn(internSans.className, "w-full leading-15 md:leading-32 font-black antialiased")}>
           
           <h1 className="absolute text-[79px] italic text-secondary-500 tracking-widest left-5 md:hidden">
             {PROFILE.firstName}

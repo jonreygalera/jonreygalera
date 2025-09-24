@@ -10,7 +10,7 @@ import { SOCIAL_ACCOUNTS } from "@/data/social-account";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-200 text-white p-8 text-center relative xl:h-[197px]">
+    <footer className="bg-primary-200 text-white p-8 text-center relative xl:h-[197px] 3xl:!h-[394px]">
       <div className="absolute flex opacity-45 top-0 right-0">
         <Image 
           src={Image4}
