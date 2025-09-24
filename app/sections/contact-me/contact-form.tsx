@@ -14,13 +14,13 @@ export default function ContactForm(props: React.HTMLAttributes<HTMLFormElement>
     };
 
     try {
-      const mailtoLink = `mailto:your-email@gmail.com?subject=Message from ${data.name}&body=${encodeURIComponent(data.message as string)}%0A%0AFrom: ${data.name}%0AEmail: ${data.email}`;
+      const mailtoLink = `mailto:jonreygalera@gmail.com?subject=Message from ${data.name}&body=${encodeURIComponent(data.message as string)}%0A%0AFrom: ${data.name}%0AEmail: ${data.email}`;
       window.open(mailtoLink, '_blank');
       
       alert('Opening email client in new tab...');
       e.currentTarget.reset();
     } catch (error) {
-      alert('Error preparing email. Please try again or contact me directly at your-email@gmail.com');
+      alert('Error preparing email. Please try again or contact me directly at jonreygalera@gmail.com');
     }
   };
 
@@ -58,7 +58,7 @@ export default function ContactForm(props: React.HTMLAttributes<HTMLFormElement>
       </div>
 
       <div className="flex justify-center">
-        <Button type="submit" className="w-full">SUBMIT</Button>
+        <Button type="submit" className="w-full md:!w-40">SUBMIT</Button>
       </div>
     </form>
   );

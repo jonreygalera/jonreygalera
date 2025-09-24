@@ -38,7 +38,7 @@ export default function CardImage({
   };
 
   return (
-    <div className={cn(containerClass, "flex flex-col justify-center rounded-lg shadow-sm border-2 border-primary-100 bg-white relative")}>
+    <div className={cn(containerClass, "flex flex-col justify-center rounded-lg shadow-sm border-2 border-primary-100 bg-white relative xl:min-w-[400px] xl:max-w-[400px]")}>
       <Grid1Pattern/>
       <Link href={linkHref} className="absoulute p-8 z-10">
         <Image 

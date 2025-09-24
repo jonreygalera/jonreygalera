@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from "@/lib/utils";
 import { 
   Code2, 
   BookOpen, 
@@ -49,9 +50,9 @@ const DATA_HOBBIES = [
   }
 ];
 
-export default function Hobbies() {
+export default function Hobbies({ className }: { className?: string }) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className={cn("flex flex-col gap-4", className)}>
       <h1 className="text-[30px] font-black italic">
         {"Hobbies"}
       </h1>
