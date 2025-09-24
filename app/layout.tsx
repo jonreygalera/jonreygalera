@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${lexendSans.className} antialiased`}
       >
         <GridPattern>
-          <div className="block sm:hidden xl:block 2xl:!hidden 3xl:!block">
+          <div className="block sm:hidden xl:block">
             <NavBar/>
             {children}
           </div>
