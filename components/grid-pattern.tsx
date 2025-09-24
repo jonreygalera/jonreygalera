@@ -9,7 +9,7 @@ export default function GridPattern({ children }: { children: React.ReactNode })
           md:bg-green-300
           lg:bg-orange-300
           xl:bg-transparent
-          2xl:bg-amber-300
+          2xl:bg-transparent
           3xl:bg-transparent"
         style={{
           backgroundImage: `
