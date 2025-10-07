@@ -6,6 +6,6 @@ export const PROFILE : IProfile = {
   dateStarted: '',
   resume: {
     type:  "link",
-    url:  "https://drive.google.com/file/d/12XEvUsQx-21NkNkHFM5aolYDvkTbK_rv/view?usp=sharing"
+    url:  "https://drive.google.com/file/d/16qiyoyIfhW0vOEsPRaC1fdFP5Q5jNEV-/view?usp=sharing"
   }
 } 
