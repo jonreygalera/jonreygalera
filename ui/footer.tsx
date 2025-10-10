@@ -36,7 +36,7 @@ export default function Footer() {
         </Link>
         <p>Building the future, one line of code at a time</p>
         <p>© {new Date().getFullYear()} All Rights Reserved</p>
-        <div className="flex justify-center gap-4 mt-4">
+        <div className="flex justify-center gap-4 mt-4 z-50" id="footer">
           {SOCIAL_ACCOUNTS.map((social) => (
             <Link 
               key={social.platform}

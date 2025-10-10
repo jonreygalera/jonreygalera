@@ -19,6 +19,13 @@ export default function IdeaSection() {
     alert('Button clicked');
   };
 
+  const handleOnClickHobbiesAndProjects = () => {
+    const element = document.getElementById('footer');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   return (
     <SectionContainer id="section-ideas" className="md:items-center md:justify-center px-2 h-auto">
       <div className="relative container flex flex-col">
@@ -50,7 +57,7 @@ export default function IdeaSection() {
           />
 
           <CardImage
-            onClick={handleOnClickButton} 
+            onClick={handleOnClickHobbiesAndProjects} 
             imageSrc={ThumbnailImage}
             imageAlt="Hobbies & Personal Projects"
             title="Hobbies & Personal Projects"
