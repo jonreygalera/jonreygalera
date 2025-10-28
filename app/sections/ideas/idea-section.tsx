@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import SnapSection from "@/components/snap-section";
 import SectionContainer from "@/components/section-container";
 import CardImage from "@/components/card-image";
+import { PROFILE } from "@/data/profile";
 
 const internSans = Inter({
   variable: "--font-intern-sans",
@@ -18,6 +19,10 @@ export default function IdeaSection() {
     // Temporary button click handler
     alert('Button clicked');
   };
+  
+  const handleOnClickAIAgenProject = () => {
+    window.open(PROFILE.ideas?.link2, '_blank');
+  }
 
   const handleOnClickHobbiesAndProjects = () => {
     const element = document.getElementById('footer');
@@ -47,7 +52,7 @@ export default function IdeaSection() {
           />
 
           <CardImage
-            onClick={handleOnClickButton} 
+            onClick={handleOnClickAIAgenProject} 
             imageSrc={ThumbnailImage}
             imageAlt="AI Agent"
             title="AI Agent"
