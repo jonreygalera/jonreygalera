@@ -143,7 +143,7 @@ export const PROJECTS: Project[] = [
     status: "Active",
     version: "v1",
     company: "NMS Philippines",
-    description: "FL examination features and bulk email notification system.",
+    description: "A specialized payroll and examination platform for freelancers, featuring automated bulk email notifications and streamlined financial workflows.",
     icon: FileText,
     connectedTools: [
       { name: "Kohana" }, { name: "MySQL" }, { name: "JS" }
