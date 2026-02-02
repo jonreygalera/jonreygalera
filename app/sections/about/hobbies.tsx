@@ -8,7 +8,8 @@ import {
   Gamepad2, 
   Bike,
   ChefHat,
-  Coffee
+  Coffee,
+  Camera
 } from "lucide-react";
 import React from "react";
 
@@ -47,6 +48,11 @@ const DATA_HOBBIES = [
     name: "Coffee",
     icon: Coffee,
     description: "Exploring specialty coffee"
+  },
+  {
+    name: "Photography",
+    icon: Camera,
+    description: "Capturing moments and exploring visual storytelling"
   }
 ];
 

@@ -6,9 +6,13 @@ import Image from "next/image";
 import ButtonAnim from "./button-anim";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  const isTechDesignPage = pathname === '/tech-design';
   const [scrolled, setScrolled] = useState(false);
 
   // Handle scroll effect for navbar background
@@ -22,6 +26,12 @@ export default function NavBar() {
 
   const handleOnClickSectionItem = (section: string) => {
     setIsMenuOpen(false); // Close menu on click
+
+    if (pathname !== '/') {
+      router.push(`/#${section}`);
+      return;
+    }
+
     const sectionItem = document.getElementById(section);
     if (sectionItem) {
       // Offset for fixed header
@@ -36,10 +46,11 @@ export default function NavBar() {
     }
   }
 
-  const navLinks = [
+  const navLinks: { name: string; section?: string; path?: string }[] = [
     { name: "Home", section: "section-hero" },
     { name: "About", section: "section-about" },
     { name: "Ideas", section: "section-ideas" },
+    { name: "Projects", path: "/projects" },
   ];
 
   return (
@@ -62,8 +73,15 @@ export default function NavBar() {
         </Link>
 
         {/* Mobile Toggle & CTA */}
-        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center">
-          <div className="hidden md:block">
+        {/* Mobile Toggle & CTA */}
+        <div className="flex md:order-2 space-x-3 md:space-x-4 rtl:space-x-reverse items-center">
+          <div className="hidden md:flex items-center gap-4">
+             <Link
+              href="/tech-design"
+              className="text-sm font-medium text-secondary-100/70 hover:text-secondary-400 transition-colors duration-200"
+            >
+              Tech & Design
+            </Link>
             <ButtonAnim onClick={() => handleOnClickSectionItem('section-contact')} />
           </div>
 
@@ -84,23 +102,35 @@ export default function NavBar() {
         </div>
 
         {/* Desktop Menu */}
+        {/* Desktop Menu */}
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0">
             {navLinks.map((link) => (
               <li key={link.name}>
-                <button
-                  onClick={() => handleOnClickSectionItem(link.section)}
-                  className="block py-2 px-3 text-secondary-100/70 hover:text-secondary-400 md:p-0 transition-colors duration-200 relative group text-lg cursor-pointer"
-                >
-                  {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary-400 transition-all duration-300 group-hover:w-full"></span>
-                </button>
+                {link.path ? (
+                  <Link
+                    href={link.path}
+                    className="block py-2 px-3 text-secondary-100/70 hover:text-secondary-400 md:p-0 transition-colors duration-200 relative group text-lg cursor-pointer"
+                  >
+                    {link.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary-400 transition-all duration-300 group-hover:w-full"></span>
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => handleOnClickSectionItem(link.section!)}
+                    className="block py-2 px-3 text-secondary-100/70 hover:text-secondary-400 md:p-0 transition-colors duration-200 relative group text-lg cursor-pointer"
+                  >
+                    {link.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary-400 transition-all duration-300 group-hover:w-full"></span>
+                  </button>
+                )}
               </li>
             ))}
           </ul>
         </div>
       </div>
 
+      {/* Mobile Menu Overlay */}
       {/* Mobile Menu Overlay */}
       <div className={cn(
         "fixed inset-0 bg-primary-100/95 backdrop-blur-xl z-40 md:hidden transition-all duration-300 flex flex-col items-center justify-center space-y-8",
@@ -109,14 +139,33 @@ export default function NavBar() {
         <ul className="flex flex-col items-center space-y-6 text-center">
           {navLinks.map((link) => (
             <li key={link.name}>
-              <button
-                onClick={() => handleOnClickSectionItem(link.section)}
-                className="text-2xl font-bold text-white hover:text-secondary-400 transition-colors"
-              >
-                {link.name}
-              </button>
+                {link.path ? (
+                  <Link
+                    href={link.path}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-2xl font-bold text-white hover:text-secondary-400 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => handleOnClickSectionItem(link.section!)}
+                    className="text-2xl font-bold text-white hover:text-secondary-400 transition-colors"
+                  >
+                    {link.name}
+                  </button>
+                )}
             </li>
           ))}
+           <li>
+              <Link
+                href="/tech-design"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-2xl font-bold text-white hover:text-secondary-400 transition-colors"
+              >
+                Tech & Design
+              </Link>
+           </li>
           <li>
             <div className="mt-4" onClick={() => setIsMenuOpen(false)}>
               <ButtonAnim onClick={() => handleOnClickSectionItem('section-contact')} />

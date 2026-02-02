@@ -10,6 +10,7 @@ import { PROFILE } from "@/data/profile";
 import React, { useState } from "react";
 import Link from "next/link";
 import { SOCIAL_ACCOUNTS } from "@/data/social-account";
+import { useRouter } from "next/navigation";
 
 const internSans = Inter({
   variable: "--font-intern-sans",
@@ -48,10 +49,11 @@ const Modal = ({ isOpen, onClose, title, children }: { isOpen: boolean; onClose:
 };
 
 export default function IdeaSection() {
+  const router = useRouter();
   const [isUnderConstructionOpen, setIsUnderConstructionOpen] = useState(false);
   const [isSocialOpen, setIsSocialOpen] = useState(false);
 
-  const handleOnClickButton = () => setIsUnderConstructionOpen(true);
+  const handleVisitProjects = () => router.push('/projects');
   const handleOnClickAIAgenProject = () => window.open(PROFILE.ideas?.link2, '_blank');
   const handleOnClickHobbiesAndProjects = () => setIsSocialOpen(true);
 
@@ -66,12 +68,12 @@ export default function IdeaSection() {
 
         <div className="flex flex-col justify-around gap-2 w-full xl:!flex-row">
           <CardImage
-            onClick={handleOnClickButton} 
+            onClick={handleVisitProjects} 
             imageSrc={ThumbnailImage}
             imageAlt="Project"
             title="Project"
             description="A comprehensive web application with experimental features for modern development workflows"
-            linkHref=""
+            linkHref="/projects"
             linkText="Visit Project"
           />
 
