@@ -3,8 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import LogoImage from "/public/logo.png";
-import Image4 from "/public/image4.png";
-import Image5 from "/public/image5.png";
+import Image4 from "/public/image4.webp";
+import Image5 from "/public/image5.webp";
 import React from "react";
 import { SOCIAL_ACCOUNTS } from "@/data/social-account";
 

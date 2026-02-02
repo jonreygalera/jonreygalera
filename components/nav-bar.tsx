@@ -1,65 +1,128 @@
 'use client';
+
 import Link from "next/link";
 import LogoImage from "/public/logo.png";
 import Image from "next/image";
 import ButtonAnim from "./button-anim";
-import Button from "./button";
+import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 
 export default function NavBar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll effect for navbar background
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleOnClickSectionItem = (section: string) => {
+    setIsMenuOpen(false); // Close menu on click
     const sectionItem = document.getElementById(section);
-      if (sectionItem) {
-        sectionItem.scrollIntoView({ behavior: 'smooth' });
-      }
+    if (sectionItem) {
+      // Offset for fixed header
+      const headerOffset = 80;
+      const elementPosition = sectionItem.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
   }
 
-  return (
-    <nav className="bg-primary-200 fixed w-full z-20 top-0 start-0">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <div className="flex items-center">
-          <Link href="/">
-            <Image 
-              src={LogoImage} 
-              alt="Jon Rey Galera"
-              className="sm:h-8 w-auto md:h-10"
-              priority
-            />
-          </Link>
-        </div>
+  const navLinks = [
+    { name: "Home", section: "section-hero" },
+    { name: "About", section: "section-about" },
+    { name: "Ideas", section: "section-ideas" },
+  ];
 
-      <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        {/* <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center cursor-pointer">Get started</button> */}
-          <ButtonAnim  onClick={() => handleOnClickSectionItem('section-contact')}/>
-          <button 
-            data-collapse-toggle="navbar-sticky" 
-            type="button" 
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" 
-            aria-controls="navbar-sticky" 
-            aria-expanded="false"
+  return (
+    <nav className={cn(
+      "fixed w-full z-50 top-0 start-0 transition-all duration-300 bg-primary-200",
+      scrolled
+        ? "py-2"
+        : "py-4"
+    )}>
+      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-4 sm:px-6 lg:px-8">
+
+        {/* Logo */}
+        <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse z-50 cursor-pointer">
+          <Image
+            src={LogoImage}
+            alt="Jon Rey Galera"
+            className="h-10 w-auto hover:scale-105 transition-transform duration-300"
+            priority
+          />
+        </Link>
+
+        {/* Mobile Toggle & CTA */}
+        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center">
+          <div className="hidden md:block">
+            <ButtonAnim onClick={() => handleOnClickSectionItem('section-contact')} />
+          </div>
+
+          <button
+            type="button"
+            className="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-400 rounded-lg md:hidden hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-controls="navbar-sticky"
+            aria-expanded={isMenuOpen}
           >
             <span className="sr-only">Open main menu</span>
-            <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
-            </svg>
-        </button>
+            <div className="w-6 h-6 flex flex-col justify-center items-center gap-1.5 relative">
+              <span className={cn("block w-full h-0.5 bg-current transition-all duration-300", isMenuOpen ? "rotate-45 translate-y-2" : "")} />
+              <span className={cn("block w-full h-0.5 bg-current transition-all duration-300", isMenuOpen ? "opacity-0" : "")} />
+              <span className={cn("block w-full h-0.5 bg-current transition-all duration-300", isMenuOpen ? "-rotate-45 -translate-y-2" : "")} />
+            </div>
+          </button>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <button
+                  onClick={() => handleOnClickSectionItem(link.section)}
+                  className="block py-2 px-3 text-secondary-100/70 hover:text-secondary-400 md:p-0 transition-colors duration-200 relative group text-lg cursor-pointer"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary-400 transition-all duration-300 group-hover:w-full"></span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-      <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-        <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0">
+
+      {/* Mobile Menu Overlay */}
+      <div className={cn(
+        "fixed inset-0 bg-primary-100/95 backdrop-blur-xl z-40 md:hidden transition-all duration-300 flex flex-col items-center justify-center space-y-8",
+        isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+      )}>
+        <ul className="flex flex-col items-center space-y-6 text-center">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <button
+                onClick={() => handleOnClickSectionItem(link.section)}
+                className="text-2xl font-bold text-white hover:text-secondary-400 transition-colors"
+              >
+                {link.name}
+              </button>
+            </li>
+          ))}
           <li>
-            <Button link={true} onClick={() => handleOnClickSectionItem('section-hero')}>Home</Button>
-          </li>
-          <li>
-            <Button link={true} onClick={() => handleOnClickSectionItem('section-about')}>About</Button>
-          </li>
-          {/* <li>
-            <Button link={true} onClick={() => handleOnClickSectionItem('section-contact')} >Services</Button>
-          </li> */}
-          <li>
-            <Button link={true} onClick={() => handleOnClickSectionItem('section-ideas')}>Ideas</Button>
+            <div className="mt-4" onClick={() => setIsMenuOpen(false)}>
+              <ButtonAnim onClick={() => handleOnClickSectionItem('section-contact')} />
+            </div>
           </li>
         </ul>
-      </div>
       </div>
     </nav>
   );

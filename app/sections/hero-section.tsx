@@ -1,13 +1,13 @@
 'use client';
+
 import Image from "next/image";
-import BackgroundImage from '/public/image1.png';
+import BackgroundImage from '/public/image1.webp';
 import Button from "@/components/button";
 import { Inter } from "next/font/google";
-import { cn } from "@/lib/utils";
 import MarqueeSection from "@/components/marquee-section";
 import SectionContainer from "@/components/section-container";
 import { PROFILE } from "@/data/profile";
-import TextColor from "@/components/text-color";
+import { cn } from "@/lib/utils";
 
 const marqueeData = [
   "• develop",
@@ -20,7 +20,6 @@ const marqueeData = [
   "• let's build something amazing •",
   "• available for freelance work •"
 ];
-
 const internSans = Inter({
   variable: "--font-intern-sans",
   subsets: ["latin"],
@@ -40,7 +39,6 @@ export default function HeroSection({ id }: { id?: string}) {
     } else {
       window.open(PROFILE.resume.url, '_blank');
     }
-
   };
 
   const handleHireMeClick = () => {
@@ -51,74 +49,52 @@ export default function HeroSection({ id }: { id?: string}) {
   };
 
   return (
-    <SectionContainer id={'section-hero'} className="md:items-center md:justify-center">
-
-      <div className="absolute bottom-20 w-full flex flex-col items-start order-2 md:!relative md:!container md:h-[80dvh] md:mt-70 md:gap-10 2xl:px-25 3xl:px-75">
-
-        <div className={cn(internSans.className, "w-full leading-15 md:leading-32 font-black antialiased")}>
-          
-          <h1 className="absolute text-[79px] italic text-secondary-500 tracking-widest left-5 md:hidden">
-            {PROFILE.firstName}
-          </h1>
-
-          <h1 className="text-[100px] md:text-[170px] italic">
-            {PROFILE.firstName}
-          </h1>
-
-          <h1 className="text-[50px] md:text-6xl italic tracking-widest">
-            {PROFILE.lastName}
-          </h1>
-        </div>
-
-        <div className="flex flex-col gap-2 w-full xl:!w-auto">
-          
-          <div className="w-full bg-white relative px-1 xl:!w-auto xl:!bg-transparent">
-            <div
-              className="absolute inset-0 z-0 xl:w-[100px] xl:!hidden"
-              style={{
-                backgroundImage: `
-                  linear-gradient(to right, #d1d5db 1px, transparent 1px),
-                  linear-gradient(to bottom, #d1d5db 1px, transparent 1px)
-                `,
-                backgroundSize: "32px 32px",
-                WebkitMaskImage:
-                  "radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)",
-                maskImage:
-                  "radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)",
-              }}
+    <SectionContainer id={'section-hero'} className="relative overflow-hidden flex flex-col justify-center items-center py-20 md:py-0">
+      
+      {/* Background Graphic */}
+      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+         <div className="absolute right-0 bottom-0 w-full h-full md:w-1/2 md:h-full opacity-20 md:opacity-100 md:grayscale-0 md:blur-0 grayscale-[50%] blur-[2px]">
+            <Image 
+              src={BackgroundImage}
+              alt="Background"
+              fill
+              className="object-cover object-bottom"
+              priority
             />
-            <p className="mt-6 sm:max-w-xl text-2xl ">
-              I bring together creativity, logic, and empathy to build beautiful and functional products. The future of code is a step toward <TextColor>better</TextColor>, <TextColor>smarter</TextColor>, and <TextColor>more human-centric experiences</TextColor>.
-            </p>
-          </div>
-
-          <div className="mt-8 flex space-x-4 px-2">
-            <Button className="w-full xl:!w-auto" onClick={handleHireMeClick}>
-              HIRE ME
-            </Button>
-            <Button className="w-full xl:!w-auto" onClick={handleViewResume}>
-              VIEW RESUME
-            </Button>
-          </div>
-        </div>
-        
+             <div className="absolute inset-0 bg-gradient-to-t from-secondary-50 via-transparent to-transparent md:hidden" />
+             <div className="absolute inset-0 bg-gradient-to-r from-secondary-50 via-transparent to-transparent md:hidden" />
+         </div>
       </div>
 
-        <div className="relative 
-                        order-1 
-                        -z-10 
-                        h-1/2 
-                        right-0
-                        md:absolute
-                        md:h-dvh
-                        ">
-          <Image 
-            src={BackgroundImage}
-            alt="Image 1"
-            className="w-full h-full object-cover md:object-fit md:h-3"
-          />
+      <div className="container mx-auto px-4 z-10 flex flex-col items-center md:items-start md:pl-20 2xl:pl-40 gap-8">
+        
+        <div className={cn(internSans.className, "flex flex-col items-center md:items-start")}>
+           <h1 className="text-[120px] leading-none md:text-[200px] font-black italic text-primary-100  tracking-tighter  select-none">
+            {PROFILE.firstName}
+           </h1>
+           <h1 className="text-[50px] leading-tight md:text-6xl italic text-primary-100 -mt-4 md:-mt-10 tracking-widest select-none">
+            {PROFILE.lastName}
+           </h1>
         </div>
-      <MarqueeSection data={marqueeData} className="absolute bottom-0"/>
+
+        <div className="max-w-2xl text-center md:text-left">
+           <p className="text-xl md:text-2xl text-primary-500 font-light leading-relaxed">
+             I bring together <span className="font-semibold text-secondary-600">creativity</span>, <span className="font-semibold text-secondary-600">logic</span>, and <span className="font-semibold text-secondary-600">empathy</span> to build beautiful products.
+           </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-6 mt-4 w-full md:w-auto">
+             <Button onClick={handleHireMeClick} >
+               HIRE ME
+             </Button>
+             <Button onClick={handleViewResume} >
+               VIEW RESUME
+             </Button>
+        </div>
+
+      </div>
+
+      <MarqueeSection data={marqueeData} className="absolute bottom-0 w-full bg-primary-100/90 backdrop-blur-sm text-secondary-50 border-t border-white/10 shadow-2xl"/>
     </SectionContainer>
   );
 }
