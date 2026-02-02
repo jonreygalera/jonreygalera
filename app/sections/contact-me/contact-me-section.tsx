@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import BImage3 from '/public/image3.png';
+import BImage3 from '/public/image3.webp';
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import SectionContainer from "@/components/section-container";

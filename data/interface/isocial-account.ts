@@ -5,4 +5,5 @@ export default interface ISocialAccount {
   platform: string;
   icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>
   url: string;
+  description?: string;
 }

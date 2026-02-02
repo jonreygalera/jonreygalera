@@ -14,7 +14,7 @@ export default function SectionMainContainer(props: SectionMainContainerProps) {
   return (
     <div {...others} className={
       cn(others.className, 
-      "h-screen w-screen")}
+      "min-h-screen w-full relative")}
     >
       { children }
     </div>

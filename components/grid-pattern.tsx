@@ -1,25 +1,19 @@
 "use client";
-export default function GridPattern({ children }: { children: React.ReactNode }) {
+
+import { cn } from "@/lib/utils";
+
+export default function GridPattern({ children, className }: { children: React.ReactNode, className?: string }) {
   return (
-    <div className="relative min-h-screen w-full">
-      {/* Grid Background */}
+    <div className={cn("relative min-h-screen w-full selection:bg-primary-500/30", className)}>
       <div
-        className="fixed inset-0 -z-10 min-h-screen w-full
-          sm:bg-blue-300
-          md:bg-green-300
-          lg:bg-orange-300
-          xl:bg-transparent
-          2xl:bg-transparent
-          3xl:bg-transparent"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #e5e7eb 1px, transparent 1px),
-            linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-        }}
+        className="fixed inset-0 -z-10 h-full w-full bg-secondary-50
+        [background-image:linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] 
+        [background-size:24px_24px] 
+        [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
       />
-      {children}
+      <div className="relative z-0">
+         {children}
+      </div>
     </div>
   );
 }

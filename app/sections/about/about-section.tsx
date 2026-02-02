@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import BImage2 from '/public/image2.png';
+import BImage2 from '/public/image2.webp';
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import SnapSection from "@/components/snap-section";

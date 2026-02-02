@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
-import BreakpointLogger from "@/components/breakpoint-logger";
 import NavBar from "@/components/nav-bar";
 import GridPattern from "@/components/grid-pattern";
-import UnderConstruction from "@/ui/under-construction";
 
 const lexendSans = Lexend({
   variable: "--font-lexend-sans",
@@ -22,24 +20,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-      </head>
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${lexendSans.className} antialiased`}
+        className={`${lexendSans.className} antialiased text-primary-100 bg-secondary-50 selection:bg-secondary-200 selection:text-primary-100`}
       >
         <GridPattern>
-          <div className="block sm:hidden xl:block">
-            <NavBar/>
-            {children}
-          </div>
-
-          <UnderConstruction/>
-          <BreakpointLogger/>
+          <NavBar/>
+          <main className="flex flex-col min-h-screen">
+             {children}
+          </main>
         </GridPattern>
-        
-        <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" async/>
       </body>
     </html>
   );

@@ -16,9 +16,8 @@ export default function SectionContainer(props: SectionContainerProps) {
     <div
       id={id}
       className={cn(
-        "h-dvh w-screen",
-        others?.className,
-        "flex flex-col"
+        "min-h-screen w-full relative flex flex-col",
+        others?.className
       )}
     >
       { children }
