@@ -126,8 +126,8 @@ export default function TimelinePage() {
                    {/* Year Marker on Timeline Line */}
                    <span className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-primary-300 ring-4 ring-secondary-50"></span>
 
-                  {groupedPosts[year].map((post) => (
-                    <article key={post.id} className="relative group">
+                  {groupedPosts[year].map((post, idx) => (
+                    <article key={`article-${year}-${idx}`} className="relative group">
                        
                        {/* Timeline Dot for Post */}
                        <div className="absolute -left-[35px] md:-left-[51px] top-2 h-4 w-4 rounded-full border-2 border-secondary-50 bg-primary-200 transition-colors duration-300 group-hover:bg-secondary-500 z-10 hover:scale-125 hover:shadow-md" />
