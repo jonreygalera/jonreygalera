@@ -51,6 +51,7 @@ export default function NavBar() {
     { name: "About", section: "section-about" },
     { name: "Ideas", section: "section-ideas" },
     { name: "Projects", path: "/projects" },
+    { name: "Timeline", path: "/timeline" },
   ];
 
   return (
