@@ -2,26 +2,15 @@ import { TimelinePost } from "../timeline";
 
 const timeline : TimelinePost[] = [
     {
-        id: '2',
-        title: 'Leading iTEaCH: A Mobile Learning App with Computer Vision',
+        id: '6',
+        title: 'Developing and Maintaining Legacy HRapps at NMS Philippines',
         date: '2019',
         fullDate: '2019',
-        description: 'Thesis project where I led the team to develop an Android app for kids learning using shape and color recognition.',
-        slug: 'leading-iteach-mobile-learning-app',
-        tags: ['Thesis', 'Team Lead', 'Android', 'Java', 'OpenCV'],
-        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2019/leading-iteach-mobile-learning-app.md',
-        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/leading-iteach-mobile-learning-app.md'
-    },
-    {
-        id: '3',
-        title: 'Showcasing Skills Through a Blog Project at NMS Philippines',
-        date: '2019',
-        fullDate: '2019',
-        description: 'Training project where I created a blog post system using Laravel, which helped me land a development role.',
-        slug: 'blog-project-nms-philippines',
-        tags: ['Work', 'Training', 'Laravel', 'PHP', 'MySQL'],
-        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2019/blog-project-nms-philippines.md',
-        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/blog-project-nms-philippines.md'
+        description: 'Worked as a junior developer on Legacy HRapps, creating new features, maintaining the system, and making development decisions under guidance.',
+        slug: 'legacy-hrapps-nms-philippines',
+        tags: ['Work', 'Junior Developer', 'CodeIgniter', 'MySQL', 'jQuery', 'Mentorship'],
+        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2019/legacy-hrapps-nms-philippines.md',
+        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/legacy-hrapps-nms-philippines.md'
     },
     {
         id: '4',
@@ -46,15 +35,26 @@ const timeline : TimelinePost[] = [
         githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/flai-development-nms-philippines.md'
     },
     {
-        id: '6',
-        title: 'Developing and Maintaining Legacy HRapps at NMS Philippines',
+        id: '3',
+        title: 'Showcasing Skills Through a Blog Project at NMS Philippines',
         date: '2019',
         fullDate: '2019',
-        description: 'Worked as a junior developer on Legacy HRapps, creating new features, maintaining the system, and making development decisions under guidance.',
-        slug: 'legacy-hrapps-nms-philippines',
-        tags: ['Work', 'Junior Developer', 'CodeIgniter', 'MySQL', 'jQuery', 'Mentorship'],
-        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2019/legacy-hrapps-nms-philippines.md',
-        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/legacy-hrapps-nms-philippines.md'
+        description: 'Training project where I created a blog post system using Laravel, which helped me land a development role.',
+        slug: 'blog-project-nms-philippines',
+        tags: ['Work', 'Training', 'Laravel', 'PHP', 'MySQL'],
+        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2019/blog-project-nms-philippines.md',
+        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/blog-project-nms-philippines.md'
+    },
+    {
+        id: '2',
+        title: 'Leading iTEaCH: A Mobile Learning App with Computer Vision',
+        date: '2019',
+        fullDate: '2019',
+        description: 'Thesis project where I led the team to develop an Android app for kids learning using shape and color recognition.',
+        slug: 'leading-iteach-mobile-learning-app',
+        tags: ['Thesis', 'Team Lead', 'Android', 'Java', 'OpenCV'],
+        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2019/leading-iteach-mobile-learning-app.md',
+        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/leading-iteach-mobile-learning-app.md'
     }
 ];
 
