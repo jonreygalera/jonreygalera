@@ -19,7 +19,7 @@ const timeline : TimelinePost[] = [
         fullDate: '2020',
         description: 'Developed a system to automate scheduled bot replies, improving messaging efficiency and reliability.',
         slug: 'dailysteam-automation-system',
-        tags: ['Work', 'Node.js', 'Express.js', 'Redis', 'Automation', 'Backend'],
+        tags: ['Node.js', 'Express.js', 'Redis', 'Automation'],
         githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2020/dailysteam-automation-system.md',
         githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2020/dailysteam-automation-system.md'
     },
@@ -30,7 +30,7 @@ const timeline : TimelinePost[] = [
         fullDate: '2020',
         description: 'Main developer for building and maintaining a backend watcher system for IMv3 messaging app, tracking conversation status and ensuring reliability.',
         slug: 'imv3-watcher-backend',
-        tags: ['Work', 'Node.js', 'Express.js', 'Messaging', 'Backend', 'Monitoring'],
+        tags: ['Node.js', 'Express.js', 'Messaging', 'Backend'],
         githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2020/imv3-watcher.md',
         githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2020/imv3-watcher.md'
     },

@@ -8,7 +8,7 @@ const timeline : TimelinePost[] = [
         fullDate: '2019',
         description: 'Worked as a junior developer on Legacy HRapps, creating new features, maintaining the system, and making development decisions under guidance.',
         slug: 'legacy-hrapps-nms-philippines',
-        tags: ['Work', 'Junior Developer', 'CodeIgniter', 'MySQL', 'jQuery', 'Mentorship'],
+        tags: ['Junior Developer', 'CodeIgniter', 'MySQL', 'jQuery'],
         githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2019/legacy-hrapps-nms-philippines.md',
         githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/legacy-hrapps-nms-philippines.md'
     },
@@ -19,7 +19,7 @@ const timeline : TimelinePost[] = [
         fullDate: '2019',
         description: 'Worked as a developer on CCenterv2, contributing ideas and participating in key system decisions.',
         slug: 'ccenterv2-nms-philippines',
-        tags: ['Work', 'Laravel', 'PHP', 'MySQL', 'Angular', 'Teamwork'],
+        tags: ['Laravel', 'PHP', 'Angular', 'MySQL'],
         githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2019/ccenterv2-nms-philippines.md',
         githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/ccenterv2-nms-philippines.md'
     },
@@ -30,7 +30,7 @@ const timeline : TimelinePost[] = [
         fullDate: '2019',
         description: 'Worked on the Flai system, building advanced features, maintaining legacy code, and contributing to system decisions.',
         slug: 'flai-development-nms-philippines',
-        tags: ['Work', 'PHP', 'Kohana', 'MySQL', 'jQuery', 'Teamwork', 'Advanced Features'],
+        tags: ['PHP', 'Kohana', 'MySQL', 'jQuery'],
         githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2019/flai-development-nms-philippines.md',
         githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/flai-development-nms-philippines.md'
     },
