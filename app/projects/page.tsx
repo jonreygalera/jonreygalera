@@ -6,22 +6,15 @@ import Footer from "@/ui/footer";
 import { PROJECTS, CATEGORIES } from "@/data/projects";
 import { cn } from "@/lib/utils";
 import { 
-  Building2, 
-  Wallet, 
-  Receipt, 
-  PiggyBank, 
-  FileText, 
-  Calculator, 
-  Plane,
-  Briefcase,
-  Megaphone,
-  Code,
-  LayoutGrid,
+  Sparkles,
+  Zap,
+  Layers,
   Search,
-  CheckCircle2,
-  Plug,
-  ArrowRight,
-  ExternalLink
+  LayoutGrid,
+  ArrowUpRight,
+  ExternalLink,
+  ChevronRight,
+  Filter
 } from "lucide-react";
 import Link from 'next/link';
 
@@ -29,89 +22,92 @@ import Link from 'next/link';
 
 function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
   const Icon = project.icon;
-  // If link exists, we use Link component, otherwise div. 
-  // We cast 'div' to any to avoid complex TS union type issues here or just use conditional rendering.
-  // Actually, separating the root element logic is cleaner.
   const isLink = !!project.link;
   const Wrapper = isLink ? Link : 'div';
   const wrapperProps = isLink ? { href: project.link!, target: "_blank" } : {};
-  const versionTag = project.version;
+  const isAI = project.category.includes('AI') || project.title.includes('AI');
 
   return (
-    // @ts-ignore - Dynamic component typings can be tricky, simple ignore for the wrapper prop spread
+    // @ts-ignore
     <Wrapper
       {...wrapperProps}
-      className="group relative flex flex-col rounded-3xl border border-primary-200 bg-white p-7 transition-all duration-500 hover:-translate-y-2 hover:border-secondary-400 hover:shadow-2xl hover:shadow-secondary-200/30 cursor-pointer"
+      className={cn(
+        "group relative flex flex-col rounded-[2.5rem] border p-8 transition-all duration-500 cursor-pointer overflow-hidden",
+        isAI 
+          ? "bg-white border-secondary-500/30 hover:border-secondary-500/60 hover:shadow-[0_20px_60px_rgba(151,199,56,0.15)] shadow-sm" 
+          : "bg-white border-primary-100/5 hover:border-primary-100/10 hover:shadow-2xl shadow-sm"
+      )}
     >
-      
+      {/* AI Glow Effect */}
+      {isAI && (
+        <div className="absolute -inset-1 bg-gradient-to-tr from-secondary-500/10 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+      )}
+
       {/* Header */}
-      <div className="mb-4 flex items-start justify-between">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-secondary-100 to-secondary-50 text-secondary-600 ring-1 ring-secondary-200 transition-all duration-300 group-hover:scale-110 group-hover:from-secondary-200 group-hover:to-secondary-100">
-          <Icon className="h-6 w-6" />
+      <div className="mb-8 flex items-start justify-between relative z-10">
+        <div className={cn(
+          "w-14 h-14 flex items-center justify-center rounded-2xl transition-all duration-500 group-hover:scale-110 shadow-lg",
+          isAI ? "bg-secondary-500 text-white" : "bg-primary-100 text-white"
+        )}>
+          <Icon size={28} />
         </div>
+        
         <div className="flex flex-col items-end gap-2">
-           <div className="flex flex-wrap justify-end gap-2">
-              <span className="flex items-center gap-1.5 rounded-full bg-secondary-100 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-secondary-800 ring-1 ring-secondary-200">
-                {project.category}
-              </span>
-              {project.company && (
-                <span className="flex items-center gap-1.5 rounded-full bg-primary-100/5 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-500 ring-1 ring-primary-100/10">
-                  {project.company}
-                </span>
-              )}
-           </div>
-           {versionTag && (
-             <span className={cn(
-               "flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-widest shadow-sm",
-               versionTag === 'Legacy' 
-                ? "bg-amber-100 text-amber-700 ring-1 ring-amber-200" 
-                : "bg-primary-100 text-white"
-             )}>
-                {versionTag}
-             </span>
-           )}
+          {isAI && (
+            <div className="flex items-center gap-1.5 px-3 py-1 bg-secondary-500 text-white rounded-full">
+              <Sparkles size={10} />
+              <span className="text-[10px] font-black uppercase tracking-widest">AI Power</span>
+            </div>
+          )}
+          {project.version && (
+            <span className="px-3 py-1 bg-primary-100/5 text-primary-100/60 rounded-full border border-primary-100/10 text-[10px] font-bold uppercase tracking-widest">
+              {project.version}
+            </span>
+          )}
         </div>
       </div>
 
       {/* Content */}
-      <div className="mb-4">
-         <h3 className="text-xl font-extrabold text-primary-100 group-hover:text-secondary-600 transition-colors flex items-center gap-2">
+      <div className="mb-6 relative z-10">
+        <div className="flex items-center gap-2 mb-2">
+          <h3 className="text-2xl font-bold text-primary-100 tracking-tight group-hover:text-secondary-600 transition-colors">
             {project.title}
-         </h3>
-         {project.role && (
-            <p className="text-[11px] font-bold text-secondary-600 uppercase tracking-[0.1em] mt-1.5 opacity-80">
-               {project.role}
-            </p>
-         )}
-      </div>
-      
-      <p className="mb-8 text-sm leading-relaxed text-primary-300 font-medium line-clamp-3">
-        {project.description}
-      </p>
+          </h3>
+          {isLink && <ArrowUpRight size={18} className="text-primary-100/40 group-hover:text-secondary-500 translate-x-0 group-hover:-translate-y-1 transition-all" />}
+        </div>
+        
+        <div className="flex flex-wrap gap-2 mb-4">
+          <span className="text-xs font-bold uppercase tracking-[0.1em] text-secondary-600 bg-secondary-500/5 px-2 py-0.5 rounded-md">
+            {project.category}
+          </span>
+          <span className="text-xs font-bold uppercase tracking-[0.1em] text-primary-100/50 px-2 py-0.5 rounded-md border border-primary-100/10">
+            {project.role}
+          </span>
+        </div>
 
-      {/* Connected Tools */}
-      <div className="mt-auto space-y-3 pt-6 border-t border-primary-100/50">
-        <span className="text-[10px] font-bold uppercase tracking-widest text-primary-500">
-          Tech Stack
-        </span>
+        <p className="text-primary-100/80 text-base leading-relaxed font-medium">
+          {project.description}
+        </p>
+      </div>
+
+      {/* Footer / Stack */}
+      <div className="mt-auto pt-6 border-t border-primary-100/10 relative z-10">
         <div className="flex flex-wrap gap-2">
-          {project.connectedTools.map((tool) => (
-             <div key={tool.name} className="flex items-center gap-1.5 text-[10px] font-bold text-primary-200 bg-primary-900/40 px-2.5 py-1.5 rounded-lg border border-primary-800 transition-all group-hover:bg-primary-100 group-hover:text-white group-hover:border-primary-100">
-               {tool.name}
-             </div>
+          {project.connectedTools.slice(0, 4).map((tool: any) => (
+            <span 
+              key={tool.name} 
+              className="px-3 py-1 bg-primary-100/5 text-[11px] font-bold text-primary-100/70 rounded-lg border border-primary-100/10"
+            >
+              {tool.name}
+            </span>
           ))}
+          {project.connectedTools.length > 4 && (
+            <span className="px-2 py-1 bg-transparent text-[11px] font-black text-primary-100/30 uppercase tracking-tighter">
+              +{project.connectedTools.length - 4} More
+            </span>
+          )}
         </div>
       </div>
-      
-      {/* Hover Action */}
-      <div className="absolute bottom-6 right-6 opacity-0 transform translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-         {isLink ? (
-            <ExternalLink className="h-5 w-5 text-secondary-500" />
-         ) : (
-            <ArrowRight className="h-5 w-5 text-secondary-500" />
-         )}
-      </div>
-
     </Wrapper>
   );
 }
@@ -124,43 +120,58 @@ function SidebarFilter({
   onSelectCategory: (cat: string) => void 
 }) {
   return (
-    <div className="w-full lg:w-72 flex-shrink-0 space-y-8">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary-400">
-             Categories
+    <div className="w-full lg:w-72 flex-shrink-0 space-y-10 group/sidebar">
+      <div>
+        <div className="flex items-center gap-3 mb-8">
+          <div className="p-2 rounded-lg bg-secondary-500/10 text-secondary-600">
+            <Filter size={18} />
+          </div>
+          <h2 className="text-sm font-black uppercase tracking-[0.3em] text-primary-100/30">
+            Discover
           </h2>
-          <span className="rounded-lg bg-secondary-500 px-2.5 py-1 text-[10px] font-black text-white shadow-lg shadow-secondary-500/20">
-           {CATEGORIES.length - 1}
-          </span>
+        </div>
+
+        <div className="space-y-2">
+          {CATEGORIES.map((category: any) => {
+            const isSelected = selectedCategory === category;
+            return (
+              <button
+                key={category}
+                onClick={() => onSelectCategory(category)}
+                className={cn(
+                  "w-full flex items-center justify-between px-5 py-3.5 rounded-2xl transition-all duration-300 group/btn shadow-sm",
+                  isSelected 
+                    ? "bg-secondary-500 text-white shadow-xl shadow-secondary-500/20 scale-[1.02]" 
+                    : "bg-white text-primary-100/50 hover:bg-secondary-500/5 hover:text-secondary-600 border border-primary-100/10 hover:border-secondary-500/20"
+                )}
+              >
+                <span className="text-xs font-bold uppercase tracking-widest">{category}</span>
+                {isSelected ? (
+                  <ChevronRight size={14} className="animate-in slide-in-from-left-2 duration-300" />
+                ) : (
+                  <div className="h-1.5 w-1.5 rounded-full bg-secondary-500/20 group-hover/btn:bg-secondary-500/50 transition-colors" />
+                )}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Filter List */}
-      <div className="flex flex-col gap-2">
-        {CATEGORIES.map((category) => {
-          const isSelected = selectedCategory === category;
-          return (
-            <button
-              key={category}
-              onClick={() => onSelectCategory(category)}
-              className={cn(
-                "group flex items-center justify-between rounded-xl px-4 py-3 text-left transition-all duration-200",
-                isSelected 
-                  ? "bg-primary-100 text-white shadow-2xl shadow-primary-100/30 scale-[1.02]" 
-                  : "bg-white text-primary-200 hover:bg-secondary-50 hover:text-secondary-600 hover:shadow-lg border border-primary-900/10"
-              )}
-            >
-              <span className={cn("text-xs font-black transition-all uppercase tracking-widest", isSelected ? "opacity-100" : "opacity-60")}>{category}</span>
-              {isSelected && (
-                <div className="h-2 w-2 rounded-full bg-secondary-500 shadow-[0_0_8px_rgba(151,199,56,0.8)]"></div>
-              )}
-               <div className={cn(
-                  "h-4 w-4 rounded-full border border-current opacity-30 group-hover:opacity-100 transition-opacity",
-                  isSelected ? "hidden" : "block"
-               )} />
-            </button>
-          );
-        })}
+      <div className="p-6 rounded-[2rem] bg-white border border-primary-100/10 shadow-sm">
+        <div className="flex items-center gap-3 mb-4">
+          <Zap size={20} className="text-secondary-500" />
+          <h4 className="text-primary-100 font-bold tracking-tight text-lg">Quick Access</h4>
+        </div>
+        <p className="text-primary-100/40 text-xs leading-relaxed mb-6">
+          Exploring over {PROJECTS.length} engineering milestones across different domains.
+        </p>
+        <Link 
+          href="/#section-contact"
+          className="w-full py-3 bg-primary-100/5 hover:bg-secondary-500/10 text-primary-100/70 hover:text-secondary-700 text-xs font-black uppercase tracking-widest rounded-xl border border-primary-100/10 hover:border-secondary-500/30 transition-all flex items-center justify-center gap-2 group/cta"
+        >
+          Hire for project
+          <ArrowUpRight size={14} className="group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5 transition-transform" />
+        </Link>
       </div>
     </div>
   );
@@ -171,35 +182,51 @@ export default function ProjectsPage() {
 
   const filteredProjects = selectedCategory === "All" 
     ? PROJECTS 
-    : PROJECTS.filter(p => p.category === selectedCategory || p.department === selectedCategory);
+    : PROJECTS.filter((p: any) => p.category === selectedCategory || p.department === selectedCategory);
 
   return (
-    <SectionMainContainer className="bg-[#F8FAFC]">
+    <SectionMainContainer className="bg-secondary-50 overflow-hidden font-sans min-h-screen">
+      {/* Uniform Grid Background */}
+      <div className="fixed inset-0 z-0 opacity-10 pointer-events-none">
+        <div className="absolute inset-0 [background-image:linear-gradient(to_right,#80808022_1px,transparent_1px),linear-gradient(to_bottom,#80808022_1px,transparent_1px)] [background-size:40px_40px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary-50 via-transparent to-secondary-50" />
+      </div>
       
-      {/* Hero / Header Area - simplified */}
-      <div className="pt-32 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-                <h1 className="text-5xl font-black tracking-tight text-primary-100 sm:text-7xl">
-                   My <span className="text-secondary-500 italic">Projects</span>
+      {/* Header Area */}
+      <div className="relative z-10 pt-36 pb-20 px-6 max-w-7xl mx-auto">
+         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
+            <div className="max-w-3xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary-500/10 text-secondary-600 rounded-full border border-secondary-500/20 mb-6 animate-in fade-in slide-in-from-bottom-2 duration-700">
+                  <div className="w-1.5 h-1.5 rounded-full bg-secondary-500 animate-pulse" />
+                  <span className="text-[10px] font-black uppercase tracking-widest">Master Portfolio</span>
+                </div>
+                <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-primary-100 leading-[0.9]">
+                   My <span className="text-secondary-600 italic">Work</span>
                 </h1>
-                <p className="mt-6 text-xl text-primary-300 max-w-2xl font-medium leading-relaxed">
-                   A curated collection of automated agents, business tools, and engineering solutions.
+                <p className="mt-8 text-xl md:text-2xl text-primary-100/60 max-w-2xl font-light leading-relaxed">
+                   A curated index of <span className="text-primary-100/80">automated systems</span>, high-volume APIs, and experimental <span className="text-primary-100/80">AI agents</span>.
                 </p>
             </div>
             
-            {/* Stats or Search placeholder */}
-            {/* <div className="hidden md:flex items-center gap-3 bg-white px-4 py-2 rounded-full border border-primary-200 text-primary-600 shadow-sm">
-               <Search className="h-4 w-4" />
-            </div> */}
+            <div className="flex items-center gap-6 pb-2">
+              <div className="text-right">
+                <div className="text-4xl font-bold text-primary-100 leading-none">{PROJECTS.length}</div>
+                <div className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-100/20 mt-2">Projects Shipped</div>
+              </div>
+              <div className="w-px h-12 bg-primary-100/10" />
+              <div className="text-right">
+                <div className="text-4xl font-bold text-primary-100 leading-none">5+</div>
+                <div className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-100/20 mt-2">Years Exp.</div>
+              </div>
+            </div>
          </div>
       </div>
 
-      <div className="border-t border-primary-200" />
+      <div className="relative z-10 border-t border-primary-100/10" />
 
       {/* Main Content Layout */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col lg:flex-row gap-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20">
+        <div className="flex flex-col lg:flex-row gap-20">
           
           {/* Sidebar */}
           <SidebarFilter 
@@ -209,40 +236,57 @@ export default function ProjectsPage() {
 
           {/* Grid Area */}
           <div className="flex-1">
-             {/* Sub-header for grid */}
-              <div className="mb-8 flex items-center justify-between">
-                 <h3 className="text-xl font-black text-primary-100 flex items-center gap-3">
-                    <span className="h-1.5 w-6 bg-secondary-500 rounded-full" />
-                    {selectedCategory === "All" ? "All Projects" : selectedCategory}
-                 </h3>
-                 <span className="text-[10px] font-black text-primary-100 bg-white px-4 py-2 rounded-xl border border-primary-900/20 shadow-sm uppercase tracking-widest">
-                    {filteredProjects.length} Result{filteredProjects.length !== 1 ? 's' : ''}
-                 </span>
-              </div>
+             <div className="mb-12 flex items-center justify-between">
+                <div>
+                   <h3 className="text-2xl font-bold text-primary-100 tracking-tight flex items-center gap-4">
+                      {selectedCategory === "All" ? "Collection" : selectedCategory}
+                      <span className="text-xs font-bold text-primary-100/20 uppercase tracking-widest">
+                        {filteredProjects.length}
+                      </span>
+                   </h3>
+                </div>
+                <div className="flex items-center gap-2">
+                   <div className="w-8 h-[2px] bg-secondary-500/10" />
+                   <div className="w-4 h-[2px] bg-secondary-500/30" />
+                   <div className="w-2 h-[2px] bg-secondary-500/60" />
+                </div>
+             </div>
 
-             {/* The Grid */}
-             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-                {filteredProjects.map((project) => (
-                   <ProjectCard key={project.id} project={project} />
+             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-2">
+                {filteredProjects.map((project: any, idx: any) => (
+                   <div 
+                    key={project.id}
+                    className="animate-in fade-in slide-in-from-bottom-10 duration-700"
+                    style={{ animationDelay: `${idx * 50}ms`, animationFillMode: 'both' }}
+                   >
+                    <ProjectCard project={project} />
+                   </div>
                 ))}
              </div>
 
              {filteredProjects.length === 0 && (
-                <div className="flex h-64 flex-col items-center justify-center rounded-3xl border border-dashed border-primary-200 bg-white/50 text-center">
-                   <div className="mb-4 rounded-full bg-primary-100 p-4 text-primary-400">
-                      <LayoutGrid className="h-8 w-8" />
+                <div className="flex h-96 flex-col items-center justify-center rounded-[3rem] border border-dashed border-primary-100/10 bg-white text-center px-10">
+                   <div className="w-20 h-20 mb-6 rounded-3xl bg-secondary-50 border border-primary-100/10 flex items-center justify-center text-primary-100/40">
+                      <LayoutGrid size={40} />
                    </div>
-                   <h3 className="text-lg font-medium text-primary-900">No projects found</h3>
-                   <p className="text-primary-600">Try selecting a different category.</p>
+                   <h3 className="text-2xl font-bold text-primary-100 mb-2">Void detected</h3>
+                   <p className="text-primary-100/60 text-sm max-w-xs">No entries match your current filter. Try resetting to see more milestones.</p>
+                   <button 
+                    onClick={() => setSelectedCategory("All")}
+                    className="mt-8 px-8 py-3 bg-secondary-500 text-white font-black uppercase tracking-widest text-xs rounded-2xl hover:scale-105 transition-transform shadow-lg shadow-secondary-500/20"
+                   >
+                    Show all projects
+                   </button>
                 </div>
              )}
           </div>
         </div>
       </div>
 
-      <div className="mt-20">
+      <div className="relative z-10 mt-20 border-t border-primary-100/10">
          <Footer />
       </div>
     </SectionMainContainer>
   );
 }
+

@@ -66,8 +66,18 @@ const timeline : TimelinePost[] = [
         tags: ['Deployment', 'System Stability', 'Laravel', 'Production'],
         githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2024/nmsapps-core-deployment.md',
         githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2024/nmsapps-core-deployment.md'
+    },
+    {
+        id: 34,
+        title: 'Open Source Mentorship — Learning by Teaching',
+        date: '2024',
+        fullDate: '2024',
+        description: 'Shared practical knowledge about building NPM and Composer packages with teammates, mentoring them through real-world lessons on structuring, versioning, and publishing reusable packages.',
+        slug: 'npm-composer-packages-mentorship',
+        tags: ['Mentorship', 'NPM', 'Composer', 'Open Source', 'Team Growth'],
+        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2024/npm-composer-packages-mentorship.md',
+        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2024/npm-composer-packages-mentorship.md'
     }
-
 ];
 
 export default timeline;

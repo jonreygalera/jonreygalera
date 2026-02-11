@@ -16,7 +16,7 @@ const marqueeData = [
   "• hire me for your next project",
   "• full-stack developer",
   "• ai agent engineering", 
-  `• ${(new Date().getFullYear() - 2019)} + years experience`,
+  `• ${(new Date().getFullYear() - 2019)} years experience`,
   "• let's build something amazing •",
   "• available for freelance work •"
 ];

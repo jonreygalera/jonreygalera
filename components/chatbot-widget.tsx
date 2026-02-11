@@ -14,10 +14,10 @@ interface Message {
 }
 
 const PREDEFINED_QUESTIONS = [
-  "What services do you offer?",
-  "How can we collaborate?",
+  "Who is Jon Rey Galera?",
+  "Tell me about your AI expertise",
+  "What is the Mrey AI Ecosystem?",
   "Technical stack overview",
-  "Latest projects info",
 ];
 
 const MAX_MESSAGES = 10;
