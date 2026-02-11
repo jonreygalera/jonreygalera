@@ -80,20 +80,25 @@ export default function ChatbotWidget() {
     setIsLoading(true);
 
     try {
-      // Simulation of AI API endpoint
-      await new Promise(resolve => setTimeout(resolve, 1400));
+      const response = await fetch(process.env.NEXT_PUBLIC_CHATBOT_URL!, {
+        method: 'POST',
+        headers: {
+          'MREYAI-CHAT-PARTICIPANTS-JONREYGALERA-KNOWLEDGE-BASE': process.env.NEXT_PUBLIC_CHATBOT_API_KEY!,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: text }),
+      });
+
+      const data = await response.json();
       
-      let response = "That's an interesting question. Jon typically handles such requests with a focus on scalability and modern architectural patterns. Would you like to schedule a deep dive?";
-      const lower = text.toLowerCase();
-      
-      if (lower.includes('service')) response = "Jon specializes in Full-Stack Engineering, AI Agent Development, and UI/UX Design with a focus on premium aesthetics and performance.";
-      else if (lower.includes('collaborate') || lower.includes('contact')) response = "You can reach out via the contact form on the homepage or email directly at jonreygalera@gmail.com.";
-      else if (lower.includes('tech') || lower.includes('stack')) response = "His stack revolves around Next.js, TypeScript, Tailwind CSS, and various LLM frameworks for AI-driven features.";
-      else if (lower.includes('project')) response = "Check out the Portfolio section for case studies on high-traffic web apps and specialized AI tools.";
-      
-      addMessage('bot', response);
+      if (data.status === 'success' || data.statusCode === 200) {
+        addMessage('bot', data.output);
+      } else {
+        throw new Error('API returned an error');
+      }
     } catch (e) {
-      addMessage('bot', "System offline. Please try again later.");
+      console.error("Chatbot API Error:", e);
+      addMessage('bot', "I'm having trouble connecting right now. Please try again in a moment.");
     } finally {
       setIsLoading(false);
     }
