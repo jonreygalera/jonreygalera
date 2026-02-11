@@ -87,7 +87,7 @@ export default function ChatbotWidget() {
       const lower = text.toLowerCase();
       
       if (lower.includes('service')) response = "Jon specializes in Full-Stack Engineering, AI Agent Development, and UI/UX Design with a focus on premium aesthetics and performance.";
-      else if (lower.includes('collaborate') || lower.includes('contact')) response = "You can reach out via the contact form on the homepage or email directly at hi@jonreygalera.com.";
+      else if (lower.includes('collaborate') || lower.includes('contact')) response = "You can reach out via the contact form on the homepage or email directly at jonreygalera@gmail.com.";
       else if (lower.includes('tech') || lower.includes('stack')) response = "His stack revolves around Next.js, TypeScript, Tailwind CSS, and various LLM frameworks for AI-driven features.";
       else if (lower.includes('project')) response = "Check out the Portfolio section for case studies on high-traffic web apps and specialized AI tools.";
       

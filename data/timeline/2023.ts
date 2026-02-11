@@ -2,6 +2,17 @@ import { TimelinePost } from "../timeline";
 
 const timeline : TimelinePost[] = [
     {
+        id: 23,
+        title: 'Breaking the Monolith into a Platform',
+        date: '2023',
+        fullDate: '2023',
+        description: 'Co-led the modularization of NMSAPPS into core modules, leading the Finance module while helping shape the overall platform architecture.',
+        slug: 'nmsapps-core-modularization',
+        tags: ['System Architecture', 'Modular Design', 'Laravel', 'Finance Systems'],
+        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2023/nmsapps-core-modularization.md',
+        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2023/nmsapps-core-modularization.md'
+    },
+    {
         id: 22,
         title: 'Fixing Inconsistency Once, for Everyone',
         date: '2023',

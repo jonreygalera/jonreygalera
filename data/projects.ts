@@ -295,6 +295,19 @@ export const PROJECTS: Project[] = [
       { name: "PHP" }, { name: "MySQL" }, { name: "Javascript" }, { name: "Bootstrap" }
     ]
   },
+  {
+    id: "27",
+    title: "NMS Chat backend",
+    category: "Engineering",
+    role: "Lead Developer",
+    status: "Archived",
+    company: "NMS Philippines",
+    description: "Led the development and maintenance of the chat backend infrastructure used in NMS Exam systems.",
+    icon: MessageSquare,
+    connectedTools: [
+      { name: "Laravel" }, { name: "PHP" }, { name: "MySQL" }, { name: "Redis" }
+    ]
+  },
 ];
 
 // Re-export CheckCircle2 for usage if needed, though strictly we used Lucide imports
