@@ -44,6 +44,17 @@ const timeline : TimelinePost[] = [
         tags: ['Vite', 'Frontend Tooling', 'DX', 'Build Systems'],
         githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2022/webpack-to-vite-transition.md',
         githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2022/webpack-to-vite-transition.md'
+    },
+    {
+        id: 38,
+        title: 'Laravel Redis Manager — The Abandoned Dream',
+        date: '2022',
+        fullDate: '2022',
+        description: 'Experimented with building a Composer package to manage Redis like an Eloquent model, simplifying get/set operations. Project was abandoned due to pressure from other projects and life. Remember, just a curious junior dev at the time! Maybe it’s already been made, or maybe you’re reading this.',
+        slug: 'laravel-redis-manager-abandoned',
+        tags: ['Laravel', 'Redis', 'Composer', 'Experiment', 'Junior Dev'],
+        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2022/laravel-redis-manager-abandoned.md',
+        githubUrl: 'https://github.com/jonreygalera/laravel-redis-manager-dev'
     }
 
 ];

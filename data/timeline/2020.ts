@@ -44,7 +44,19 @@ const timeline : TimelinePost[] = [
         tags: ['Personal Project', 'JavaScript', 'NPM', 'Learning'],
         githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2020/console-bar-chart.md',
         githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2020/console-bar-chart.md'
+    },
+    {
+        id: 39,
+        title: 'ATM Card Design — Just My Phone & HTML/CSS',
+        date: '2020',
+        fullDate: '2020',
+        description: 'Created different variants of ATM cards using only HTML and CSS on my Android phone. A fun experiment without a personal PC, just pure creativity and curiosity.',
+        slug: 'atm-card-design-2020',
+        tags: ['HTML', 'CSS', 'Experiment', 'Creativity', 'Mobile Dev'],
+        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2020/atm-card-design.md',
+        githubUrl: 'https://github.com/jonreygalera/atm-card-design-web'
     }
+
 ];
 
 export default timeline;
