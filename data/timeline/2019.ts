@@ -3,7 +3,7 @@ import { TimelinePost } from "../timeline";
 const timeline : TimelinePost[] = [
     {
         id: '6',
-        title: 'Developing and Maintaining Legacy HRapps at NMS Philippines',
+        title: 'Developing and Maintaining Legacy HRapps',
         date: '2019',
         fullDate: '2019',
         description: 'Worked as a junior developer on Legacy HRapps, creating new features, maintaining the system, and making development decisions under guidance.',
@@ -14,7 +14,7 @@ const timeline : TimelinePost[] = [
     },
     {
         id: '4',
-        title: 'Contributing to CCenterv2 at NMS Philippines',
+        title: 'Contributing to CCenterv2',
         date: '2019',
         fullDate: '2019',
         description: 'Worked as a developer on CCenterv2, contributing ideas and participating in key system decisions.',
@@ -25,7 +25,7 @@ const timeline : TimelinePost[] = [
     },
     {
         id: '5',
-        title: 'Developing and Maintaining Flai at NMS Philippines',
+        title: 'Developing and Maintaining Flai',
         date: '2019',
         fullDate: '2019',
         description: 'Worked on the Flai system, building advanced features, maintaining legacy code, and contributing to system decisions.',
@@ -36,7 +36,7 @@ const timeline : TimelinePost[] = [
     },
     {
         id: '3',
-        title: 'Showcasing Skills Through a Blog Project at NMS Philippines',
+        title: 'Showcasing Skills Through a Blog Project',
         date: '2019',
         fullDate: '2019',
         description: 'Training project where I created a blog post system using Laravel, which helped me land a development role.',

@@ -14,6 +14,17 @@ const timeline : TimelinePost[] = [
     },
     {
         id: 14,
+        title: 'HR & Finance NMSAPPS — Laying the Groundwork',
+        date: '2021',
+        fullDate: '2021',
+        description: 'Early development phase of NMSAPPS HR and Finance systems, focusing on environment setup and foundational architecture.',
+        slug: 'nmsapps-hr-finance-foundation',
+        tags: ['Environment Setup', 'Laravel', 'Docker', 'System Architecture'],
+        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2021/nmsapps-hr-finance-foundation.md',
+        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2021/nmsapps-hr-finance-foundation.md'
+    },
+    {
+        id: 14,
         title: 'Accounts v1 (NMS PH) — My First Project as Lead Developer',
         date: '2021',
         fullDate: '2021',

@@ -133,10 +133,14 @@ export default function TimelinePage() {
                        <div className="absolute -left-[35px] md:-left-[51px] top-2 h-4 w-4 rounded-full border-2 border-secondary-50 bg-primary-200 transition-colors duration-300 group-hover:bg-secondary-500 z-10 hover:scale-125 hover:shadow-md" />
 
                        <div className="flex flex-col gap-3 group-hover:-translate-y-1 transition-transform duration-300 hover:bg-white hover:shadow-xl hover:rounded-2xl p-6 -m-6 border border-transparent hover:border-secondary-100">
-                          <div className="flex justify-between items-start">
+                          <Link href={`/timeline/${post.slug}`} className="block group/link">
+                            <h4 className="text-2xl font-bold text-primary-100 mb-2 group-hover/link:text-secondary-600 transition-colors">
+                              {post.title}
+                            </h4>
+                            <div className="flex justify-between items-start">
                              <div className="flex flex-wrap gap-2 mb-2">
                                {post.tags.map(tag => (
-                                 <span key={tag} className="px-2 py-0.5 text-[10px] uppercase tracking-wider font-bold rounded bg-primary-100 text-secondary-200">
+                                 <span key={tag} className="px-2 py-0.5 text-[10px] uppercase tracking-wider font-bold rounded bg-primary-300  text-secondary-200">
                                    {tag}
                                  </span>
                                ))}
@@ -145,11 +149,6 @@ export default function TimelinePage() {
                                {post.fullDate || post.date}
                              </span>
                           </div>
-
-                          <Link href={`/timeline/${post.slug}`} className="block group/link">
-                            <h4 className="text-2xl font-bold text-primary-100 mb-2 group-hover/link:text-secondary-600 transition-colors">
-                              {post.title}
-                            </h4>
                             <p className="text-primary-500 leading-relaxed mb-4 line-clamp-3">
                               {post.description}
                             </p>
