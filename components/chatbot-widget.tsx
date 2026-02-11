@@ -23,6 +23,22 @@ const PREDEFINED_QUESTIONS = [
 const MAX_MESSAGES = 10;
 const STORAGE_KEY = 'chatbot_history_v2';
 
+function TypingMessage({ content }: { content: string }) {
+  const [displayedContent, setDisplayedContent] = useState('');
+  
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayedContent(content.slice(0, i));
+      i++;
+      if (i > content.length) clearInterval(interval);
+    }, 15);
+    return () => clearInterval(interval);
+  }, [content]);
+
+  return <span>{displayedContent}</span>;
+}
+
 export default function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -155,7 +171,7 @@ export default function ChatbotWidget() {
 
         {/* Dynamic Message Area */}
         <div className="flex-1 overflow-y-auto px-5 py-6 space-y-6 scroll-smooth">
-          {messages.map((msg) => (
+          {messages.map((msg, idx) => (
             <div 
               key={msg.id} 
               className={cn(
@@ -171,7 +187,11 @@ export default function ChatbotWidget() {
                     : "bg-primary-200/50 text-secondary-100 rounded-2xl rounded-tl-none border border-white/5"
                 )}
               >
-                {msg.content}
+                {msg.role === 'bot' && idx === messages.length - 1 && !isLoading ? (
+                  <TypingMessage content={msg.content} />
+                ) : (
+                  msg.content
+                )}
                 <div className={cn(
                   "text-[9px] mt-1.5 opacity-30 font-medium",
                   msg.role === 'user' ? "text-right" : "text-left"

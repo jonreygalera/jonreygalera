@@ -80,36 +80,44 @@ export default function TechStack() {
         {TECH_STACK.map((group, idx) => (
           <div 
             key={idx}
-            className="group relative p-6 rounded-3xl bg-white/5 border border-white/5 hover:border-secondary-500/20 transition-all duration-500 hover:shadow-2xl hover:shadow-black/20"
+            className="group relative p-8 rounded-[2.5rem] bg-white/[0.03] backdrop-blur-xl border border-white/5 hover:border-secondary-500/30 transition-all duration-700 hover:shadow-[0_20px_80px_rgba(0,0,0,0.4)] overflow-hidden"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2.5 rounded-xl bg-secondary-500/10 text-secondary-500 group-hover:scale-110 transition-transform duration-500">
-                <group.icon size={20} />
-              </div>
-              <h3 className="font-bold text-lg text-white tracking-tight">{group.title}</h3>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {group.items.map((item, i) => (
-                <div
-                  key={i}
-                  className={cn(
-                    "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 leading-none",
-                    item.isAI 
-                      ? "bg-secondary-500/10 text-secondary-400 border border-secondary-500/20 shadow-[0_0_15px_rgba(151,199,56,0.05)]" 
-                      : "bg-white/5 text-primary-800 border border-white/5 hover:border-white/10"
-                  )}
-                >
-                  {item.isAI && <Sparkles size={10} className="text-secondary-500" />}
-                  {item.name}
+            {/* Hover Background Glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-secondary-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            
+            <div className="relative z-10">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="p-3 rounded-2xl bg-secondary-500/10 text-secondary-400 group-hover:scale-110 group-hover:bg-secondary-500/20 transition-all duration-500 ring-1 ring-secondary-500/20 shadow-[0_0_20px_rgba(151,199,56,0.1)]">
+                  <group.icon size={22} />
                 </div>
-              ))}
+                <h3 className="font-bold text-xl text-white tracking-tight">{group.title}</h3>
+              </div>
+
+              <div className="flex flex-wrap gap-2.5">
+                {group.items.map((item, i) => (
+                  <div
+                    key={i}
+                    className={cn(
+                      "px-4 py-2 rounded-xl text-[11px] font-bold transition-all duration-500 flex items-center gap-2 leading-none cursor-default",
+                      item.isAI 
+                        ? "bg-secondary-500/10 text-secondary-400 border border-secondary-500/30 shadow-[0_0_20px_rgba(151,199,56,0.15)] hover:bg-secondary-500/20" 
+                        : "bg-white/[0.03] text-primary-800 border border-white/5 hover:bg-white/[0.08] hover:border-white/10"
+                    )}
+                  >
+                    {item.isAI && (
+                      <div className="relative flex items-center justify-center">
+                        <Sparkles size={12} className="text-secondary-400 animate-pulse" />
+                        <div className="absolute inset-0 bg-secondary-400/40 blur-[4px] animate-ping rounded-full" />
+                      </div>
+                    )}
+                    {item.name}
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Subtle glow effect for groups with AI items */}
-            {group.items.some(i => i.isAI) && (
-              <div className="absolute -inset-1 bg-gradient-to-tr from-secondary-500/5 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            )}
+            {/* Premium Corner Accent */}
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-secondary-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           </div>
         ))}
       </div>

@@ -17,10 +17,16 @@ export default function AboutSection() {
 
   return (
     <SectionContainer id="section-about" className="md:items-center md:justify-center px-6 h-auto py-24 bg-primary-100 overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+      {/* Background Decor: Premium Aurora / Neural Mesh Effect */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Animated Aurora Blobs */}
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-secondary-500/10 blur-[120px] rounded-full animate-pulse duration-[10s]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary-600/10 blur-[120px] rounded-full animate-pulse duration-[8s] delay-1000" />
+        <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-secondary-400/5 blur-[100px] rounded-full animate-bounce duration-[15s]" />
+        
+        {/* Refined Technical Grid */}
         <div 
-          className="absolute inset-0 [background-image:linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] [background-size:40px_40px]" 
+          className="absolute inset-0 [background-image:linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] [background-size:60px_60px] opacity-40" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary-100 via-transparent to-primary-100" />
       </div>
