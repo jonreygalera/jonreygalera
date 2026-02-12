@@ -5,6 +5,7 @@ import { Sparkles, Brain, Code2, Rocket } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
 const LEARNING_ITEMS = [
+  "PostgreSQL",
   "Supabase & Realtime DB",
   "MongoDB Aggregation",
   "Python for AI Engineering",

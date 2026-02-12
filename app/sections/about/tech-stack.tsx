@@ -49,8 +49,7 @@ const TECH_STACK: TechGroup[] = [
       { name: "TypeScript" },
       { name: "Node.js / Express" },
       { name: "API Integration" },
-      { name: "MySQL / PostgreSQL" },
-      { name: "MongoDB / Supabase" },
+      { name: "MySQL / MariaDB" },
     ]
   },
   {
