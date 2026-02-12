@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Send, X, MessageCircle, RefreshCcw, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import LogoImage from '/public/logo.png';
+import { PREDEFINED_QUESTIONS, BALLOON_MESSAGES } from '@/data/chatbot-messages';
 
 interface Message {
   id: string;
@@ -12,13 +13,6 @@ interface Message {
   content: string;
   timestamp: Date;
 }
-
-const PREDEFINED_QUESTIONS = [
-  "Who is Jon Rey Galera?",
-  "What services does Jon offer?",
-  "Does Jon work with AI?",
-  "What is Jon's core tech stack?",
-];
 
 const MAX_MESSAGES = 10;
 const STORAGE_KEY = 'chatbot_history_v2';
@@ -45,6 +39,9 @@ export default function ChatbotWidget() {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [showBalloon, setShowBalloon] = useState(false);
+  const [currentBalloonMessage, setCurrentBalloonMessage] = useState('');
+  const [balloonIndex, setBalloonIndex] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -77,6 +74,31 @@ export default function ChatbotWidget() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isOpen, isLoading]);
+
+  useEffect(() => {
+    if (isOpen) {
+      setShowBalloon(false);
+      return;
+    }
+
+    let timer: NodeJS.Timeout;
+
+    if (showBalloon) {
+      // Balloon is shown, set timer to hide it after 3 seconds
+      timer = setTimeout(() => {
+        setShowBalloon(false);
+      }, 3000);
+    } else {
+      // Balloon is hidden, set timer to show it after 2 seconds with the next queue message
+      timer = setTimeout(() => {
+        setCurrentBalloonMessage(BALLOON_MESSAGES[balloonIndex]);
+        setBalloonIndex((prev) => (prev + 1) % BALLOON_MESSAGES.length);
+        setShowBalloon(true);
+      }, 2000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [isOpen, showBalloon]);
 
   const addMessage = (role: 'user' | 'bot', content: string) => {
     const newMessage: Message = {
@@ -154,10 +176,6 @@ export default function ChatbotWidget() {
             </div>
             <div>
               <h3 className="font-bold text-secondary-50 tracking-tight text-lg">Mreybot</h3>
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-secondary-500 animate-pulse" />
-                <span className="text-[10px] uppercase tracking-widest text-secondary-200/50 font-semibold">Active Now</span>
-              </div>
             </div>
           </div>
           <button 
@@ -170,8 +188,12 @@ export default function ChatbotWidget() {
         </div>
 
         {/* Dynamic Message Area */}
-        <div className="flex-1 overflow-y-auto px-5 py-6 space-y-6 scroll-smooth">
-          {messages.map((msg, idx) => (
+        <div className="flex-1 overflow-y-auto px-5 py-6 space-y-6 scroll-smooth bg-primary-200/50 relative">
+          {/* Subtle Grid Pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+          
+          <div className="relative z-10 space-y-6">
+            {messages.map((msg, idx) => (
             <div 
               key={msg.id} 
               className={cn(
@@ -211,12 +233,13 @@ export default function ChatbotWidget() {
               </div>
             </div>
           )}
+          </div>
           <div ref={messagesEndRef} />
         </div>
 
         {/* Suggestion Chips */}
         {!isLoading && (
-          <div className="px-5 flex gap-2 overflow-x-auto no-scrollbar pb-4">
+          <div className="px-5 flex gap-2 overflow-x-auto no-scrollbar pb-4 bg-primary-200/50">
              {PREDEFINED_QUESTIONS.map((q, i) => (
                <button
                  key={i}
@@ -230,28 +253,43 @@ export default function ChatbotWidget() {
         )}
 
         {/* Input Interface */}
-        <div className="p-5 bg-gradient-to-t from-primary-200/30 to-transparent">
-          <form 
-            onSubmit={(e) => { e.preventDefault(); handleSend(input); }}
-            className="flex items-center gap-3"
-          >
-            <div className="relative flex-1">
-              <input
-                type="text"
+        <div className="p-5 bg-gradient-to-t from-primary-200/30 to-transparent border-t border-white/5">
+          <div className="flex items-end gap-3">
+            <div className="relative flex-1 group">
+              <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && e.shiftKey) {
+                    e.preventDefault();
+                    handleSend(input);
+                  }
+                }}
                 placeholder="Ask Mreybot..."
-                className="w-full bg-primary-300/50 text-secondary-50 placeholder:text-secondary-100/20 text-sm rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-1 focus:ring-secondary-500/30 border border-white/5 transition-all outline-none"
+                maxLength={250}
+                rows={Math.min(4, input.split('\n').length || 1)}
+                className="w-full bg-primary-300/50 text-secondary-50 placeholder:text-secondary-100/20 text-sm rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-1 focus:ring-secondary-500/30 border border-white/5 transition-all outline-none resize-none min-h-[52px] max-h-[140px] leading-relaxed scrollbar-hide"
               />
+              <div className="absolute right-4 bottom-3 flex flex-col items-end gap-1 pointer-events-none">
+                <span className={cn(
+                  "text-[9px] font-bold tracking-tighter transition-colors",
+                  input.length >= 240 ? "text-secondary-500" : "text-secondary-100/20"
+                )}>
+                  {input.length}/250
+                </span>
+                <span className="text-[8px] uppercase tracking-widest text-secondary-100/10 font-bold hidden group-focus-within:block">
+                  Shift + Enter to Send
+                </span>
+              </div>
             </div>
             <button
-              type="submit"
+              onClick={() => handleSend(input)}
               disabled={!input.trim() || isLoading}
-              className="p-3.5 bg-secondary-600 hover:bg-secondary-500 text-white rounded-2xl disabled:opacity-30 disabled:grayscale transition-all shadow-xl shadow-secondary-900/50 active:scale-90"
+              className="p-4 bg-secondary-600 hover:bg-secondary-500 text-white rounded-2xl disabled:opacity-30 disabled:grayscale transition-all shadow-xl shadow-secondary-900/50 active:scale-90 mb-[2px]"
             >
               <Send size={20} />
             </button>
-          </form>
+          </div>
           <div className="flex justify-between items-center mt-4 px-1">
             <span className="text-[9px] uppercase tracking-tighter text-secondary-100/20 font-bold">
               AI Secured Gateway
@@ -263,10 +301,50 @@ export default function ChatbotWidget() {
         </div>
       </div>
 
+      {/* Premium Sleek Speech Bubble */}
+      <div 
+        className={cn(
+          "absolute bottom-24 right-0 min-w-[220px] max-w-[300px] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] pointer-events-auto",
+          showBalloon && !isOpen ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95 pointer-events-none"
+        )}
+      >
+        <div className="relative group">
+          <div className="bg-primary-100/95 backdrop-blur-2xl border border-white/10 px-5 py-4 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
+            {/* Animated Gradient Accent */}
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary-500/50 to-transparent" />
+            
+            <div className="flex items-center gap-2.5 mb-2">
+              <div className="relative">
+                <div className="w-2 h-2 rounded-full bg-secondary-500 animate-pulse" />
+                <div className="absolute inset-0 w-2 h-2 rounded-full bg-secondary-500 animate-ping opacity-40" />
+              </div>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-secondary-400 font-bold">Mreybot Chat</span>
+            </div>
+            
+            <p className="text-[13px] font-medium text-secondary-50 leading-relaxed">
+              {currentBalloonMessage}
+            </p>
+            
+            {/* Elegant Pointer */}
+            <div className="absolute -bottom-2 right-8 w-4 h-4 bg-primary-100/95 border-r border-b border-white/10 rotate-45" />
+          </div>
+
+          <button 
+            onClick={() => setShowBalloon(false)}
+            className="absolute -top-2 -right-2 w-6 h-6 bg-secondary-600 hover:bg-secondary-500 text-white rounded-full flex items-center justify-center shadow-xl transition-all duration-300 z-20 opacity-0 group-hover:opacity-100 group-hover:scale-110 active:scale-95"
+          >
+            <X size={12} />
+          </button>
+          
+          {/* Subtle Ambient Glow */}
+          <div className="absolute inset-0 bg-secondary-500/5 blur-3xl rounded-full -z-10" />
+        </div>
+      </div>
+
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group relative w-16 h-16 rounded-[2rem] bg-primary-100 border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.6)] flex items-center justify-center transition-all duration-500 hover:scale-110 active:scale-95 pointer-events-auto overflow-hidden"
+        className="group relative w-16 h-16 rounded-[2rem] bg-secondary-500 border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.6)] flex items-center justify-center transition-all duration-500 hover:scale-110 active:scale-95 pointer-events-auto overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-tr from-secondary-600/0 via-secondary-500/5 to-secondary-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
