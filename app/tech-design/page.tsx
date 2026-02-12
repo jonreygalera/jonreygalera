@@ -132,7 +132,7 @@ function ColorSwatch({ color }: { color: { name: string, hex: string, variable: 
                <span>Copied!</span>
              </div>
            ) : (
-            <div className="flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-primary-900 shadow-lg">
+            <div className="flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-primary-100 shadow-lg">
               <Copy className="h-3.5 w-3.5" />
               <span>Copy</span>
             </div>

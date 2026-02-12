@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import SnapSection from "@/components/snap-section";
 import SectionContainer from "@/components/section-container";
 import TechStack from "./tech-stack";
+import LearningStack from "./learning-stack";
 import Hobbies from "./hobbies";
 
 const internSans = Inter({
@@ -72,6 +73,7 @@ export default function AboutSection() {
         {/* Tech Stack Integration */}
         <div className="mt-20">
           <TechStack />
+          <LearningStack />
         </div>
       </div>
     </SectionContainer>

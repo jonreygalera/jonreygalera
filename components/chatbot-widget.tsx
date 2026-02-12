@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { Send, X, MessageCircle, RefreshCcw, Loader2 } from 'lucide-react';
+import { Send, X, MessageCircle, RefreshCcw, Loader2, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import LogoImage from '/public/logo.png';
 import { PREDEFINED_QUESTIONS, BALLOON_MESSAGES } from '@/data/chatbot-messages';
@@ -240,6 +240,14 @@ export default function ChatbotWidget() {
         {/* Suggestion Chips */}
         {!isLoading && (
           <div className="px-5 flex gap-2 overflow-x-auto no-scrollbar pb-4 bg-primary-200/50">
+             <a
+               href="https://mrey-ai.vercel.app"
+               target="_blank"
+               className="flex-shrink-0 text-[11px] font-bold bg-secondary-500/10 hover:bg-secondary-500 text-secondary-600 hover:text-white border border-secondary-500/20 px-4 py-2 rounded-full transition-all duration-300 whitespace-nowrap active:scale-95 flex items-center gap-1.5"
+             >
+               <Sparkles size={12} />
+               Visit AI Portfolio
+             </a>
              {PREDEFINED_QUESTIONS.map((q, i) => (
                <button
                  key={i}
@@ -289,14 +297,6 @@ export default function ChatbotWidget() {
             >
               <Send size={20} />
             </button>
-          </div>
-          <div className="flex justify-between items-center mt-4 px-1">
-            <span className="text-[9px] uppercase tracking-tighter text-secondary-100/20 font-bold">
-              AI Secured Gateway
-            </span>
-            <span className="text-[9px] font-medium text-secondary-100/20 bg-white/5 px-2 py-0.5 rounded-md">
-              {messages.length}/{MAX_MESSAGES}
-            </span>
           </div>
         </div>
       </div>
@@ -356,7 +356,7 @@ export default function ChatbotWidget() {
         </div>
         
         <div className={cn(
-          "text-secondary-400 transition-all duration-700 absolute",
+          "text-primary-400 transition-all duration-700 absolute",
           isOpen ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-50 -rotate-180"
         )}>
           <X size={28} strokeWidth={1.5} />

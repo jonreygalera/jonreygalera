@@ -5,6 +5,8 @@ import SectionMainContainer from "@/components/section-main-container";
 import Footer from "@/ui/footer";
 import { PROJECTS, CATEGORIES } from "@/data/projects";
 import { cn } from "@/lib/utils";
+import BehanceIcon from '/public/behance.svg';
+import Image from 'next/image';
 import { 
   Sparkles,
   Zap,
@@ -165,13 +167,23 @@ function SidebarFilter({
         <p className="text-primary-100/40 text-xs leading-relaxed mb-6">
           Exploring over {PROJECTS.length} engineering milestones across different domains.
         </p>
-        <Link 
-          href="/#section-contact"
-          className="w-full py-3 bg-primary-100/5 hover:bg-secondary-500/10 text-primary-100/70 hover:text-secondary-700 text-xs font-black uppercase tracking-widest rounded-xl border border-primary-100/10 hover:border-secondary-500/30 transition-all flex items-center justify-center gap-2 group/cta"
-        >
-          Hire for project
-          <ArrowUpRight size={14} className="group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5 transition-transform" />
-        </Link>
+        <div className="space-y-3">
+          <Link 
+            href="/#section-contact"
+            className="w-full py-3 bg-primary-100/5 hover:bg-secondary-500/10 text-primary-100/70 hover:text-secondary-700 text-xs font-black uppercase tracking-widest rounded-xl border border-primary-100/10 hover:border-secondary-500/30 transition-all flex items-center justify-center gap-2 group/cta"
+          >
+            Hire for project
+            <ArrowUpRight size={14} className="group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5 transition-transform" />
+          </Link>
+          <Link 
+            href="https://mrey-ai.vercel.app"
+            target="_blank"
+            className="w-full py-3 bg-secondary-500/10 hover:bg-secondary-500 text-secondary-600 hover:text-white text-xs font-black uppercase tracking-widest rounded-xl border border-secondary-500/20 hover:border-secondary-500 transition-all flex items-center justify-center gap-2 group/ai"
+          >
+            AI Portfolio
+            <Image src={BehanceIcon} alt="Behance" width={14} height={14} className="brightness-0 group-hover:invert transition-all group-hover/ai:invert" />
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -308,6 +308,19 @@ export const PROJECTS: Project[] = [
       { name: "Laravel" }, { name: "PHP" }, { name: "MySQL" }, { name: "Redis" }
     ]
   },
+  {
+    id: "28",
+    title: "Leading iTEaCH: Mobile Learning App",
+    category: "Mobile Development",
+    role: "Team Lead",
+    status: "Archived",
+    company: "Personal",
+    description: "iTEaCH: Mobile Scanner for Kids. Developed an Android app using OpenCV to teach children shapes and colors. Overcame significant performance and lighting challenges on 2019-era mobile hardware through strategic leadership and feature optimization.",
+    icon: Code,
+    connectedTools: [
+      { name: "Java" }, { name: "OpenCV" }, { name: "Android" }
+    ]
+  },
 ];
 
 // Re-export CheckCircle2 for usage if needed, though strictly we used Lucide imports
@@ -324,5 +337,6 @@ export const CATEGORIES = [
   "Internal Tools",
   "Business Support",
   "AI & Prompt Engineering",
-  "Public Service"
+  "Public Service",
+  "Mobile Development"
 ];
