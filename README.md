@@ -7,7 +7,6 @@ I build high-volume production systems and autonomous AI architectures. With +7 
 ### 🎯 Expertise
 
 - **Core Stacks:** Laravel (PHP), React (TypeScript), and Node.js.
-- **Infrastructure:** Docker-first development, DigitalOcean, and high-performance Nginx configurations.
 - **AI & Automation:** Orchestrating agentic workflows via n8n and developing precision prompts for LLMs.
 - **Open Source:** Creator of [Prompts for LLM](https://github.com/jonreygalera/prompts) — a repository dedicated to advanced LLM engineering.
 
