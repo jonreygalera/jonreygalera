@@ -216,16 +216,17 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "20",
-    title: "Legacy Migrator",
+    title: "mreycode/laravel-db-migrator",
     category: "Composer Packages",
     role: "Lead Developer",
     status: "Active",
-    company: "NMS Philippines",
-    description: "Generates robust, incremental migrations for legacy database records using Laravel queues.",
+    company: "Personal",
+    description: "A production-grade Laravel package for complex, large-scale database migrations with resumable, monitored, and batch-aware processing.",
     icon: Database,
     connectedTools: [
       { name: "Laravel" }, { name: "Redis" }, { name: "Queues" }
-    ]
+    ],
+    link: "https://packagist.org/packages/mreycode/laravel-db-migrator",
   },
   {
     id: "21",
