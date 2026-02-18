@@ -24,12 +24,12 @@ Developing autonomous AI agents and complex automation workflows. I'm currently 
 
 A snapshot of key projects that defined my growth as a developer.
 
-- **2026:** [**Legacy Migrator**](https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2026/legacy-migrator-laravel-package.md) — Released a specialized Laravel package for resumable database migrations.
-- **2025:** [**AI Agent Engineer**](https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2025/ai-agent-engineer-automation.md) — Co-led the development of complex RAG systems and autonomous automation workflows using n8n and LLMs.
-- **2024:** [**Leadgen Automation System**](https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2024/leadgen-automation-system.md) — Designed a high-throughput lead processing system using Redis queues.
-- **2022:** [**Unified Finance Engine**](https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2022/nmsapps-finance.md) — Lead Developer for a core financial platform handling high-stakes payroll and reporting systems.
-- **2021:** [**Unified SSO & Identity System**](https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2021/accounts-v1-nms-ph.md) — Stepped into my first **Lead Developer** role, architecting a centralized authentication system.
-- **2019:** [**iTEaCH Learning App**](https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/leading-iteach-mobile-learning-app.md) — Led my thesis team in building an Android app with Computer Vision (OpenCV).
+- **2026:** [**Legacy Migrator**](https://jonreygalera.vercel.app/timeline/legacy-migrator-laravel-package) — Released a specialized Laravel package for resumable database migrations.
+- **2025:** [**AI Agent Engineer**](https://jonreygalera.vercel.app/timeline/ai-agent-engineer-automation) — Co-led the development of complex RAG systems and autonomous automation workflows using n8n and LLMs.
+- **2024:** [**Leadgen Automation System**](https://jonreygalera.vercel.app/timeline/leadgen-automation-system) — Designed a high-throughput lead processing system using Redis queues.
+- **2022:** [**Unified Finance Engine**](https://jonreygalera.vercel.app/timeline/nmsapps-finance) — Lead Developer for a core financial platform handling high-stakes payroll and reporting systems.
+- **2021:** [**Unified SSO & Identity System**](https://jonreygalera.vercel.app/timeline/accounts-v1-nms-ph) — Stepped into my first **Lead Developer** role, architecting a centralized authentication system.
+- **2019:** [**iTEaCH Learning App**](https://jonreygalera.vercel.app/timeline/leading-iteach-mobile-learning-app) — Led my thesis team in building an Android app with Computer Vision (OpenCV).
 
 ---
 
