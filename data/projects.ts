@@ -224,7 +224,7 @@ export const PROJECTS: Project[] = [
     description: "A production-grade Laravel package for complex, large-scale database migrations with resumable, monitored, and batch-aware processing.",
     icon: Database,
     connectedTools: [
-      { name: "Laravel" }, { name: "Redis" }, { name: "Queues" }
+      { name: "Laravel" }, { name: "Migrate" }, { name: "Queues" }, { name: "Database" }
     ],
     link: "https://packagist.org/packages/mreycode/laravel-db-migrator",
   },
