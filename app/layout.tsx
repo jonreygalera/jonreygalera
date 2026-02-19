@@ -3,7 +3,8 @@ import { Lexend } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/nav-bar";
 import GridPattern from "@/components/grid-pattern";
-import ChatbotWidget from "@/components/chatbot-widget";
+import Script from "next/script";
+import ChatbotBalloons from "@/components/chatbot-balloons";
 
 const lexendSans = Lexend({
   variable: "--font-lexend-sans",
@@ -30,7 +31,12 @@ export default function RootLayout({
           <main className="flex flex-col min-h-screen">
              {children}
           </main>
-          <ChatbotWidget />
+          <ChatbotBalloons />
+          <Script 
+            src="https://mrey-ai.vercel.app/js/embed-mreyagent.js?agentName=mrey-knowledge-base&cname=MreyBot" 
+            strategy="afterInteractive"
+            defer
+          />
         </GridPattern>
       </body>
     </html>
