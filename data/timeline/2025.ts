@@ -2,6 +2,17 @@ import { TimelinePost } from "../timeline";
 
 const timeline : TimelinePost[] = [
     {
+        id: 999,
+        title: "First Deployable Chatbot Iframe — Plug & Play AI Widget",
+        date: "2025",
+        fullDate: "2025",
+        description: "Created a script-based chatbot iframe system that can be deployed to any website, integrates with backend APIs and 3rd-party AI providers, and uses cookies to maintain guest conversations.",
+        slug: "first-deployable-chatbot-iframe",
+        tags: ["Chatbot", "Iframe", "JavaScript", "AI", "Fullstack"],
+        githubRawUrl: "https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2025/first-deployable-chatbot-iframe.md",
+        githubUrl: "https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2025/first-deployable-chatbot-iframe.md"
+    },
+    {
         id: 31,
         title: 'AI Agent Engineer — Automating with Intelligence',
         date: '2025',
