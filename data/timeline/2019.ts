@@ -55,6 +55,17 @@ const timeline : TimelinePost[] = [
         tags: ['Thesis', 'Team Lead', 'Android', 'Java', 'OpenCV'],
         githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2019/leading-iteach-mobile-learning-app.md',
         githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/leading-iteach-mobile-learning-app.md'
+    },
+    {
+        id: 101,
+        title: "City of San Fernando La Union — ICT Summit Hackathon",
+        date: "2019",
+        fullDate: "March 2019",
+        description: "First hackathon participation representing our school. Co-led development and built two applications in 24 hours using Vanilla PHP and Bootstrap — a farming inventory & sales system and a government queueing system with SMS notifications.",
+        slug: "ict-summit-hackathon-2019",
+        tags: ["Hackathon", "Vanilla PHP", "Bootstrap", "SMS", "Government System", "Student Project"],
+        githubRawUrl: "https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2019/ict-summit-hackathon-2019.md",
+        githubUrl: "https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2019/ict-summit-hackathon-2019.md"
     }
 ];
 
