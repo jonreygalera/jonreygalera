@@ -8,6 +8,7 @@ import MarqueeSection from "@/components/marquee-section";
 import SectionContainer from "@/components/section-container";
 import { PROFILE } from "@/data/profile";
 import { cn } from "@/lib/utils";
+import VisitorStats from "@/components/visitor-stats";
 
 const marqueeData = [
   "• develop",
@@ -77,10 +78,12 @@ export default function HeroSection({ id }: { id?: string}) {
            </h1>
         </div>
 
-        <div className="max-w-2xl text-center md:text-left">
+        <div className="max-w-2xl text-center md:text-left flex flex-col items-center md:items-start gap-6">
            <p className="text-xl md:text-2xl text-primary-500 font-light leading-relaxed">
              I bring together <span className="font-semibold text-secondary-600">creativity</span>, <span className="font-semibold text-secondary-600">logic</span>, and <span className="font-semibold text-secondary-600">empathy</span> to build beautiful products.
            </p>
+           
+           <VisitorStats />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 mt-4 w-full md:w-auto">

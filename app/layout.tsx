@@ -5,6 +5,7 @@ import NavBar from "@/components/nav-bar";
 import GridPattern from "@/components/grid-pattern";
 import Script from "next/script";
 import ChatbotBalloons from "@/components/chatbot-balloons";
+import GuestTracker from "@/components/guest-tracker";
 
 const lexendSans = Lexend({
   variable: "--font-lexend-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body
         className={`${lexendSans.className} antialiased text-primary-100 bg-secondary-50 selection:bg-secondary-200 selection:text-primary-100`}
       >
+        <GuestTracker />
         <GridPattern>
           <NavBar/>
           <main className="flex flex-col min-h-screen">
