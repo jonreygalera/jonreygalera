@@ -14,6 +14,7 @@ export default function GuestTracker() {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              "x-mrey-tenant": window.location.hostname
             },
             // Since the user didn't specify a body, we'll send an empty object if needed, 
             // but the URL alone might be enough for the backend to record the visit.

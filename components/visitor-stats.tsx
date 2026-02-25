@@ -12,7 +12,11 @@ export default function VisitorStats() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_STATS_API}/api/guest/stats`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STATS_API}/api/guest/stats`, {
+          headers: {
+            "x-mrey-tenant": window.location.hostname
+          }
+        });
         if (response.ok) {
           const data = await response.json();
           setCount(data.count);
