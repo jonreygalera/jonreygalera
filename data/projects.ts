@@ -322,6 +322,20 @@ export const PROJECTS: Project[] = [
       { name: "Java" }, { name: "OpenCV" }, { name: "Android" }
     ]
   },
+  {
+    id: "29",
+    title: "mreycode-signal",
+    category: "Engineering",
+    role: "Lead Developer",
+    status: "Active",
+    company: "Personal",
+    link: "https://mreycode-signal.vercel.app",
+    description: "The Signal Engine is powered by a flexible, JSON-driven configuration system. Learn how to build, customize, and deploy real-time analytics widgets.",
+    icon: Zap,
+    connectedTools: [
+      { name: "Next.js" }, { name: "TypeScript" }, { name: "PWA" }, { name: "JSON" }
+    ]
+  },
 ];
 
 // Re-export CheckCircle2 for usage if needed, though strictly we used Lucide imports
