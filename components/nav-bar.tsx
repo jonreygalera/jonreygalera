@@ -7,9 +7,12 @@ import ButtonAnim from "./button-anim";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useRouter, usePathname } from "next/navigation";
+import { Search } from "lucide-react";
+import TimelineSearchModal from "./timeline-search-modal";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const isTechDesignPage = pathname === '/tech-design';
@@ -22,6 +25,18 @@ export default function NavBar() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Ctrl+K global shortcut
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+        e.preventDefault();
+        setIsSearchOpen((v) => !v);
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
   }, []);
 
   const handleOnClickSectionItem = (section: string) => {
@@ -55,6 +70,7 @@ export default function NavBar() {
   ];
 
   return (
+    <>
     <nav className={cn(
       "fixed w-full z-50 top-0 start-0 transition-all duration-300 bg-primary-200",
       scrolled
@@ -77,7 +93,19 @@ export default function NavBar() {
         {/* Mobile Toggle & CTA */}
         <div className="flex md:order-2 space-x-3 md:space-x-4 rtl:space-x-reverse items-center">
           <div className="hidden md:flex items-center gap-4">
-             <Link
+            {/* DevTimeline search trigger */}
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              aria-label="Search DevTimeline (Ctrl+K)"
+              className="group flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 text-secondary-100/60 hover:text-secondary-100 transition-all duration-200 text-sm"
+            >
+              <Search className="w-3.5 h-3.5" />
+              <span className="hidden lg:inline font-medium">Search</span>
+              <kbd className="hidden lg:inline-flex items-center gap-0.5 text-[10px] font-mono opacity-50 bg-white/10 px-1.5 py-0.5 rounded border border-white/10">
+                ⌘K
+              </kbd>
+            </button>
+            <Link
               href="/tech-design"
               className="text-sm font-medium text-secondary-100/70 hover:text-secondary-400 transition-colors duration-200"
             >
@@ -175,5 +203,8 @@ export default function NavBar() {
         </ul>
       </div>
     </nav>
+
+    <TimelineSearchModal open={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+    </>
   );
 }
