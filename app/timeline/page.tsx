@@ -95,12 +95,12 @@ export default function TimelinePage() {
           {/* Main Content Area */}
           <div className="md:col-span-9 lg:col-span-10 space-y-24">
              
-            <header className="space-y-6 text-center md:text-left mb-16">
-              <h1 className="text-5xl md:text-7xl font-black text-primary-100 tracking-tight leading-tight">
-                Dev<span className="text-secondary-500">Timeline</span>
+            <header className="space-y-6 text-center md:text-left mb-16 px-4">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-primary-100 tracking-tighter leading-[0.9]">
+                Dev<span className="text-secondary-500 italic">Timeline</span>
               </h1>
-              <p className="text-lg md:text-xl text-primary-600 max-w-2xl font-medium">
-                A chronological archive of my journey, projects, and the lessons learned along the way.
+              <p className="text-base sm:text-lg md:text-xl text-primary-100/60 max-w-2xl font-light leading-relaxed mx-auto md:mx-0">
+                A chronological archive of my engineering journey, architectural milestones, and the lessons carved in code along the way.
               </p>
             </header>
 

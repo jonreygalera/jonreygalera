@@ -50,54 +50,62 @@ export default function HeroSection({ id }: { id?: string}) {
   };
 
   return (
-    <SectionContainer id={'section-hero'} className="relative overflow-hidden flex flex-col justify-center items-center py-20 md:py-0">
+    <SectionContainer id={'section-hero'} className="relative overflow-hidden flex flex-col justify-center items-center py-20 md:py-0 min-h-[90vh]">
       
       {/* Background Graphic */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-         <div className="absolute right-0 bottom-0 w-full h-full md:w-1/2 md:h-full opacity-20 md:opacity-100 md:grayscale-0 md:blur-0 grayscale-[50%] blur-[2px]">
+         <div className="absolute right-0 bottom-0 w-full h-full md:w-1/2 md:h-full opacity-30 md:opacity-100 grayscale-[50%] md:grayscale-0">
             <Image 
               src={BackgroundImage}
               alt="Background"
               fill
-              className="object-cover object-bottom"
+              className="object-cover object-bottom transition-all duration-1000 scale-105"
               priority
             />
-             <div className="absolute inset-0 bg-gradient-to-t from-secondary-50 via-transparent to-transparent md:hidden" />
-             <div className="absolute inset-0 bg-gradient-to-r from-secondary-50 via-transparent to-transparent md:hidden" />
+             <div className="absolute inset-0 bg-gradient-to-t from-secondary-50 via-secondary-50/80 to-transparent md:hidden" />
+             <div className="absolute inset-0 bg-gradient-to-r from-secondary-50 via-secondary-50/50 to-transparent md:hidden" />
          </div>
+         {/* Decorative elements */}
+         <div className="absolute top-1/4 left-10 w-64 h-64 bg-secondary-500/10 blur-[100px] rounded-full animate-pulse" />
       </div>
 
-      <div className="container mx-auto px-4 z-10 flex flex-col items-center md:items-start md:pl-20 2xl:pl-40 gap-8">
+      <div className="container mx-auto px-4 z-10 flex flex-col items-center md:items-start md:pl-20 2xl:pl-40 gap-6 sm:gap-8">
         
-        <div className={cn(internSans.className, "flex flex-col items-center md:items-start")}>
-           <h1 className="text-[120px] leading-none md:text-[200px] font-black italic text-primary-100  tracking-tighter  select-none">
+        <div className={cn(internSans.className, "flex flex-col items-center md:items-start w-full relative mb-12")}>
+           <h1 className="text-[18vw] leading-none sm:text-[120px] md:text-[180px] lg:text-[200px] font-black italic text-primary-100 tracking-tighter select-none animate-in fade-in slide-in-from-left-8 duration-700">
             {PROFILE.firstName}
            </h1>
-           <h1 className="text-[50px] leading-tight md:text-6xl italic text-primary-100 -mt-4 md:-mt-10 tracking-widest select-none">
+           <h2 className="text-[8vw] leading-tight sm:text-[40px] md:text-6xl lg:text-7xl italic text-secondary-500 mt-2 sm:mt-4 md:mt-6 tracking-[0.2em] md:tracking-[0.3em] select-none font-bold animate-in fade-in slide-in-from-left-12 duration-1000">
             {PROFILE.lastName}
-           </h1>
+           </h2>
         </div>
 
-        <div className="max-w-2xl text-center md:text-left flex flex-col items-center md:items-start gap-6">
-           <p className="text-xl md:text-2xl text-primary-500 font-light leading-relaxed">
+        <div className="max-w-xl text-center md:text-left flex flex-col items-center md:items-start gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
+           <p className="text-lg sm:text-xl md:text-2xl text-primary-500/80 font-light leading-relaxed">
              I bring together <span className="font-semibold text-secondary-600">creativity</span>, <span className="font-semibold text-secondary-600">logic</span>, and <span className="font-semibold text-secondary-600">empathy</span> to build beautiful products.
            </p>
            
-           <VisitorStats />
+           <div className="w-full flex justify-center md:justify-start">
+             <VisitorStats />
+           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-6 mt-4 w-full md:w-auto">
-             <Button onClick={handleHireMeClick} >
-               HIRE ME
-             </Button>
-             <Button onClick={handleViewResume} >
-               VIEW RESUME
-             </Button>
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-4 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
+             <div className="w-full sm:w-[180px]">
+               <Button onClick={handleHireMeClick} className="w-full justify-center">
+                 HIRE ME
+               </Button>
+             </div>
+             <div className="w-full sm:w-[180px]">
+               <Button onClick={handleViewResume} className="w-full justify-center">
+                 VIEW RESUME
+               </Button>
+             </div>
         </div>
 
       </div>
 
-      <MarqueeSection data={marqueeData} className="absolute bottom-0 w-full bg-primary-100/90 backdrop-blur-sm text-secondary-50 border-t border-white/10 shadow-2xl"/>
+      <MarqueeSection data={marqueeData} className="absolute bottom-0 w-full bg-primary-100/90 backdrop-blur-sm text-secondary-50 border-t border-white/10 shadow-2xl py-3"/>
     </SectionContainer>
   );
 }

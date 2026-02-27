@@ -10,11 +10,19 @@ export default function Button({
   link = false,
   ...props 
 }: ButtonProps) {
-  let styleClass = `px-6 py-2 rounded-2xl font-bold shadow-lg transform hover:-translate-y-1 transition-all duration-300
-        border-2 border-primary-100 text-secondary-500 md:text-primary-100
-        cursor-pointer bg-primary-100 md:bg-gray-100 hover:bg-primary-200 hover:text-secondary-500`;
+  let styleClass = `
+    inline-flex items-center justify-center px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest
+    transition-all duration-300 active:scale-95 shadow-lg
+    border border-primary-100/10 backdrop-blur-sm
+    bg-primary-100 text-secondary-500 md:bg-white md:text-primary-100
+    hover:bg-secondary-500 hover:text-white hover:border-secondary-500 hover:shadow-secondary-500/20
+  `;
+  
   if(link) {
-    styleClass = `font-bold cursor-pointer transition-colors duration-300 text-white hover:text-secondary-500`;
+    styleClass = `
+      inline-flex items-center gap-2 font-bold transition-all duration-300 
+      text-white/60 hover:text-secondary-500 hover:translate-x-1
+    `;
   }
 
   return (

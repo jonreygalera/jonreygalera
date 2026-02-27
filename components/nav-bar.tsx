@@ -72,82 +72,49 @@ export default function NavBar() {
   return (
     <>
     <nav className={cn(
-      "fixed w-full z-50 top-0 start-0 transition-all duration-300 bg-primary-200",
-      scrolled
-        ? "py-2"
-        : "py-4"
+      "fixed w-full z-[100] top-0 start-0 transition-all duration-500",
+      "bg-primary-200/95 backdrop-blur-md border-b border-white/5 text-white",
+      scrolled ? "py-3 shadow-xl" : "py-5 shadow-lg"
     )}>
-      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse z-50 cursor-pointer">
+        <Link href="/" className="flex items-center space-x-3 z-50 group">
           <Image
             src={LogoImage}
-            alt="Jon Rey Galera"
-            className="h-10 w-auto hover:scale-105 transition-transform duration-300"
+            alt="Logo"
+            className="h-9 w-auto hover:rotate-6 transition-all duration-300"
             priority
           />
+          <div className="hidden sm:flex flex-col">
+            <span className="font-black text-white leading-none tracking-tight">JON REY</span>
+            <span className="text-[10px] text-secondary-500 font-bold tracking-[0.2em]">GALERA</span>
+          </div>
         </Link>
 
-        {/* Mobile Toggle & CTA */}
-        {/* Mobile Toggle & CTA */}
-        <div className="flex md:order-2 space-x-3 md:space-x-4 rtl:space-x-reverse items-center">
-          <div className="hidden md:flex items-center gap-4">
-            {/* DevTimeline search trigger */}
-            <button
-              onClick={() => setIsSearchOpen(true)}
-              aria-label="Search DevTimeline (Ctrl+K)"
-              className="group flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 text-secondary-100/60 hover:text-secondary-100 transition-all duration-200 text-sm"
-            >
-              <Search className="w-3.5 h-3.5" />
-              <span className="hidden lg:inline font-medium">Search</span>
-              <kbd className="hidden lg:inline-flex items-center gap-0.5 text-[10px] font-mono opacity-50 bg-white/10 px-1.5 py-0.5 rounded border border-white/10">
-                ⌘K
-              </kbd>
-            </button>
-            <Link
-              href="/tech-design"
-              className="text-sm font-medium text-secondary-100/70 hover:text-secondary-400 transition-colors duration-200"
-            >
-              Tech & Design
-            </Link>
-            <ButtonAnim onClick={() => handleOnClickSectionItem('section-contact')} />
-          </div>
-
-          <button
-            type="button"
-            className="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-400 rounded-lg md:hidden hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-controls="navbar-sticky"
-            aria-expanded={isMenuOpen}
-          >
-            <span className="sr-only">Open main menu</span>
-            <div className="w-6 h-6 flex flex-col justify-center items-center gap-1.5 relative">
-              <span className={cn("block w-full h-0.5 bg-current transition-all duration-300", isMenuOpen ? "rotate-45 translate-y-2" : "")} />
-              <span className={cn("block w-full h-0.5 bg-current transition-all duration-300", isMenuOpen ? "opacity-0" : "")} />
-              <span className={cn("block w-full h-0.5 bg-current transition-all duration-300", isMenuOpen ? "-rotate-45 -translate-y-2" : "")} />
-            </div>
-          </button>
-        </div>
-
         {/* Desktop Menu */}
-        {/* Desktop Menu */}
-        <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0">
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex items-center space-x-8">
             {navLinks.map((link) => (
               <li key={link.name}>
                 {link.path ? (
                   <Link
                     href={link.path}
-                    className="block py-2 px-3 text-secondary-100/70 hover:text-secondary-400 md:p-0 transition-colors duration-200 relative group text-lg cursor-pointer"
+                    className={cn(
+                      "text-sm font-medium transition-all duration-200 hover:text-secondary-400 relative group",
+                      pathname === link.path ? "text-secondary-500" : "text-white/70"
+                    )}
                   >
                     {link.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary-400 transition-all duration-300 group-hover:w-full"></span>
+                    <span className={cn(
+                      "absolute -bottom-1 left-0 h-0.5 bg-secondary-400 transition-all duration-300",
+                      pathname === link.path ? "w-full" : "w-0 group-hover:w-full"
+                    )}></span>
                   </Link>
                 ) : (
                   <button
                     onClick={() => handleOnClickSectionItem(link.section!)}
-                    className="block py-2 px-3 text-secondary-100/70 hover:text-secondary-400 md:p-0 transition-colors duration-200 relative group text-lg cursor-pointer"
+                    className="text-sm font-medium text-white/70 hover:text-secondary-400 transition-all duration-200 relative group cursor-pointer"
                   >
                     {link.name}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary-400 transition-all duration-300 group-hover:w-full"></span>
@@ -157,50 +124,132 @@ export default function NavBar() {
             ))}
           </ul>
         </div>
+
+        {/* Actions */}
+        <div className="flex items-center gap-3 sm:gap-4 relative z-50">
+          {/* Search Trigger (Mobile icon only, Desktop with kbd) */}
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            aria-label="Search"
+            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white/70 hover:text-white transition-all duration-200 flex items-center gap-2"
+          >
+            <Search className="w-4 h-4" />
+            <kbd className="hidden lg:inline-flex items-center gap-0.5 text-[10px] font-mono opacity-50 bg-white/10 px-1.5 py-0.5 rounded border border-white/10">
+              ⌘K
+            </kbd>
+          </button>
+
+          <Link
+            href="/tech-design"
+            className="hidden lg:block text-sm font-medium text-white/50 hover:text-secondary-400 transition-colors"
+          >
+            Tech & Design
+          </Link>
+
+          <div className="hidden sm:block">
+            <ButtonAnim 
+              text="Contact Me"
+              variant="dark"
+              onClick={() => handleOnClickSectionItem('section-contact')} 
+            />
+          </div>
+
+          <button
+            type="button"
+            className="inline-flex items-center justify-center p-2 rounded-xl md:hidden bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
+          >
+            <span className="sr-only">Menu</span>
+            <div className="w-6 h-5 flex flex-col justify-between items-end relative overflow-hidden">
+               <span className={cn("block h-0.5 bg-current transition-all duration-300 origin-right", isMenuOpen ? "w-7 rotate-[-45deg] translate-y-[-1px]" : "w-full")} />
+               <span className={cn("block w-2/3 h-0.5 bg-current transition-all duration-300", isMenuOpen ? "opacity-0 translate-x-4" : "opacity-100")} />
+               <span className={cn("block h-0.5 bg-current transition-all duration-300 origin-right", isMenuOpen ? "w-7 rotate-[45deg] translate-y-[1px]" : "w-1/2")} />
+            </div>
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      {/* Mobile Menu Overlay */}
+      {/* Modern Mobile Menu Overlay */}
       <div className={cn(
-        "fixed inset-0 bg-primary-100/95 backdrop-blur-xl z-40 md:hidden transition-all duration-300 flex flex-col items-center justify-center space-y-8",
-        isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+        "fixed inset-0 bg-primary-100 z-[40] md:hidden transition-all duration-500 ease-in-out",
+        isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none scale-95"
       )}>
-        <ul className="flex flex-col items-center space-y-6 text-center">
-          {navLinks.map((link) => (
-            <li key={link.name}>
+        <div className="h-full flex flex-col px-6 pt-32 pb-12 overflow-y-auto relative z-10 font-sans">
+          <ul className="flex flex-col space-y-4">
+            <p className="text-secondary-500 font-bold text-xs tracking-[0.3em] uppercase opacity-70 mb-4 px-2">Navigation</p>
+            {navLinks.map((link, idx) => (
+              <li 
+                key={link.name}
+                style={{ transitionDelay: `${idx * 70}ms` }}
+                className={cn(
+                  "transition-all duration-700 ease-out", 
+                  isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+                )}
+              >
                 {link.path ? (
                   <Link
                     href={link.path}
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-2xl font-bold text-white hover:text-secondary-400 transition-colors"
+                    className="flex items-center justify-between p-4 rounded-2xl bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.08] hover:border-secondary-500/30 group transition-all"
                   >
-                    {link.name}
+                    <div className="flex items-center">
+                      <span className="text-sm font-mono text-secondary-500 mr-4 opacity-40">0{idx + 1}</span>
+                      <span className="text-3xl font-black text-white group-hover:text-secondary-400">{link.name}</span>
+                    </div>
+                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-secondary-500/10 group-hover:border-secondary-500/30 transition-all">
+                       <svg className="w-5 h-5 text-white/30 group-hover:text-secondary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                       </svg>
+                    </div>
                   </Link>
                 ) : (
                   <button
                     onClick={() => handleOnClickSectionItem(link.section!)}
-                    className="text-2xl font-bold text-white hover:text-secondary-400 transition-colors"
+                    className="flex items-center justify-between p-4 rounded-2xl bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.08] hover:border-secondary-500/30 group transition-all w-full text-left"
                   >
-                    {link.name}
+                    <div className="flex items-center">
+                      <span className="text-sm font-mono text-secondary-500 mr-4 opacity-40">0{idx + 1}</span>
+                      <span className="text-3xl font-black text-white group-hover:text-secondary-400">{link.name}</span>
+                    </div>
+                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-secondary-500/10 group-hover:border-secondary-500/30 transition-all">
+                       <svg className="w-5 h-5 text-white/30 group-hover:text-secondary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                       </svg>
+                    </div>
                   </button>
                 )}
-            </li>
-          ))}
-           <li>
-              <Link
+              </li>
+            ))}
+            
+            <li 
+              className={cn(
+                "pt-8 mt-4 border-t border-white/10 transition-all duration-700 delay-500", 
+                isMenuOpen ? "opacity-100" : "opacity-0"
+              )}
+            >
+               <Link
                 href="/tech-design"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-2xl font-bold text-white hover:text-secondary-400 transition-colors"
+                className="flex items-center justify-between p-4 rounded-2xl bg-secondary-500/5 border border-secondary-500/10 hover:bg-secondary-500/10 text-white font-bold group"
               >
-                Tech & Design
+                <span>Tech & Design</span>
+                <span className="text-xs uppercase tracking-widest text-secondary-500 font-black">Learn More</span>
               </Link>
-           </li>
-          <li>
-            <div className="mt-4" onClick={() => setIsMenuOpen(false)}>
-              <ButtonAnim onClick={() => handleOnClickSectionItem('section-contact')} />
-            </div>
-          </li>
-        </ul>
+              <div className="mt-8 flex justify-center">
+                 <ButtonAnim onClick={() => handleOnClickSectionItem('section-contact')} />
+              </div>
+            </li>
+          </ul>
+
+          <div className="mt-auto pt-10 text-center">
+              <p className="text-[10px] text-white/20 tracking-[0.4em] uppercase font-bold">Available for new opportunities</p>
+          </div>
+        </div>
+        
+        {/* Abstract background details for mobile menu */}
+        <div className="absolute top-[-10%] right-[-10%] w-[80%] h-[40%] bg-secondary-500/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[80%] h-[40%] bg-primary-600/5 blur-[120px] rounded-full" />
       </div>
     </nav>
 

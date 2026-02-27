@@ -38,27 +38,51 @@ export default function CardImage({
   };
 
   return (
-    <div className={cn(containerClass, "flex flex-col justify-center rounded-lg shadow-sm border-2 border-primary-100 bg-white relative xl:min-w-[400px] xl:max-w-[400px]")}>
-      <Grid1Pattern/>
-      <Link href={linkHref} className="absoulute p-8 z-10">
-        <Image 
-          className="w-full h-48 object-fit border-2 border-primary-100 rounded-md bg-primary-900/60"
-          src={imageSrc}
-          alt={imageAlt}
-          priority
-        />
-      </Link>
-      <div className="p-5">
-        <Link href={linkHref}>
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-primary-200">
+    <div 
+      className={cn(
+        "group relative flex flex-col rounded-[2.5rem] overflow-hidden border border-white/10 bg-primary-200 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-secondary-500/5 xl:min-w-[400px] xl:max-w-[400px]",
+        containerClass
+      )}
+    >
+      {/* Subtle overlay to soften the pattern */}
+      <div className="absolute inset-0 bg-primary-200/50 z-0" />
+      <div className="absolute inset-0 opacity-5 pointer-events-none z-0">
+        <Grid1Pattern />
+      </div>
+
+      <div className="relative p-8 z-10 flex flex-col h-full">
+        <div className="relative aspect-video w-full overflow-hidden rounded-[1.5rem] border border-white/5 mb-8">
+          <Image 
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            src={imageSrc}
+            alt={imageAlt}
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-100/90 via-primary-100/20 to-transparent" />
+        </div>
+
+        <div className="flex flex-col flex-1 space-y-4">
+          <h3 className="text-3xl font-black text-white italic tracking-tight group-hover:text-secondary-400 transition-colors duration-300">
             {title}
-          </h5>
-        </Link>
-        <p className="mb-3 font-normal text-prin">
-          {description}
-        </p>
-        {children}
-          <Button className="w-full" onClick={handleOnClickButton}>{linkText}</Button>
+          </h3>
+          <p className="text-white/70 text-base leading-relaxed font-medium">
+            {description}
+          </p>
+          
+          <div className="pt-6 mt-auto">
+            <Button 
+              className="w-full justify-center group/btn py-4 rounded-xl bg-secondary-500 text-primary-900 border-none hover:bg-secondary-400 hover:text-primary-100" 
+              onClick={handleOnClickButton}
+            >
+              <span className="flex items-center gap-3 font-black uppercase tracking-widest text-xs">
+                {linkText}
+                <svg className="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

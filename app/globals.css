@@ -2,38 +2,35 @@
 
 @theme {
   /* color */
-  --color-primary-100: #0B0F10;
+  --color-primary-100: #0b0f10;
   /* darkest */
-  --color-primary-200: #1A2325;
+  --color-primary-200: #1a2325;
   --color-primary-300: #243033;
   --color-primary-400: #324244;
   --color-primary-500: #415658;
   --color-primary-600: #597274;
-  --color-primary-700: #7D9A9C;
-  --color-primary-800: #A7BFC1;
-  --color-primary-900: #D1E0E1;
+  --color-primary-700: #7d9a9c;
+  --color-primary-800: #a7bfc1;
+  --color-primary-900: #d1e0e1;
   /* lightest */
 
-  --color-secondary-50: #F9FCF3;
-  --color-secondary-100: #EEF6DF;
-  --color-secondary-200: #D6E9AF;
-  --color-secondary-300: #C1DD88;
-  --color-secondary-400: #ACD260;
-  --color-secondary-500: #97C738;
+  --color-secondary-50: #f9fcf3;
+  --color-secondary-100: #eef6df;
+  --color-secondary-200: #d6e9af;
+  --color-secondary-300: #c1dd88;
+  --color-secondary-400: #acd260;
+  --color-secondary-500: #97c738;
   /* base */
-  --color-secondary-600: #799F2D;
-  --color-secondary-700: #5B7722;
-  --color-secondary-800: #3D5016;
-  --color-secondary-900: #24300D;
-
-
+  --color-secondary-600: #799f2d;
+  --color-secondary-700: #5b7722;
+  --color-secondary-800: #3d5016;
+  --color-secondary-900: #24300d;
 }
 
 @keyframes marquee {
   from {
     transform: translateX(0);
   }
-
   to {
     transform: translateX(-50%);
   }
@@ -41,4 +38,97 @@
 
 .animate-marquee {
   animation: marquee 60s linear infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-up {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation-duration: 700ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+.slide-in-from-bottom-8 {
+  animation-name: slide-in-from-bottom;
+}
+.slide-in-from-bottom-12 {
+  animation-name: slide-in-from-bottom;
+}
+.slide-in-from-left-8 {
+  animation-name: slide-in-from-left;
+}
+.slide-in-from-left-12 {
+  animation-name: slide-in-from-left;
+}
+.scale-up {
+  animation-name: scale-up;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+.delay-200 {
+  animation-delay: 200ms;
+}
+.delay-300 {
+  animation-delay: 300ms;
+}
+.delay-500 {
+  animation-delay: 500ms;
+}
+.delay-700 {
+  animation-delay: 700ms;
+}
+.delay-1000 {
+  animation-delay: 1000ms;
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+  }
 }

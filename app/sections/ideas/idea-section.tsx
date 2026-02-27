@@ -58,43 +58,50 @@ export default function IdeaSection() {
   const handleOnClickHobbiesAndProjects = () => setIsSocialOpen(true);
 
   return (
-    <SectionContainer id="section-ideas" className="md:items-center md:justify-center px-2 h-auto">
-      <div className="relative container flex flex-col">
-        <div className={cn(internSans.className, "font-black antialiased")}>
-          <h1 className="text-[50px] italic">
-            {"Ideas"}
-          </h1>
+    <SectionContainer id="section-ideas" className="md:items-center md:justify-center px-4 sm:px-6 h-auto py-20 sm:py-32 bg-secondary-50 relative overflow-hidden">
+      {/* Decorative background element */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary-500/5 blur-[120px] rounded-full pointer-events-none" />
+      
+      <div className="relative container mx-auto flex flex-col z-10 w-full">
+        <div className={cn(internSans.className, "font-black antialiased mb-16 sm:mb-24 text-center md:text-left relative")}>
+          <h2 className="text-[15vw] sm:text-[80px] md:text-[100px] italic leading-[0.8] text-primary-100/10 absolute -top-10 -left-4 select-none pointer-events-none">
+            IDEAS
+          </h2>
+          <h3 className="text-4xl sm:text-6xl font-bold text-primary-100 flex items-center justify-center md:justify-start gap-4 relative z-10">
+            Creative <span className="text-secondary-500 italic">Labs</span>
+          </h3>
+          <div className="h-1.5 w-20 bg-secondary-500 mt-6 rounded-full mx-auto md:mx-0 shadow-[0_0_20px_rgba(151,199,56,0.5)]" />
         </div>
 
-        <div className="flex flex-col justify-around gap-2 w-full xl:!flex-row">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           <CardImage
             onClick={handleVisitProjects} 
             imageSrc={ThumbnailImage}
             imageAlt="Project"
-            title="Project"
-            description="A comprehensive web application with experimental features for modern development workflows"
+            title="Advanced Portfolio"
+            description="A comprehensive web application with experimental features for modern development workflows, showcasing real-time data and premium animations."
             linkHref="/projects"
-            linkText="Visit Project"
+            linkText="EXPLORE PROJECT"
           />
 
           <CardImage
             onClick={handleOnClickAIAgenProject} 
             imageSrc={ThumbnailImage}
             imageAlt="AI Agent"
-            title="AI Agent"
-            description="An intelligent AI agent that automates complex tasks and provides personalized assistance"
+            title="Mrey AI Agent"
+            description="An intelligent AI agent ecosystem that orchestrates complex tasks, automates workflows via n8n, and provides personalized assistance."
             linkHref=""
-            linkText="Visit AI Agent"
+            linkText="VIEW AI AGENT"
           />
 
           <CardImage
             onClick={handleOnClickHobbiesAndProjects} 
             imageSrc={ThumbnailImage}
-            imageAlt="Hobbies & Personal Projects"
-            title="Hobbies & Personal Projects"
-            description="Discover my hobbies and personal projects - from photography and creative coding experiments to outdoor adventures and personal development"
+            imageAlt="Explorations"
+            title="Creative Labs"
+            description="A deep dive into my personal experiments—from creative coding labs to photography and outdoor adventures that fuel my creativity."
             linkHref=""
-            linkText="Visit Hobbies & Projects"
+            linkText="SEE EXPLORATIONS"
           />
         </div>
         
