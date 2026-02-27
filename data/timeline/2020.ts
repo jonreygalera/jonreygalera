@@ -42,8 +42,8 @@ const timeline : TimelinePost[] = [
         description: 'Experimented with creating my first NPM package using pure JavaScript, exploring package publishing and distribution.',
         slug: 'console-bar-chart-npm-package',
         tags: ['Personal Project', 'JavaScript', 'NPM', 'Learning'],
-        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2020/console-bar-chart.md',
-        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2020/console-bar-chart.md'
+        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2020/console-bar-chart-npm-package.md',
+        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2020/console-bar-chart-npm-package.md'
     },
     {
         id: 39,
