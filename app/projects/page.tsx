@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import SectionMainContainer from "@/components/section-main-container";
 import Footer from "@/ui/footer";
 import { PROJECTS, CATEGORIES } from "@/data/projects";
@@ -23,7 +23,6 @@ import {
 } from "lucide-react";
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
 import ProjectModal from '@/components/project-modal';
 import { Project } from '@/data/projects';
 
@@ -298,7 +297,7 @@ function SidebarFilter({
   );
 }
 
-export default function ProjectsPage() {
+function ProjectsContent() {
   const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState("Featured");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -439,3 +438,10 @@ export default function ProjectsPage() {
   );
 }
 
+export default function ProjectsPage() {
+  return (
+    <Suspense>
+      <ProjectsContent />
+    </Suspense>
+  );
+}
