@@ -27,6 +27,18 @@ export default function NavBar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Body scroll lock for mobile menu
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   // Ctrl+K global shortcut
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -172,10 +184,10 @@ export default function NavBar() {
 
       {/* Modern Mobile Menu Overlay */}
       <div className={cn(
-        "fixed inset-0 bg-primary-100 z-[40] md:hidden transition-all duration-500 ease-in-out",
-        isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none scale-95"
+        "fixed inset-0 bg-primary-100 z-[200] md:hidden transition-all duration-500 ease-in-out",
+        isMenuOpen ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-10"
       )}>
-        <div className="h-full flex flex-col px-6 pt-32 pb-12 overflow-y-auto relative z-10 font-sans">
+        <div className="h-dvh flex flex-col px-6 pt-32 pb-12 overflow-y-auto relative z-10 font-san bg-primary-200">
           <ul className="flex flex-col space-y-4">
             <p className="text-secondary-500 font-bold text-xs tracking-[0.3em] uppercase opacity-70 mb-4 px-2">Navigation</p>
             {navLinks.map((link, idx) => (
@@ -194,7 +206,6 @@ export default function NavBar() {
                     className="flex items-center justify-between p-4 rounded-2xl bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.08] hover:border-secondary-500/30 group transition-all"
                   >
                     <div className="flex items-center">
-                      <span className="text-sm font-mono text-secondary-500 mr-4 opacity-40">0{idx + 1}</span>
                       <span className="text-3xl font-black text-white group-hover:text-secondary-400">{link.name}</span>
                     </div>
                     <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-secondary-500/10 group-hover:border-secondary-500/30 transition-all">
@@ -209,7 +220,6 @@ export default function NavBar() {
                     className="flex items-center justify-between p-4 rounded-2xl bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.08] hover:border-secondary-500/30 group transition-all w-full text-left"
                   >
                     <div className="flex items-center">
-                      <span className="text-sm font-mono text-secondary-500 mr-4 opacity-40">0{idx + 1}</span>
                       <span className="text-3xl font-black text-white group-hover:text-secondary-400">{link.name}</span>
                     </div>
                     <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-secondary-500/10 group-hover:border-secondary-500/30 transition-all">

@@ -232,8 +232,8 @@ function SidebarFilter({
 }) {
   return (
     <div className="w-full lg:w-72 flex-shrink-0 space-y-10 group/sidebar">
-      <div>
-        <div className="flex items-center gap-3 mb-8">
+      <div className="overflow-visible">
+        <div className="flex items-center gap-3 mb-6 lg:mb-8">
           <div className="p-2 rounded-lg bg-secondary-500/10 text-secondary-600">
             <Filter size={18} />
           </div>
@@ -242,7 +242,7 @@ function SidebarFilter({
           </h2>
         </div>
 
-        <div className="space-y-2">
+        <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 gap-2 scrollbar-none -mx-6 px-6 lg:mx-0 lg:px-0">
           {CATEGORIES.map((category: any) => {
             const isSelected = selectedCategory === category;
             return (
@@ -250,17 +250,15 @@ function SidebarFilter({
                 key={category}
                 onClick={() => onSelectCategory(category)}
                 className={cn(
-                  "w-full flex items-center justify-between px-5 py-3.5 rounded-2xl transition-all duration-300 group/btn shadow-sm",
+                  "flex-shrink-0 lg:w-full flex items-center justify-between px-5 py-3 rounded-2xl transition-all duration-300 group/btn shadow-sm",
                   isSelected 
                     ? "bg-secondary-500 text-white shadow-xl shadow-secondary-500/20 scale-[1.02]" 
                     : "bg-white text-primary-100/50 hover:bg-secondary-500/5 hover:text-secondary-600 border border-primary-100/10 hover:border-secondary-500/20"
                 )}
               >
-                <span className="text-xs font-bold uppercase tracking-widest">{category}</span>
-                {isSelected ? (
-                  <ChevronRight size={14} className="animate-in slide-in-from-left-2 duration-300" />
-                ) : (
-                  <div className="h-1.5 w-1.5 rounded-full bg-secondary-500/20 group-hover/btn:bg-secondary-500/50 transition-colors" />
+                <span className="text-[10px] lg:text-xs font-bold uppercase tracking-widest whitespace-nowrap">{category}</span>
+                {isSelected && (
+                  <ChevronRight size={14} className="ml-3 hidden lg:block animate-in slide-in-from-left-2 duration-300" />
                 )}
               </button>
             );
@@ -268,7 +266,7 @@ function SidebarFilter({
         </div>
       </div>
 
-      <div className="p-6 rounded-[2rem] bg-white border border-primary-100/10 shadow-sm">
+      <div className="hidden lg:block p-6 rounded-[2rem] bg-white border border-primary-100/10 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Zap size={20} className="text-secondary-500" />
           <h4 className="text-primary-100 font-bold tracking-tight text-lg">Quick Access</h4>
@@ -357,7 +355,7 @@ export default function ProjectsPage() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-20">
         
 
-        <div className="flex flex-col lg:flex-row gap-20">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           
           {/* Sidebar */}
           <SidebarFilter 
