@@ -22,6 +22,8 @@ import {
   ArrowRight
 } from "lucide-react";
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 import ProjectModal from '@/components/project-modal';
 import { Project } from '@/data/projects';
 
@@ -297,9 +299,21 @@ function SidebarFilter({
 }
 
 export default function ProjectsPage() {
+  const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState("Featured");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const projectId = searchParams.get('id');
+    if (projectId) {
+      const project = PROJECTS.find(p => p.id === projectId);
+      if (project) {
+        setSelectedProject(project);
+        setIsModalOpen(true);
+      }
+    }
+  }, [searchParams]);
 
   const filteredProjects = selectedCategory === "All" 
     ? PROJECTS 

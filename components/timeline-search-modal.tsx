@@ -4,12 +4,18 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { Search, X, ArrowRight, Hash, FileText, Calendar } from "lucide-react";
 import { TIMELINE_POSTS, TimelinePost } from "@/data/timeline";
+import { PROJECTS, Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
+import { Briefcase, Zap } from "lucide-react";
 
 interface Props {
   open: boolean;
   onClose: () => void;
 }
+
+type SearchResult = 
+  | { type: 'timeline'; data: TimelinePost }
+  | { type: 'project'; data: Project };
 
 function highlight(text: string, query: string) {
   if (!query.trim()) return <>{text}</>;
@@ -30,21 +36,33 @@ function highlight(text: string, query: string) {
   );
 }
 
-function search(query: string): TimelinePost[] {
+function search(query: string): SearchResult[] {
   const q = query.toLowerCase().trim();
   if (!q) return [];
-  return TIMELINE_POSTS.filter((p) => {
+  
+  const timelineResults: SearchResult[] = TIMELINE_POSTS.filter((p) => {
     return (
       p.title.toLowerCase().includes(q) ||
       p.description.toLowerCase().includes(q) ||
       p.tags.some((t) => t.toLowerCase().includes(q))
     );
-  });
+  }).map(p => ({ type: 'timeline', data: p }));
+
+  const projectResults: SearchResult[] = PROJECTS.filter((p) => {
+    return (
+      p.title.toLowerCase().includes(q) ||
+      p.description.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      p.connectedTools.some((t) => t.name.toLowerCase().includes(q))
+    );
+  }).map(p => ({ type: 'project', data: p }));
+
+  return [...timelineResults, ...projectResults];
 }
 
 export default function TimelineSearchModal({ open, onClose }: Props) {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<TimelinePost[]>([]);
+  const [results, setResults] = useState<SearchResult[]>([]);
   const [cursor, setCursor] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
@@ -81,7 +99,12 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
         setCursor((c) => Math.max(c - 1, 0));
       } else if (e.key === "Enter" && results[cursor]) {
         onClose();
-        window.location.href = `/timeline/${results[cursor].slug}`;
+        const res = results[cursor];
+        if (res.type === 'timeline') {
+          window.location.href = `/timeline/${res.data.slug}`;
+        } else {
+          window.location.href = `/projects?id=${res.data.id}`;
+        }
       } else if (e.key === "Escape") {
         onClose();
       }
@@ -104,7 +127,7 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="DevTimeline search"
+        aria-label="Search everything"
         className="fixed z-[101] top-[12vh] left-1/2 -translate-x-1/2 w-full max-w-2xl px-4"
       >
         <div className="bg-white rounded-2xl shadow-2xl border border-gray-200/80 overflow-hidden flex flex-col">
@@ -115,7 +138,7 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
             <input
               ref={inputRef}
               type="text"
-              placeholder="Search DevTimeline…"
+              placeholder="Search timeline or projects…"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
@@ -145,7 +168,7 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
             {query.trim() === "" && (
               <li className="flex flex-col items-center justify-center gap-2 py-14 text-gray-400">
                 <Search className="w-8 h-8 opacity-30" />
-                <span className="text-sm">Type to search through all timeline posts</span>
+                <span className="text-sm">Type to search through timeline & projects</span>
               </li>
             )}
 
@@ -156,67 +179,85 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
               </li>
             )}
 
-            {results.map((post, i) => (
-              <li key={post.slug}>
-                <Link
-                  href={`/timeline/${post.slug}`}
-                  onClick={onClose}
-                  className={cn(
-                    "flex items-start gap-4 px-5 py-4 group transition-colors duration-100",
-                    cursor === i
-                      ? "bg-secondary-50 border-l-2 border-secondary-500"
-                      : "hover:bg-gray-50 border-l-2 border-transparent"
-                  )}
-                  onMouseEnter={() => setCursor(i)}
-                >
-                  {/* Icon */}
-                  <span className={cn(
-                    "mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold transition-colors",
-                    cursor === i ? "bg-secondary-100 text-secondary-600" : "bg-gray-100 text-gray-400"
-                  )}>
-                    <FileText className="w-4 h-4" />
-                  </span>
+            {results.map((res, i) => {
+              const isTimeline = res.type === 'timeline';
+              const href = isTimeline ? `/timeline/${res.data.slug}` : `/projects?id=${res.data.id}`;
+              const title = isTimeline ? res.data.title : res.data.title;
+              const description = isTimeline ? res.data.description : res.data.description;
+              const tags = isTimeline ? res.data.tags : res.data.connectedTools.map(t => t.name);
+              const meta = isTimeline ? (res.data.fullDate ?? res.data.date) : res.data.category;
+              const Icon = isTimeline ? FileText : (res.data.icon || Briefcase);
 
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-gray-900 leading-snug line-clamp-1">
-                      {highlight(post.title, query)}
-                    </p>
-                    <p className="text-xs text-gray-500 mt-0.5 line-clamp-2 leading-relaxed">
-                      {highlight(post.description, query)}
-                    </p>
+              return (
+                <li key={i}>
+                  <Link
+                    href={href}
+                    onClick={onClose}
+                    className={cn(
+                      "flex items-start gap-4 px-5 py-4 group transition-colors duration-100",
+                      cursor === i
+                        ? "bg-secondary-50 border-l-2 border-secondary-500"
+                        : "hover:bg-gray-50 border-l-2 border-transparent"
+                    )}
+                    onMouseEnter={() => setCursor(i)}
+                  >
+                    {/* Icon */}
+                    <span className={cn(
+                      "mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold transition-colors",
+                      cursor === i ? "bg-secondary-100 text-secondary-600" : "bg-gray-100 text-gray-400"
+                    )}>
+                      <Icon className="w-4 h-4" />
+                    </span>
 
-                    {/* Meta row */}
-                    <div className="flex flex-wrap items-center gap-2 mt-2">
-                      <span className="inline-flex items-center gap-1 text-[10px] text-gray-400 font-mono">
-                        <Calendar className="w-3 h-3" />
-                        {post.fullDate ?? post.date}
-                      </span>
-                      {post.tags.slice(0, 4).map((tag) => (
-                        <span
-                          key={tag}
-                          className={cn(
-                            "inline-flex items-center gap-0.5 text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded transition-colors",
-                            tag.toLowerCase().includes(query.toLowerCase()) && query
-                              ? "bg-secondary-100 text-secondary-700"
-                              : "bg-gray-100 text-gray-500"
-                          )}
-                        >
-                          <Hash className="w-2.5 h-2.5" />
-                          {tag}
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <p className="text-sm font-semibold text-gray-900 leading-snug line-clamp-1">
+                          {highlight(title, query)}
+                        </p>
+                        <span className={cn(
+                          "text-[9px] font-black uppercase tracking-widest px-1.5 py-0.5 rounded",
+                          isTimeline ? "bg-blue-50 text-blue-600" : "bg-secondary-50 text-secondary-600"
+                        )}>
+                          {isTimeline ? 'Post' : 'Project'}
                         </span>
-                      ))}
-                    </div>
-                  </div>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-0.5 line-clamp-2 leading-relaxed">
+                        {highlight(description, query)}
+                      </p>
 
-                  {/* Arrow */}
-                  <ArrowRight className={cn(
-                    "w-4 h-4 mt-1 shrink-0 transition-all duration-150",
-                    cursor === i ? "text-secondary-500 translate-x-0.5" : "text-gray-200"
-                  )} />
-                </Link>
-              </li>
-            ))}
+                      {/* Meta row */}
+                      <div className="flex flex-wrap items-center gap-2 mt-2">
+                        <span className="inline-flex items-center gap-1 text-[10px] text-gray-400 font-mono">
+                          {isTimeline ? <Calendar className="w-3 h-3" /> : <Zap className="w-3 h-3" />}
+                          {meta}
+                        </span>
+                        {tags.slice(0, 4).map((tag) => (
+                          <span
+                            key={tag}
+                            className={cn(
+                              "inline-flex items-center gap-0.5 text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded transition-colors",
+                              tag.toLowerCase().includes(query.toLowerCase()) && query
+                                ? "bg-secondary-100 text-secondary-700"
+                                : "bg-gray-100 text-gray-500"
+                            )}
+                          >
+                            <Hash className="w-2.5 h-2.5" />
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Arrow */}
+                    <ArrowRight className={cn(
+                      "w-4 h-4 mt-1 shrink-0 transition-all duration-150",
+                      cursor === i ? "text-secondary-500 translate-x-0.5" : "text-gray-200"
+                    )} />
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Footer hint */}
