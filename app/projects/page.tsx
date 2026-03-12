@@ -16,25 +16,33 @@ import {
   ArrowUpRight,
   ExternalLink,
   ChevronRight,
-  Filter
+  Filter,
+  CheckCircle2,
+  Trophy,
+  ArrowRight
 } from "lucide-react";
 import Link from 'next/link';
+import ProjectModal from '@/components/project-modal';
+import { Project } from '@/data/projects';
 
 // --- Components ---
 
-function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
+function ProjectCard({ 
+  project, 
+  onOpenModal 
+}: { 
+  project: Project, 
+  onOpenModal: (p: Project) => void 
+}) {
   const Icon = project.icon;
   const isLink = !!project.link;
-  const Wrapper = isLink ? Link : 'div';
-  const wrapperProps = isLink ? { href: project.link!, target: "_blank" } : {};
   const isAI = project.category.includes('AI') || project.title.includes('AI');
 
   return (
-    // @ts-ignore
-    <Wrapper
-      {...wrapperProps}
+    <div
+      onClick={() => onOpenModal(project)}
       className={cn(
-        "group relative flex flex-col rounded-[2.5rem] border p-8 transition-all duration-500 cursor-pointer overflow-hidden",
+        "group relative flex flex-col rounded-[2.5rem] border p-8 transition-all duration-500 cursor-pointer overflow-hidden h-full",
         isAI 
           ? "bg-white border-secondary-500/30 hover:border-secondary-500/60 hover:shadow-[0_20px_60px_rgba(151,199,56,0.15)] shadow-sm" 
           : "bg-white border-primary-100/5 hover:border-primary-100/10 hover:shadow-2xl shadow-sm"
@@ -55,6 +63,12 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
         </div>
         
         <div className="flex flex-col items-end gap-2">
+          {project.isFeatured && (
+            <div className="flex items-center gap-1.5 px-3 py-1 bg-amber-400 text-white rounded-full">
+              <Trophy size={10} />
+              <span className="text-[10px] font-black uppercase tracking-widest">Featured</span>
+            </div>
+          )}
           {isAI && (
             <div className="flex items-center gap-1.5 px-3 py-1 bg-secondary-500 text-white rounded-full">
               <Sparkles size={10} />
@@ -71,11 +85,20 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
 
       {/* Content */}
       <div className="mb-6 relative z-10">
-        <div className="flex items-center gap-2 mb-2">
-          <h3 className="text-2xl font-bold text-primary-100 tracking-tight group-hover:text-secondary-600 transition-colors">
-            {project.title}
-          </h3>
-          {isLink && <ArrowUpRight size={18} className="text-primary-100/40 group-hover:text-secondary-500 translate-x-0 group-hover:-translate-y-1 transition-all" />}
+        <div className="flex items-center justify-between mb-2">
+            <h3 className="text-2xl font-bold text-primary-100 tracking-tight group-hover:text-secondary-600 transition-colors">
+              {project.title}
+            </h3>
+            {isLink && (
+              <a 
+                href={project.link} 
+                target="_blank" 
+                onClick={(e) => e.stopPropagation()}
+                className="p-2 bg-primary-100/5 hover:bg-secondary-500/10 text-primary-100/30 hover:text-secondary-600 rounded-xl border border-primary-100/10 transition-all flex items-center justify-center"
+              >
+                <ExternalLink size={16} />
+              </a>
+            )}
         </div>
         
         <div className="flex flex-wrap gap-2 mb-4">
@@ -87,7 +110,7 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
           </span>
         </div>
 
-        <p className="text-primary-100/80 text-base leading-relaxed font-medium">
+        <p className="text-primary-100/80 text-base leading-relaxed font-medium line-clamp-3">
           {project.description}
         </p>
       </div>
@@ -110,8 +133,94 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
           )}
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
+}
+
+function FeaturedListItem({ 
+  project, 
+  onOpenModal 
+}: { 
+  project: Project, 
+  onOpenModal: (p: Project) => void 
+}) {
+    const isLink = !!project.link;
+
+    return (
+        <div 
+            onClick={() => onOpenModal(project)}
+            className="group flex flex-col md:flex-row md:items-center justify-between py-3.5 border-b border-primary-100/5 cursor-pointer transition-all hover:px-4 hover:bg-secondary-500/5 rounded-xl"
+        >
+            <div className="flex items-center gap-4">
+                <div>
+                    <h3 className="text-base font-bold text-primary-100 group-hover:text-secondary-600 transition-colors tracking-tight">
+                        {project.title}
+                    </h3>
+                    <div className="flex items-center gap-2 mt-0.5">
+                        <span className="text-[9px] font-black uppercase tracking-widest text-primary-100/20 group-hover:text-primary-100/40 transition-colors">
+                            {project.category}
+                        </span>
+                        <div className="w-0.5 h-0.5 rounded-full bg-primary-100/10" />
+                        <span className="text-[9px] font-black uppercase tracking-widest text-primary-100/20 group-hover:text-primary-100/40 transition-colors">
+                            {project.role}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div className="flex items-center gap-4 mt-3 md:mt-0">
+                <div className="flex items-center gap-2">
+                    {isLink && (
+                        <a 
+                            href={project.link} 
+                            target="_blank" 
+                            onClick={(e) => e.stopPropagation()}
+                            className="p-2 bg-white border border-primary-100/10 text-primary-100/30 hover:text-secondary-600 hover:border-secondary-500/20 rounded-lg transition-all"
+                        >
+                            <ExternalLink size={14} />
+                        </a>
+                    )}
+                    <div className="p-2 bg-primary-100/5 text-primary-100/40 rounded-lg group-hover:bg-secondary-600 group-hover:text-white transition-all">
+                        <ArrowRight size={14} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function FeaturedSection({ projects, onOpenModal }: { projects: Project[], onOpenModal: (p: Project) => void }) {
+    if (projects.length === 0) return null;
+
+    return (
+        <div className="mb-20">
+            <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded bg-amber-400/10 flex items-center justify-center text-amber-500">
+                        <Trophy size={12} />
+                    </div>
+                    <h2 className="text-base font-bold text-primary-100/40 tracking-tight uppercase">Featured</h2>
+                </div>
+                <div className="text-right">
+                    <span className="text-[10px] font-black text-secondary-600 uppercase tracking-widest bg-secondary-500/5 px-2 py-0.5 rounded-full border border-secondary-500/10">
+                        {projects.length} Works
+                    </span>
+                </div>
+            </div>
+
+            <div className="flex flex-col">
+                {projects.map((project, idx) => (
+                    <div 
+                        key={`featured-${project.id}`}
+                        className="animate-in fade-in slide-in-from-bottom-5 duration-700"
+                        style={{ animationDelay: `${idx * 100}ms`, animationFillMode: 'both' }}
+                    >
+                        <FeaturedListItem project={project} onOpenModal={onOpenModal} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 }
 
 function SidebarFilter({ 
@@ -190,18 +299,26 @@ function SidebarFilter({
 }
 
 export default function ProjectsPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("Featured");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredProjects = selectedCategory === "All" 
     ? PROJECTS 
-    : PROJECTS.filter((p: any) => p.category === selectedCategory || p.department === selectedCategory);
+    : selectedCategory === "Featured"
+      ? PROJECTS.filter((p: Project) => p.isFeatured)
+      : PROJECTS.filter((p: Project) => p.category === selectedCategory || p.department === selectedCategory);
+
+  const handleOpenModal = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
 
   return (
     <SectionMainContainer className="bg-secondary-50 overflow-hidden font-sans min-h-screen">
-      {/* Uniform Grid Background */}
-      <div className="fixed inset-0 z-0 opacity-10 pointer-events-none">
-        <div className="absolute inset-0 [background-image:linear-gradient(to_right,#80808022_1px,transparent_1px),linear-gradient(to_bottom,#80808022_1px,transparent_1px)] [background-size:40px_40px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary-50 via-transparent to-secondary-50" />
+      {/* Optimized Background Area */}
+      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(#808080_1px,transparent_1px)] [background-size:32px_32px]" />
       </div>
       
       {/* Header Area */}
@@ -238,6 +355,8 @@ export default function ProjectsPage() {
 
       {/* Main Content Layout */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-20">
+        
+
         <div className="flex flex-col lg:flex-row gap-20">
           
           {/* Sidebar */}
@@ -251,7 +370,7 @@ export default function ProjectsPage() {
              <div className="mb-12 flex items-center justify-between">
                 <div>
                    <h3 className="text-2xl font-bold text-primary-100 tracking-tight flex items-center gap-4">
-                      {selectedCategory === "All" ? "Collection" : selectedCategory}
+                      {selectedCategory === "All" ? "Full Collection" : selectedCategory}
                       <span className="text-xs font-bold text-primary-100/20 uppercase tracking-widest">
                         {filteredProjects.length}
                       </span>
@@ -264,14 +383,14 @@ export default function ProjectsPage() {
                 </div>
              </div>
 
-             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-2">
-                {filteredProjects.map((project: any, idx: any) => (
+             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
+                {filteredProjects.map((project: Project, idx: number) => (
                    <div 
                     key={project.id}
-                    className="animate-in fade-in slide-in-from-bottom-10 duration-700"
-                    style={{ animationDelay: `${idx * 50}ms`, animationFillMode: 'both' }}
+                    className="animate-in fade-in slide-in-from-bottom-2 duration-500"
+                    style={{ animationDelay: `${Math.min(idx * 30, 300)}ms`, animationFillMode: 'both' }}
                    >
-                    <ProjectCard project={project} />
+                    <ProjectCard project={project} onOpenModal={handleOpenModal} />
                    </div>
                 ))}
              </div>
@@ -298,6 +417,12 @@ export default function ProjectsPage() {
       <div className="relative z-10 mt-20 border-t border-primary-100/10">
          <Footer />
       </div>
+
+      <ProjectModal 
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </SectionMainContainer>
   );
 }
