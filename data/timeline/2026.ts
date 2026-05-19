@@ -36,14 +36,14 @@ const timeline : TimelinePost[] = [
     },
     {
         id: 32,
-        title: 'Stats Flow — Turning Legacy into Insight',
+        title: 'StatsFlow — Freelancer Disbursement Platform',
         date: '2026',
         fullDate: '2026',
-        description: 'Lead Developer for Stats Flow, a new system to track employee stats, focusing on migrating data from two legacy systems (Prody and Flai) while building a modern, reliable platform.',
-        slug: 'stats-flow-employee-tracking',
-        tags: ['Laravel', 'Filament', 'Redis', 'MySQL', 'Docker', 'Migration', 'Employee Stats'],
-        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2026/stats-flow-employee-tracking.md',
-        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2026/stats-flow-employee-tracking.md'
+        description: 'Lead Developer for StatsFlow, an end-to-end financial orchestration engine built with Laravel and Filament. Designed to automate complex production-based rule calculations, multi-stage approval hierarchies, and instant freelancer payouts while eliminating error-prone spreadsheet operations.',
+        slug: 'statsflow-freelancer-disbursement-platform',
+        tags: ['Laravel', 'Filament', 'PHP', 'MySQL', 'Redis', 'Docker', 'Finance', 'Payout Engine'],
+        githubRawUrl: 'https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2026/statsflow-freelancer-disbursement-platform.md',
+        githubUrl: 'https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2026/statsflow-freelancer-disbursement-platform.md'
     }
 ];
 

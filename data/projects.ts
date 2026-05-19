@@ -21,7 +21,8 @@ import {
   Terminal,
   LayoutTemplate,
   Zap,
-  Bot
+  Bot,
+  Volume2
 } from "lucide-react";
 
 export interface Project {
@@ -317,6 +318,33 @@ export const PROJECTS: Project[] = [
     icon: Zap,
     connectedTools: [
       { name: "Next.js" }, { name: "TypeScript" }, { name: "PWA" }, { name: "JSON" }
+    ]
+  },
+  {
+    id: "30",
+    title: "SayMate — Giving a Voice to Everyone",
+    category: "Mobile Development",
+    role: "Co-Founder & Developer",
+    isFeatured: true,
+    company: "Personal",
+    link: "https://play.google.com/store/apps/details?id=com.mreycode.say_mate",
+    description: "A free, accessible Augmentative and Alternative Communication (AAC) app built with Flutter. Co-founded and developed in partnership with my fiancée (who served as UI/UX Analyst). SayMate empowers non-verbal children and adults to communicate effortlessly using customizable picture flashcards and voice playback.",
+    icon: Volume2,
+    connectedTools: [
+      { name: "Flutter" }, { name: "Dart" }, { name: "Android" }, { name: "UI/UX" }, { name: "Accessibility" }
+    ]
+  },
+  {
+    id: "31",
+    title: "StatsFlow — Freelancer Disbursement Platform",
+    category: "Finance",
+    role: "Lead Developer",
+    isFeatured: true,
+    company: "NMS Philippines",
+    description: "An end-to-end financial orchestration engine that transforms manual compensation operations into a secure, instant payout ecosystem. By combining dynamic production-based rule engines with automated multi-stage approvals, it completely removes spreadsheets and delays from freelancer disbursements. Designed as the high-availability financial backbone for scaling gig marketplaces and BPO platforms, it ensures real-time accuracy and seamless liquidity.",
+    icon: Wallet,
+    connectedTools: [
+      { name: "Laravel" }, { name: "Filament" }, { name: "PHP" }, { name: "MySQL" }, { name: "Redis" }, { name: "Docker" }
     ]
   },
 ];
