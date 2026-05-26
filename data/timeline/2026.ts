@@ -1,6 +1,6 @@
 import { TimelinePost } from "../timeline";
 
-const timeline : TimelinePost[] = [
+const timeline: TimelinePost[] = [
     {
         id: 34,
         title: "SayMate — Giving a Voice to Everyone",
@@ -8,7 +8,7 @@ const timeline : TimelinePost[] = [
         fullDate: "April 2026",
         description: "Co-founded and developed SayMate, a free Augmentative and Alternative Communication (AAC) app in partnership with my fiancée. Built with Flutter, SayMate helps non-verbal individuals communicate using customizable picture flashcards and voice.",
         slug: "saymate-aac-app",
-        tags: ["Flutter", "Dart", "Open Source", "AAC", "Mobile Development", "UI/UX", "Accessibility"],
+        tags: ["Flutter", "Dart", "AAC", "Mobile Development", "UI/UX", "Accessibility"],
         githubRawUrl: "https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2026/saymate-story.md",
         githubUrl: "https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2026/saymate-story.md"
     },
