@@ -19,6 +19,9 @@ const LEARNING_ITEMS = [
   "TypeScript Type Mastery",
   "Next.js Scalable Architecture",
   "PHP Core Internals",
+  "Flutter",
+  "Dart",
+  "Mobile Development"
 ];
 
 export default function LearningStack() {
@@ -33,8 +36,8 @@ export default function LearningStack() {
     const fullText = LEARNING_ITEMS[i];
 
     const handleTyping = () => {
-      setText(prev => isDeleting 
-        ? fullText.substring(0, prev.length - 1) 
+      setText(prev => isDeleting
+        ? fullText.substring(0, prev.length - 1)
         : fullText.substring(0, prev.length + 1)
       );
 
@@ -57,7 +60,7 @@ export default function LearningStack() {
   return (
     <div className="mt-8 group">
       <div className="flex items-center gap-4 p-5 rounded-[1.5rem] bg-white/[0.02] border border-white/5 hover:border-secondary-500/20 transition-all duration-500 relative overflow-hidden">
-        
+
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center gap-6 w-full">
           <div className="flex items-center gap-3 flex-shrink-0">
             <div className="w-10 h-10 rounded-xl bg-secondary-500/10 flex items-center justify-center text-secondary-500 ring-1 ring-secondary-500/20 shadow-lg group-hover:scale-105 transition-all duration-500">
