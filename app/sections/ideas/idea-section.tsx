@@ -1,6 +1,8 @@
 'use client';
 import Image from "next/image";
-import ThumbnailImage from '/public/image3.webp';
+import PortfolioImage from '/public/ideas-portfolio.png';
+import AIAgentImage from '/public/ideas-ai-agent.png';
+import CreativeLabsImage from '/public/ideas-creative-labs.png';
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import SnapSection from "@/components/snap-section";
@@ -76,7 +78,7 @@ export default function IdeaSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           <CardImage
             onClick={handleVisitProjects} 
-            imageSrc={ThumbnailImage}
+            imageSrc={PortfolioImage}
             imageAlt="Project"
             title="Advanced Portfolio"
             description="A comprehensive web application with experimental features for modern development workflows, showcasing real-time data and premium animations."
@@ -86,7 +88,7 @@ export default function IdeaSection() {
 
           <CardImage
             onClick={handleOnClickAIAgenProject} 
-            imageSrc={ThumbnailImage}
+            imageSrc={AIAgentImage}
             imageAlt="AI Agent"
             title="Mrey AI Agent"
             description="An intelligent AI agent ecosystem that orchestrates complex tasks, automates workflows via n8n, and provides personalized assistance."
@@ -96,7 +98,7 @@ export default function IdeaSection() {
 
           <CardImage
             onClick={handleOnClickHobbiesAndProjects} 
-            imageSrc={ThumbnailImage}
+            imageSrc={CreativeLabsImage}
             imageAlt="Explorations"
             title="Creative Labs"
             description="A deep dive into my personal experiments—from creative coding labs to photography and outdoor adventures that fuel my creativity."
