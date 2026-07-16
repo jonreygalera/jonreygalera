@@ -1,10 +1,10 @@
-import { 
-  Building2, 
-  Wallet, 
-  Receipt, 
-  PiggyBank, 
-  FileText, 
-  Calculator, 
+import {
+  Building2,
+  Wallet,
+  Receipt,
+  PiggyBank,
+  FileText,
+  Calculator,
   Plane,
   Briefcase,
   Megaphone,
@@ -347,10 +347,24 @@ export const PROJECTS: Project[] = [
       { name: "Laravel" }, { name: "Filament" }, { name: "PHP" }, { name: "MySQL" }, { name: "Redis" }, { name: "Docker" }
     ]
   },
+  {
+    id: "32",
+    title: "DuckPilot",
+    category: "Desktop Development",
+    role: "Founder & Developer",
+    isFeatured: true,
+    company: "Personal",
+    description: "Developed DuckPilot, a desktop app to tame the developer chaos. Built with Flutter, DuckPilot helps developers manage their WSL and Docker workflows, Git branches, and AWS services.",
+    icon: Terminal,
+    link: "https://duck-pilot.netlify.app",
+    connectedTools: [
+      { name: "Flutter" }, { name: "WSL" }, { name: "Desktop" }, { name: "UI/UX" }, { name: "Productivity" }
+    ]
+  },
 ];
 
 // Re-export CheckCircle2 for usage if needed, though strictly we used Lucide imports
-import { CheckCircle2 } from "lucide-react"; 
+import { CheckCircle2 } from "lucide-react";
 
 export const CATEGORIES = [
   "Featured",
