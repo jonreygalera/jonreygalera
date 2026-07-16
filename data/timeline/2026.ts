@@ -2,6 +2,17 @@ import { TimelinePost } from "../timeline";
 
 const timeline: TimelinePost[] = [
     {
+        id: 35,
+        title: "DuckPilot — A Desktop App to Tame the Developer Chaos",
+        date: "2026",
+        fullDate: "June 2026",
+        description: "Developed DuckPilot, a desktop app to tame the developer chaos. Built with Flutter, DuckPilot helps developers manage their WSL and Docker workflows, Git branches, and AWS services.",
+        slug: "duckpilot",
+        tags: ["Flutter", "WSL", "Docker", "AWS", "Git", "Desktop Development", "UI/UX", "Productivity"],
+        githubRawUrl: "https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2026/duckpilot.md",
+        githubUrl: "https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2026/duckpilot.md"
+    },
+    {
         id: 34,
         title: "SayMate — Giving a Voice to Everyone",
         date: "2026",
