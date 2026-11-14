@@ -59,6 +59,7 @@ export default function HeroSection({ id }: { id?: string}) {
               src={BackgroundImage}
               alt="Background"
               fill
+              sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover object-bottom transition-all duration-1000 scale-105"
               priority
             />

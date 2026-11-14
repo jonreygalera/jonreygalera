@@ -36,6 +36,7 @@ export default function ContactMeSection() {
                   src={BImage3}
                   alt="Contact"
                   fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
                   priority
                 />
