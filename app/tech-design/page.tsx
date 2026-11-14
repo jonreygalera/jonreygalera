@@ -97,7 +97,7 @@ function TechCard({ item }: { item: typeof techStack[0] }) {
           {item.description}
         </p>
 
-        <div className="mt-4 flex items-center gap-2 text-xs font-medium text-secondary-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div className="mt-4 flex items-center gap-2 text-xs font-medium text-secondary-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           <Zap className="h-3 w-3" />
           <span>Core Technology</span>
         </div>
@@ -127,7 +127,7 @@ function ColorSwatch({ color }: { color: { name: string, hex: string, variable: 
         />
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-primary-100/10 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100">
            {copied ? (
-             <div className="flex items-center gap-2 rounded-full bg-secondary-500 px-3 py-1.5 text-xs font-medium text-white shadow-lg animate-in fade-in zoom-in duration-200">
+             <div className="flex items-center gap-2 rounded-full bg-secondary-500 px-3 py-1.5 text-xs font-medium text-primary-100 shadow-lg animate-in fade-in zoom-in duration-200">
                <Check className="h-3.5 w-3.5" />
                <span>Copied!</span>
              </div>
@@ -167,7 +167,7 @@ export default function TechDesignPage() {
         {/* Header Section */}
         <div className="mb-20 text-center">
           <h1 className="mb-6 text-4xl font-bold tracking-tight text-primary-100 sm:text-5xl lg:text-6xl">
-            Tech & <span className="text-secondary-500">Design</span>
+            Tech & <span className="text-secondary-700">Design</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-primary-500">
             A deep dive into the engineering choices and design philosophy that power this digital experience. 
@@ -176,13 +176,13 @@ export default function TechDesignPage() {
 
           {/* Design Inspiration Credit */}
           <div className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-secondary-100/50 px-4 py-2 border border-secondary-200/50 group hover:bg-secondary-100 transition-all duration-300">
-            <Palette className="h-4 w-4 text-secondary-600" />
+            <Palette className="h-4 w-4 text-secondary-700" />
             <span className="text-sm font-medium text-primary-400">Design inspired by</span>
             <a 
               href="https://www.behance.net/gallery/230873273/Programmer-Portfolio-Design" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-sm font-bold text-secondary-600 hover:text-secondary-700 underline flex items-center gap-1 transition-colors"
+              className="text-sm font-bold text-secondary-700 hover:text-secondary-700 underline flex items-center gap-1 transition-colors"
             >
               Addy.chan
               <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -193,7 +193,7 @@ export default function TechDesignPage() {
         {/* Tech Stack Grid */}
         <section className="mb-24">
           <div className="mb-10 flex items-center gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary-100 text-secondary-600">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary-100 text-secondary-700">
               <Cpu className="h-6 w-6" />
             </div>
             <div>
@@ -215,7 +215,7 @@ export default function TechDesignPage() {
         {/* Design System - Typography */}
         <section className="mb-24">
           <div className="mb-10 flex items-center gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary-500 text-white">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary-500 text-primary-100">
               <Type className="h-6 w-6" />
             </div>
             <div>
@@ -288,7 +288,7 @@ export default function TechDesignPage() {
             </div>
 
             <div>
-              <h3 className="mb-6 text-lg font-semibold text-secondary-600 flex items-center gap-2">
+              <h3 className="mb-6 text-lg font-semibold text-secondary-700 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-secondary-500"></span>
                 Secondary Scale (Brand)
               </h3>

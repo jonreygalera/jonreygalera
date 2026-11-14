@@ -15,7 +15,7 @@ export default function Button({
     transition-all duration-300 active:scale-95 shadow-lg
     border border-primary-100/10 backdrop-blur-sm
     bg-primary-100 text-secondary-500 md:bg-white md:text-primary-100
-    hover:bg-secondary-500 hover:text-white hover:border-secondary-500 hover:shadow-secondary-500/20
+    hover:bg-secondary-500 hover:text-primary-100 hover:border-secondary-500 hover:shadow-secondary-500/20
   `;
   
   if(link) {

@@ -9,7 +9,7 @@ import SnapSection from "@/components/snap-section";
 import SectionContainer from "@/components/section-container";
 import CardImage from "@/components/card-image";
 import { PROFILE } from "@/data/profile";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { SOCIAL_ACCOUNTS } from "@/data/social-account";
 import { useRouter } from "next/navigation";
@@ -20,27 +20,39 @@ const internSans = Inter({
 });
 
 const Modal = ({ isOpen, onClose, title, children }: { isOpen: boolean; onClose: () => void; title: string; children: React.ReactNode }) => {
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
   return (
-    <div 
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-all" 
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-all p-4"
       onClick={onClose}
     >
-      <div 
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={title || undefined}
         className={cn(
-          "bg-white dark:bg-neutral-900 p-8 rounded-[2rem] shadow-2xl max-w-md w-full mx-4 relative border border-neutral-200 dark:border-neutral-800",
+          "bg-white p-6 sm:p-8 rounded-[2rem] shadow-2xl max-w-md w-full relative border border-neutral-200 max-h-[85dvh] overflow-y-auto",
           internSans.className
-        )} 
+        )}
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-2xl font-bold mb-4 text-neutral-900 dark:text-neutral-50 tracking-tight">
-          {title}
-        </h2>
-        <div className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+        {title && (
+          <h2 className="text-2xl font-bold mb-4 text-neutral-900 tracking-tight">
+            {title}
+          </h2>
+        )}
+        <div className="text-neutral-600 leading-relaxed">
           {children}
         </div>
-        <button 
-          className="mt-8 w-full py-3.5 px-4 bg-neutral-900 dark:bg-neutral-50 text-white dark:text-neutral-900 rounded-2xl font-semibold hover:opacity-90 transition-all active:scale-[0.98]" 
+        <button
+          className="mt-8 w-full py-3.5 px-4 bg-neutral-900 text-white rounded-2xl font-semibold hover:opacity-90 transition-all active:scale-[0.98]"
           onClick={onClose}
         >
           Close
@@ -70,7 +82,7 @@ export default function IdeaSection() {
             IDEAS
           </h2>
           <h3 className="text-4xl sm:text-6xl font-bold text-primary-100 flex items-center justify-center md:justify-start gap-4 relative z-10">
-            Creative <span className="text-secondary-500 italic">Labs</span>
+            Creative <span className="text-secondary-700 italic">Labs</span>
           </h3>
           <div className="h-1.5 w-20 bg-secondary-500 mt-6 rounded-full mx-auto md:mx-0 shadow-[0_0_20px_rgba(151,199,56,0.5)]" />
         </div>
@@ -131,7 +143,7 @@ export default function IdeaSection() {
             <h3 className="text-2xl font-bold text-neutral-900 mb-3 italic">
               Under Construction
             </h3>
-            <p className="text-neutral-500 max-w-sm leading-relaxed">
+            <p className="text-neutral-600 max-w-sm leading-relaxed">
               I'm currently refining this project to ensure the best experience. 
               Please check back soon for the full reveal!
             </p>
@@ -153,15 +165,15 @@ export default function IdeaSection() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-[1.25rem] bg-neutral-50 dark:bg-neutral-800/40 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all border border-transparent hover:border-neutral-200 dark:hover:border-neutral-700 group"
+                className="flex items-center gap-4 p-4 rounded-[1.25rem] bg-neutral-50 hover:bg-neutral-100 transition-all border border-transparent hover:border-neutral-200 group"
                 aria-label={social.platform}
               >
-                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-white dark:bg-neutral-900 shadow-sm group-hover:scale-110 transition-transform">
-                  {React.createElement(social.icon, { size: 22, className: "text-neutral-700 dark:text-neutral-300" })}
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-white shadow-sm group-hover:scale-110 transition-transform">
+                  {React.createElement(social.icon, { size: 22, className: "text-neutral-700" })}
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-neutral-900 dark:text-neutral-50 tracking-tight">{social.platform}</span>
-                  <span className="text-sm text-neutral-500 dark:text-neutral-400">{social.description}</span>
+                  <span className="font-bold text-neutral-900 tracking-tight">{social.platform}</span>
+                  <span className="text-sm text-neutral-600">{social.description}</span>
                 </div>
               </Link>
             ))}

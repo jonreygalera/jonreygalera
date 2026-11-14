@@ -78,7 +78,7 @@ export default function TimelinePage() {
                        className={cn(
                          "text-left text-sm font-bold transition-all duration-300 py-1 px-2 rounded hover:bg-secondary-100/50",
                          activeYear === year 
-                           ? "text-secondary-600 translate-x-1 border-l-2 border-secondary-500 -ml-[18px] bg-secondary-50" 
+                           ? "text-secondary-700 translate-x-1 border-l-2 border-secondary-500 -ml-[18px] bg-secondary-50" 
                            : "text-primary-400 hover:text-primary-600"
                        )}
                      >
@@ -97,7 +97,7 @@ export default function TimelinePage() {
              
             <header className="space-y-6 text-center md:text-left mb-16 px-4">
               <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-primary-100 tracking-tighter leading-[0.9]">
-                Dev<span className="text-secondary-500 italic">Timeline</span>
+                Dev<span className="text-secondary-700 italic">Timeline</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-primary-100/60 max-w-2xl font-light leading-relaxed mx-auto md:mx-0">
                 A chronological archive of my engineering journey, architectural milestones, and the lessons carved in code along the way.
@@ -134,7 +134,7 @@ export default function TimelinePage() {
 
                        <div className="flex flex-col gap-3 group-hover:-translate-y-1 transition-transform duration-300 hover:bg-white hover:shadow-xl hover:rounded-2xl p-6 -m-6 border border-transparent hover:border-secondary-100">
                           <Link href={`/timeline/${post.slug}`} className="block group/link">
-                            <h4 className="text-2xl font-bold text-primary-100 mb-2 group-hover/link:text-secondary-600 transition-colors">
+                            <h4 className="text-2xl font-bold text-primary-100 mb-2 group-hover/link:text-secondary-700 transition-colors">
                               {post.title}
                             </h4>
                             <div className="flex justify-between items-start">
@@ -152,7 +152,7 @@ export default function TimelinePage() {
                             <p className="text-primary-500 leading-relaxed mb-4 line-clamp-3">
                               {post.description}
                             </p>
-                            <span className="inline-flex items-center text-secondary-600 text-sm font-bold group-hover/link:underline decoration-2 underline-offset-4">
+                            <span className="inline-flex items-center text-secondary-700 text-sm font-bold group-hover/link:underline decoration-2 underline-offset-4">
                               Read Full Story <ArrowLeft className="w-4 h-4 ml-1 rotate-180 transition-transform group-hover/link:translate-x-1" />
                             </span>
                           </Link>

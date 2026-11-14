@@ -39,7 +39,7 @@ export default async function TimelinePostPage({ params }: PageProps) {
       <SectionMainContainer className="py-24 px-6 flex flex-col items-center justify-center min-h-[50vh]">
          <h1 className="text-2xl text-primary-100 font-bold mb-4">Content Not Found</h1>
          <p className="text-primary-500 mb-6">Unable to load the blog post content.</p>
-         <Link href="/timeline" className="text-secondary-600 hover:underline">
+         <Link href="/timeline" className="text-secondary-700 hover:underline">
            Back to Timeline
          </Link>
       </SectionMainContainer>
@@ -50,7 +50,7 @@ export default async function TimelinePostPage({ params }: PageProps) {
     <>
       <SectionMainContainer className="py-24 px-6 sm:px-12 md:px-24 min-h-screen">
         <div className="max-w-3xl mx-auto">
-          <Link href="/timeline" className="inline-flex items-center text-primary-500 hover:text-secondary-600 mb-8 group transition-colors">
+          <Link href="/timeline" className="inline-flex items-center text-primary-500 hover:text-secondary-700 mb-8 group transition-colors">
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Timeline
           </Link>
@@ -71,7 +71,7 @@ export default async function TimelinePostPage({ params }: PageProps) {
             </div>
           </header>
 
-          <article className="prose prose-lg prose-headings:text-primary-100 prose-p:text-primary-600 prose-strong:text-primary-100 prose-a:text-secondary-600 hover:prose-a:text-secondary-500 max-w-none">
+          <article className="prose prose-lg prose-headings:text-primary-100 prose-p:text-primary-600 prose-strong:text-primary-100 prose-a:text-secondary-700 hover:prose-a:text-secondary-700 max-w-none">
             <ReactMarkdown 
               remarkPlugins={[remarkGfm]}
               components={{
@@ -83,7 +83,7 @@ export default async function TimelinePostPage({ params }: PageProps) {
                 ol: ({node, ...props}) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-primary-600" {...props} />,
                 li: ({node, ...props}) => <li className="pl-1" {...props} />,
                 blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-secondary-400 pl-6 italic my-8 text-primary-500 py-2 bg-secondary-50/50 rounded-r-lg" {...props} />,
-                a: ({node, ...props}) => <a className="text-secondary-600 font-medium hover:underline decoration-2 underline-offset-2" {...props} />,
+                a: ({node, ...props}) => <a className="text-secondary-700 font-medium hover:underline decoration-2 underline-offset-2" {...props} />,
                 strong: ({node, ...props}) => <strong className="font-bold text-primary-100" {...props} />,
                 hr: ({node, ...props}) => <hr className="border-secondary-200 my-10" {...props} />,
                 code: ({node, className, children, ...props}: any) => {
@@ -101,7 +101,7 @@ export default async function TimelinePostPage({ params }: PageProps) {
 
           {/* ── Bottom nav ── */}
           <div className="mt-16 pt-8 border-t border-secondary-200 flex justify-between items-center">
-             <Link href="/timeline" className="text-primary-500 hover:text-secondary-600 font-medium">
+             <Link href="/timeline" className="text-primary-500 hover:text-secondary-700 font-medium">
                &larr; More Posts
              </Link>
              <a href={post.githubUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-400 hover:text-primary-600 flex items-center gap-1">

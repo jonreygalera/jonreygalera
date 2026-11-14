@@ -42,15 +42,15 @@ export default function ContactMeSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-100/90 via-primary-100/20 to-transparent" />
                 
-                <div className="absolute bottom-10 left-10 right-10 p-8 rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10">
-                   <p className="text-white font-bold text-xl italic mb-2">&ldquo;Let&apos;s build the future together.&rdquo;</p>
+                <div className="absolute bottom-4 left-4 right-4 p-5 sm:bottom-10 sm:left-10 sm:right-10 sm:p-8 rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10">
+                   <p className="text-white font-bold text-lg sm:text-xl italic mb-2">&ldquo;Let&apos;s build the future together.&rdquo;</p>
                    <p className="text-secondary-500 text-sm font-bold tracking-widest uppercase">Jon Rey Galera</p>
                 </div>
              </div>
           </div>
 
           <div className="w-full order-1 lg:order-2">
-            <div className="bg-white/[0.03] backdrop-blur-xl p-8 sm:p-12 rounded-[2.5rem] border border-white/5 shadow-2xl">
+            <div className="bg-white/[0.03] backdrop-blur-xl p-6 sm:p-12 rounded-[2rem] sm:rounded-[2.5rem] border border-white/5 shadow-2xl">
               <ContactForm id="section-contact-form"/>
             </div>
           </div>

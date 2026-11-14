@@ -74,11 +74,11 @@ export default function LearningStack() {
           <div className="hidden sm:block h-8 w-px bg-white/10" />
 
           <div className="flex-1 flex flex-col">
-            <div className="flex items-center gap-1.5 text-primary-800 text-[10px] font-black uppercase tracking-[0.1em] opacity-60">
+            <div className="flex items-center gap-1.5 text-primary-800 text-[11px] font-black uppercase tracking-[0.1em]">
               <Rocket size={10} className="text-secondary-500" />
               Exploring
             </div>
-            <div className="flex items-center min-h-[1.5rem]">
+            <div className="flex items-center min-h-[3.5rem] sm:min-h-[1.75rem]">
               <span className="text-lg font-bold text-white tracking-tight flex items-center">
                 {text}
                 <span className="w-0.5 h-5 bg-secondary-500 ml-1.5 animate-pulse" />
@@ -86,7 +86,7 @@ export default function LearningStack() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.03] border border-white/5 text-primary-800 text-[9px] font-black uppercase tracking-widest group-hover:bg-secondary-500/10 group-hover:text-secondary-400 transition-all">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.03] border border-white/5 text-primary-800 text-[11px] font-black uppercase tracking-widest group-hover:bg-secondary-500/10 group-hover:text-secondary-400 transition-all">
             <Sparkles size={12} />
             Continuous Learning
           </div>

@@ -134,7 +134,7 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
 
           {/* Search input row */}
           <div className="flex items-center gap-3 px-4 py-3.5 border-b border-gray-100">
-            <Search className="w-5 h-5 text-gray-400 shrink-0" />
+            <Search className="w-5 h-5 text-gray-500 shrink-0" />
             <input
               ref={inputRef}
               type="text"
@@ -142,20 +142,20 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="flex-1 bg-transparent text-base text-gray-900 placeholder-gray-400 outline-none"
+              className="flex-1 bg-transparent text-base text-gray-900 placeholder-gray-500 outline-none"
               autoComplete="off"
               spellCheck={false}
             />
             {query && (
               <button
                 onClick={() => setQuery("")}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
+                className="p-2 -m-2 text-gray-500 hover:text-gray-600 transition-colors"
                 aria-label="Clear"
               >
                 <X className="w-4 h-4" />
               </button>
             )}
-            <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-[11px] font-mono text-gray-400 bg-gray-100 rounded border border-gray-200">
+            <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-[11px] font-mono text-gray-500 bg-gray-100 rounded border border-gray-200">
               esc
             </kbd>
           </div>
@@ -166,14 +166,14 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
             className="overflow-y-auto max-h-[55vh] divide-y divide-gray-50"
           >
             {query.trim() === "" && (
-              <li className="flex flex-col items-center justify-center gap-2 py-14 text-gray-400">
+              <li className="flex flex-col items-center justify-center gap-2 py-14 text-gray-500">
                 <Search className="w-8 h-8 opacity-30" />
                 <span className="text-sm">Type to search through timeline & projects</span>
               </li>
             )}
 
             {query.trim() !== "" && results.length === 0 && (
-              <li className="flex flex-col items-center justify-center gap-2 py-14 text-gray-400">
+              <li className="flex flex-col items-center justify-center gap-2 py-14 text-gray-500">
                 <FileText className="w-8 h-8 opacity-30" />
                 <span className="text-sm">No results for <strong className="text-gray-600">&ldquo;{query}&rdquo;</strong></span>
               </li>
@@ -204,7 +204,7 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
                     {/* Icon */}
                     <span className={cn(
                       "mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold transition-colors",
-                      cursor === i ? "bg-secondary-100 text-secondary-600" : "bg-gray-100 text-gray-400"
+                      cursor === i ? "bg-secondary-100 text-secondary-700" : "bg-gray-100 text-gray-500"
                     )}>
                       <Icon className="w-4 h-4" />
                     </span>
@@ -217,7 +217,7 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
                         </p>
                         <span className={cn(
                           "text-[9px] font-black uppercase tracking-widest px-1.5 py-0.5 rounded",
-                          isTimeline ? "bg-blue-50 text-blue-600" : "bg-secondary-50 text-secondary-600"
+                          isTimeline ? "bg-blue-50 text-blue-600" : "bg-secondary-50 text-secondary-700"
                         )}>
                           {isTimeline ? 'Post' : 'Project'}
                         </span>
@@ -228,7 +228,7 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
 
                       {/* Meta row */}
                       <div className="flex flex-wrap items-center gap-2 mt-2">
-                        <span className="inline-flex items-center gap-1 text-[10px] text-gray-400 font-mono">
+                        <span className="inline-flex items-center gap-1 text-[10px] text-gray-500 font-mono">
                           {isTimeline ? <Calendar className="w-3 h-3" /> : <Zap className="w-3 h-3" />}
                           {meta}
                         </span>
@@ -252,7 +252,7 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
                     {/* Arrow */}
                     <ArrowRight className={cn(
                       "w-4 h-4 mt-1 shrink-0 transition-all duration-150",
-                      cursor === i ? "text-secondary-500 translate-x-0.5" : "text-gray-200"
+                      cursor === i ? "text-secondary-700 translate-x-0.5" : "text-gray-200"
                     )} />
                   </Link>
                 </li>
@@ -261,7 +261,7 @@ export default function TimelineSearchModal({ open, onClose }: Props) {
           </ul>
 
           {/* Footer hint */}
-          <div className="flex items-center justify-between px-5 py-2.5 border-t border-gray-100 bg-gray-50/60 text-[11px] text-gray-400 font-mono">
+          <div className="flex items-center justify-between px-5 py-2.5 border-t border-gray-100 bg-gray-50/60 text-[11px] text-gray-500 font-mono">
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1">
                 <kbd className="px-1.5 py-0.5 bg-white border border-gray-200 rounded text-[10px]">↑</kbd>

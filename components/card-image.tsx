@@ -40,7 +40,7 @@ export default function CardImage({
   return (
     <div 
       className={cn(
-        "group relative flex flex-col rounded-[2.5rem] overflow-hidden border border-white/10 bg-primary-200 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-secondary-500/5 xl:min-w-[400px] xl:max-w-[400px]",
+        "group relative flex flex-col rounded-[2.5rem] overflow-hidden border border-white/10 bg-primary-200 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-secondary-500/5",
         containerClass
       )}
     >
@@ -50,7 +50,7 @@ export default function CardImage({
         <Grid1Pattern />
       </div>
 
-      <div className="relative p-8 z-10 flex flex-col h-full">
+      <div className="relative p-6 sm:p-8 z-10 flex flex-col h-full">
         <div className="relative aspect-video w-full overflow-hidden rounded-[1.5rem] border border-white/5 mb-8">
           <Image 
             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -62,7 +62,7 @@ export default function CardImage({
         </div>
 
         <div className="flex flex-col flex-1 space-y-4">
-          <h3 className="text-3xl font-black text-white italic tracking-tight group-hover:text-secondary-400 transition-colors duration-300">
+          <h3 className="text-2xl sm:text-3xl font-black text-white italic tracking-tight group-hover:text-secondary-400 transition-colors duration-300">
             {title}
           </h3>
           <p className="text-white/70 text-base leading-relaxed font-medium">
@@ -71,7 +71,7 @@ export default function CardImage({
           
           <div className="pt-6 mt-auto">
             <Button 
-              className="w-full justify-center group/btn py-4 rounded-xl bg-secondary-500 text-primary-900 border-none hover:bg-secondary-400 hover:text-primary-100" 
+              className="w-full justify-center group/btn py-4 rounded-xl bg-secondary-500 text-primary-100 md:bg-secondary-500 md:text-primary-100 border-none hover:bg-secondary-400 hover:text-primary-100" 
               onClick={handleOnClickButton}
             >
               <span className="flex items-center gap-3 font-black uppercase tracking-widest text-xs">

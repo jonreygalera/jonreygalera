@@ -31,7 +31,7 @@ export default function HeroSection({ id }: { id?: string}) {
   const handleViewResume = () => {
     if(PROFILE.resume.type == 'link') {
       const link = document.createElement('a');
-      link.target = '__blank';
+      link.target = '_blank';
       link.href = PROFILE.resume.url;
       link.download = `${PROFILE.firstName}_${PROFILE.lastName} - CV.pdf`;
       document.body.appendChild(link);
@@ -76,14 +76,14 @@ export default function HeroSection({ id }: { id?: string}) {
            <h1 className="text-[18vw] leading-none sm:text-[120px] md:text-[180px] lg:text-[200px] font-black italic text-primary-100 tracking-tighter select-none animate-in fade-in slide-in-from-left-8 duration-700">
             {PROFILE.firstName}
            </h1>
-           <h2 className="text-[8vw] leading-tight sm:text-[40px] md:text-6xl lg:text-7xl italic text-secondary-500 mt-2 sm:mt-4 md:mt-6 tracking-[0.2em] md:tracking-[0.3em] select-none font-bold animate-in fade-in slide-in-from-left-12 duration-1000">
+           <h2 className="text-[8vw] leading-tight sm:text-[40px] md:text-6xl lg:text-7xl italic text-secondary-700 mt-2 sm:mt-4 md:mt-6 tracking-[0.2em] md:tracking-[0.3em] select-none font-bold animate-in fade-in slide-in-from-left-12 duration-1000">
             {PROFILE.lastName}
            </h2>
         </div>
 
         <div className="max-w-xl text-center md:text-left flex flex-col items-center md:items-start gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
            <p className="text-lg sm:text-xl md:text-2xl text-primary-500/80 font-light leading-relaxed">
-             I bring together <span className="font-semibold text-secondary-600">creativity</span>, <span className="font-semibold text-secondary-600">logic</span>, and <span className="font-semibold text-secondary-600">empathy</span> to build beautiful products.
+             I bring together <span className="font-semibold text-secondary-700">creativity</span>, <span className="font-semibold text-secondary-700">logic</span>, and <span className="font-semibold text-secondary-700">empathy</span> to build beautiful products.
            </p>
            
            <div className="w-full flex justify-center md:justify-start">

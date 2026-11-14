@@ -46,6 +46,7 @@ export default function NavBar() {
         e.preventDefault();
         setIsSearchOpen((v) => !v);
       }
+      if (e.key === "Escape") setIsMenuOpen(false);
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
@@ -143,7 +144,7 @@ export default function NavBar() {
           <button
             onClick={() => setIsSearchOpen(true)}
             aria-label="Search"
-            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white/70 hover:text-white transition-all duration-200 flex items-center gap-2"
+            className="min-w-11 min-h-11 justify-center p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white/70 hover:text-white transition-all duration-200 flex items-center gap-2"
           >
             <Search className="w-4 h-4" />
             <kbd className="hidden lg:inline-flex items-center gap-0.5 text-[10px] font-mono opacity-50 bg-white/10 px-1.5 py-0.5 rounded border border-white/10">
@@ -168,9 +169,10 @@ export default function NavBar() {
 
           <button
             type="button"
-            className="inline-flex items-center justify-center p-2 rounded-xl md:hidden bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
+            className="inline-flex items-center justify-center min-w-11 min-h-11 p-2 rounded-xl md:hidden bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
           >
             <span className="sr-only">Menu</span>
             <div className="w-6 h-5 flex flex-col justify-between items-end relative overflow-hidden">
@@ -182,9 +184,11 @@ export default function NavBar() {
         </div>
       </div>
 
+    </nav>
+
       {/* Modern Mobile Menu Overlay */}
-      <div className={cn(
-        "fixed inset-0 bg-primary-100 z-[200] md:hidden transition-all duration-500 ease-in-out",
+      <div id="mobile-menu" inert={!isMenuOpen} className={cn(
+        "fixed inset-0 bg-primary-100 z-[90] md:hidden transition-all duration-500 ease-in-out",
         isMenuOpen ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-10"
       )}>
         <div className="h-dvh flex flex-col px-6 pt-32 pb-12 overflow-y-auto relative z-10 font-san bg-primary-200">
@@ -209,7 +213,7 @@ export default function NavBar() {
                       <span className="text-3xl font-black text-white group-hover:text-secondary-400">{link.name}</span>
                     </div>
                     <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-secondary-500/10 group-hover:border-secondary-500/30 transition-all">
-                       <svg className="w-5 h-5 text-white/30 group-hover:text-secondary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                       <svg className="w-5 h-5 text-white/60 group-hover:text-secondary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                        </svg>
                     </div>
@@ -223,7 +227,7 @@ export default function NavBar() {
                       <span className="text-3xl font-black text-white group-hover:text-secondary-400">{link.name}</span>
                     </div>
                     <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-secondary-500/10 group-hover:border-secondary-500/30 transition-all">
-                       <svg className="w-5 h-5 text-white/30 group-hover:text-secondary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                       <svg className="w-5 h-5 text-white/60 group-hover:text-secondary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                        </svg>
                     </div>
@@ -253,7 +257,7 @@ export default function NavBar() {
           </ul>
 
           <div className="mt-auto pt-10 text-center">
-              <p className="text-[10px] text-white/20 tracking-[0.4em] uppercase font-bold">Available for new opportunities</p>
+              <p className="text-[11px] text-white/50 tracking-[0.4em] uppercase font-bold">Available for new opportunities</p>
           </div>
         </div>
         
@@ -261,7 +265,6 @@ export default function NavBar() {
         <div className="absolute top-[-10%] right-[-10%] w-[80%] h-[40%] bg-secondary-500/5 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[80%] h-[40%] bg-primary-600/5 blur-[120px] rounded-full" />
       </div>
-    </nav>
 
     <TimelineSearchModal open={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>

@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from "@/lib/utils";
+import { fieldClassName } from "./text-field";
 
 interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
@@ -12,6 +13,7 @@ export default function TextArea(props: TextAreaProps) {
   const {
     label,
     containerClass = '',
+    className,
     rows = 4,
     ...others
   } = props;
@@ -19,14 +21,14 @@ export default function TextArea(props: TextAreaProps) {
   return (
     <div className={cn("space-y-2 w-full", containerClass)}>
       {label && (
-        <label htmlFor={props.id} className="block text-sm font-medium">
+        <label htmlFor={props.id} className="block text-sm font-medium text-primary-800">
           {label}
         </label>
       )}
       <textarea
         {...others}
         rows={rows}
-        className="w-full px-3 py-2 rounded-md shadow-sm transition min-h-[100px] border-2"
+        className={cn(fieldClassName, "min-h-[140px] resize-y", className)}
       />
     </div>
   );

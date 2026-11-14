@@ -47,7 +47,7 @@ export default function AboutSection() {
                 I'm a <span className="text-secondary-400 font-extrabold underline decoration-secondary-500/20 underline-offset-4">Senior Software Engineer</span> with over 5 years of experience building high-volume production systems. My work focuses on the intersection of <span className="text-secondary-500 font-bold">AI Agent development</span> and scalable architectures.
               </p>
               <p className="animate-in fade-in slide-in-from-left-4 duration-700 delay-100">
-                I orchestrate complex automation workflows via <span className="text-secondary-400 font-bold">n8n</span> and contribute to the AI community as the creator of <a href="https://github.com/jonreygalera/prompts" target="__blank" className="font-bold text-secondary-500 hover:text-secondary-400 underline decoration-secondary-500/30 hover:decoration-secondary-400 transition-all">Prompts for LLM</a>.
+                I orchestrate complex automation workflows via <span className="text-secondary-400 font-bold">n8n</span> and contribute to the AI community as the creator of <a href="https://github.com/jonreygalera/prompts" target="_blank" rel="noopener noreferrer" className="font-bold text-secondary-500 hover:text-secondary-400 underline decoration-secondary-500/30 hover:decoration-secondary-400 transition-all">Prompts for LLM</a>.
               </p>
             </div>
             

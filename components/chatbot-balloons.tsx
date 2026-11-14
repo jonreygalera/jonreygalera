@@ -31,10 +31,10 @@ export default function ChatbotBalloons() {
   }, [showBalloon, balloonIndex]);
 
   return (
-    <div className="fixed bottom-24 right-6 z-[9999] flex flex-col items-end gap-4 pointer-events-none">
+    <div className="fixed bottom-24 right-4 sm:right-6 z-40 flex flex-col items-end gap-4 pointer-events-none">
       <div 
         className={cn(
-          "min-w-[220px] max-w-[300px] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] pointer-events-auto",
+          "w-[min(300px,calc(100vw-2rem))] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] pointer-events-auto",
           showBalloon ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95 pointer-events-none"
         )}
       >
@@ -61,9 +61,10 @@ export default function ChatbotBalloons() {
 
           <button 
             onClick={() => setShowBalloon(false)}
-            className="absolute -top-2 -right-2 w-6 h-6 bg-secondary-600 hover:bg-secondary-500 text-white rounded-full flex items-center justify-center shadow-xl transition-all duration-300 z-20 opacity-0 group-hover:opacity-100 group-hover:scale-110 active:scale-95"
+            aria-label="Dismiss message"
+            className="absolute -top-3 -right-3 w-8 h-8 bg-secondary-500 hover:bg-secondary-400 text-primary-100 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 z-20 md:opacity-0 md:group-hover:opacity-100 group-hover:scale-110 active:scale-95"
           >
-            <X size={12} />
+            <X size={14} />
           </button>
           
           {/* Subtle Ambient Glow */}

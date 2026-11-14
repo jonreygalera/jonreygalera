@@ -34,7 +34,7 @@ export default function TimelineRandomStories({ currentSlug, count = 3 }: Props)
       {/* Section divider */}
       <div className="flex items-center gap-4 mb-10">
         <span className="h-px flex-1 bg-gradient-to-r from-transparent via-secondary-200 to-transparent" />
-        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-secondary-500 whitespace-nowrap">
+        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-secondary-700 whitespace-nowrap">
           More Stories
         </h2>
         <span className="h-px flex-1 bg-gradient-to-r from-transparent via-secondary-200 to-transparent" />
@@ -53,11 +53,11 @@ export default function TimelineRandomStories({ currentSlug, count = 3 }: Props)
                 <CalendarDays className="w-3 h-3" />
                 {rp.fullDate ?? rp.date}
               </span>
-              <ArrowUpRight className="w-4 h-4 text-primary-300 group-hover:text-secondary-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+              <ArrowUpRight className="w-4 h-4 text-primary-300 group-hover:text-secondary-700 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
             </div>
 
             {/* Title */}
-            <h3 className="text-sm font-bold text-primary-100 leading-snug group-hover:text-secondary-600 transition-colors line-clamp-2">
+            <h3 className="text-sm font-bold text-primary-100 leading-snug group-hover:text-secondary-700 transition-colors line-clamp-2">
               {rp.title}
             </h3>
 
@@ -72,7 +72,7 @@ export default function TimelineRandomStories({ currentSlug, count = 3 }: Props)
                 {rp.tags.slice(0, 3).map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-secondary-50 text-secondary-600 border border-secondary-100"
+                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-secondary-50 text-secondary-700 border border-secondary-100"
                   >
                     <Tag className="w-2.5 h-2.5" />
                     {tag}
