@@ -1,3 +1,5 @@
+import { getYearsOfExperience } from "@/lib/experience";
+
 export const PREDEFINED_QUESTIONS = [
   "Who is Jon Rey Galera?",
   "What services does Jon offer?",
@@ -79,7 +81,7 @@ export const BALLOON_MESSAGES = [
   "LLM costs on your mind?",
   "Cursor makes coding smoother.",
   "Let's ship some code.",
-  "Grateful for 5+ years in tech.",
+  `Grateful for ${getYearsOfExperience()}+ years in tech.`,
   "NMS was a big part of my path.",
   "Real-time tech is exciting.",
   "Keeping server state clean.",

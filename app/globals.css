@@ -126,6 +126,40 @@
   animation-delay: 1000ms;
 }
 
+/* Pixel-game dialog box: stepped corners drawn with hard box-shadows */
+.pixel-box {
+  position: relative;
+  box-shadow:
+    0 -4px 0 0 var(--color-secondary-50),
+    0 4px 0 0 var(--color-secondary-50),
+    -4px 0 0 0 var(--color-secondary-50),
+    4px 0 0 0 var(--color-secondary-50),
+    inset 0 0 0 3px var(--color-primary-400),
+    0 12px 0 0 rgb(0 0 0 / 0.35);
+  image-rendering: pixelated;
+}
+
+.pixel-plate {
+  box-shadow:
+    0 -3px 0 0 var(--color-primary-100),
+    0 3px 0 0 var(--color-primary-100),
+    -3px 0 0 0 var(--color-primary-100),
+    3px 0 0 0 var(--color-primary-100);
+}
+
+@keyframes pixel-caret {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+.pixel-caret {
+  animation: pixel-caret 0.8s steps(2, jump-none) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-caret { animation: none; }
+}
+
 /* Custom Utilities */
 @layer utilities {
   .backdrop-blur-xl {

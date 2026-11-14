@@ -19,8 +19,6 @@ const LEARNING_ITEMS = [
   "TypeScript Type Mastery",
   "Next.js Scalable Architecture",
   "PHP Core Internals",
-  "Flutter",
-  "Dart",
   "Mobile Development"
 ];
 

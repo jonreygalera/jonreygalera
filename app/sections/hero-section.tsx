@@ -9,6 +9,7 @@ import SectionContainer from "@/components/section-container";
 import { PROFILE } from "@/data/profile";
 import { cn } from "@/lib/utils";
 import VisitorStats from "@/components/visitor-stats";
+import { getYearsOfExperience } from "@/lib/experience";
 
 const marqueeData = [
   "• develop",
@@ -17,7 +18,7 @@ const marqueeData = [
   "• hire me for your next project",
   "• full-stack developer",
   "• ai agent engineering", 
-  `• ${(new Date().getFullYear() - 2019)} years experience`,
+  `• ${getYearsOfExperience()} years experience`,
   "• let's build something amazing •",
   "• available for freelance work •"
 ];

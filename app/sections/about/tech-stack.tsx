@@ -37,6 +37,9 @@ const TECH_STACK: TechGroup[] = [
       { name: "RAG Systems", isAI: true },
       { name: "Prompt Engineering", isAI: true },
       { name: "OpenAI / LLMs", isAI: true },
+      { name: "Claude", isAI: true },
+      { name: "Gemini", isAI: true },
+      { name: "Ollama (Local LLMs)", isAI: true },
       { name: "Mrey AI Ecosystem", isAI: true },
     ]
   },
@@ -46,6 +49,8 @@ const TECH_STACK: TechGroup[] = [
     items: [
       { name: "Laravel (PHP)" },
       { name: "React / Next.js" },
+      { name: "Flutter (Dart)" },
+      { name: "React Native" },
       { name: "TypeScript" },
       { name: "Node.js / Express" },
       { name: "API Integration" },
@@ -59,6 +64,9 @@ const TECH_STACK: TechGroup[] = [
       { name: "Antigravity-IDE", isAI: true },
       { name: "Cursor IDE", isAI: true },
       { name: "Docker & Redis" },
+      { name: "AWS" },
+      { name: "DigitalOcean" },
+      { name: "Ubuntu / Linux" },
       { name: "Git / CI/CD" },
       { name: "WebSockets" },
       { name: "VS Code" },

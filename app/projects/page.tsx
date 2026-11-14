@@ -5,6 +5,7 @@ import SectionMainContainer from "@/components/section-main-container";
 import Footer from "@/ui/footer";
 import { PROJECTS, CATEGORIES } from "@/data/projects";
 import { cn } from "@/lib/utils";
+import { getYearsOfExperience } from "@/lib/experience";
 import BehanceIcon from '/public/behance.svg';
 import Image from 'next/image';
 import { 
@@ -369,7 +370,7 @@ function ProjectsContent() {
               </div>
               <div className="w-px h-12 bg-primary-100/10" />
               <div className="text-right">
-                <div className="text-4xl font-bold text-primary-100 leading-none">5+</div>
+                <div className="text-4xl font-bold text-primary-100 leading-none" suppressHydrationWarning>{getYearsOfExperience()}+</div>
                 <div className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-100/60 mt-2">Years Exp.</div>
               </div>
             </div>
