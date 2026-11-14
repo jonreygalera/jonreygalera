@@ -1,11 +1,10 @@
 'use client';
 
-import Image from "next/image";
-import BackgroundImage from '/public/image1.webp';
 import Button from "@/components/button";
 import { Inter } from "next/font/google";
 import MarqueeSection from "@/components/marquee-section";
 import SectionContainer from "@/components/section-container";
+import ProfilePortrait from "@/components/profile-portrait";
 import { PROFILE } from "@/data/profile";
 import { cn } from "@/lib/utils";
 import VisitorStats from "@/components/visitor-stats";
@@ -17,7 +16,7 @@ const marqueeData = [
   "• discover",
   "• hire me for your next project",
   "• full-stack developer",
-  "• ai agent engineering", 
+  "• ai agent engineering",
   `• ${getYearsOfExperience()} years experience`,
   "• let's build something amazing •",
   "• available for freelance work •"
@@ -27,12 +26,13 @@ const internSans = Inter({
   subsets: ["latin"],
 });
 
-export default function HeroSection({ id }: { id?: string}) {
+export default function HeroSection() {
 
   const handleViewResume = () => {
     if(PROFILE.resume.type == 'link') {
       const link = document.createElement('a');
       link.target = '_blank';
+      link.rel = 'noopener noreferrer';
       link.href = PROFILE.resume.url;
       link.download = `${PROFILE.firstName}_${PROFILE.lastName} - CV.pdf`;
       document.body.appendChild(link);
@@ -51,60 +51,47 @@ export default function HeroSection({ id }: { id?: string}) {
   };
 
   return (
-    <SectionContainer id={'section-hero'} className="relative overflow-hidden flex flex-col justify-center items-center py-20 md:py-0 min-h-[90vh]">
-      
-      {/* Background Graphic */}
+    <SectionContainer id={'section-hero'} className="relative overflow-hidden justify-center pt-28 pb-28 sm:pt-32 lg:pb-32 min-h-[100svh]">
+
+      {/* Decorative glow */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-         <div className="absolute right-0 bottom-0 w-full h-full md:w-1/2 md:h-full opacity-30 md:opacity-100 grayscale-[50%] md:grayscale-0">
-            <Image 
-              src={BackgroundImage}
-              alt="Background"
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover object-bottom transition-all duration-1000 scale-105"
-              priority
-            />
-             <div className="absolute inset-0 bg-gradient-to-t from-secondary-50 via-secondary-50/80 to-transparent md:hidden" />
-             <div className="absolute inset-0 bg-gradient-to-r from-secondary-50 via-secondary-50/50 to-transparent md:hidden" />
-         </div>
-         {/* Decorative elements */}
-         <div className="absolute top-1/4 left-10 w-64 h-64 bg-secondary-500/10 blur-[100px] rounded-full animate-pulse" />
+         <div className="absolute top-1/4 left-0 sm:left-10 w-64 h-64 bg-secondary-500/15 blur-[100px] rounded-full animate-pulse" />
+         <div className="absolute bottom-10 right-0 w-72 h-72 bg-secondary-300/20 blur-[120px] rounded-full" />
       </div>
 
-      <div className="container mx-auto px-4 z-10 flex flex-col items-center md:items-start md:pl-20 2xl:pl-40 gap-6 sm:gap-8">
-        
-        <div className={cn(internSans.className, "flex flex-col items-center md:items-start w-full relative mb-12")}>
-           <h1 className="text-[18vw] leading-none sm:text-[120px] md:text-[180px] lg:text-[200px] font-black italic text-primary-100 tracking-tighter select-none animate-in fade-in slide-in-from-left-8 duration-700">
-            {PROFILE.firstName}
-           </h1>
-           <h2 className="text-[8vw] leading-tight sm:text-[40px] md:text-6xl lg:text-7xl italic text-secondary-700 mt-2 sm:mt-4 md:mt-6 tracking-[0.2em] md:tracking-[0.3em] select-none font-bold animate-in fade-in slide-in-from-left-12 duration-1000">
-            {PROFILE.lastName}
-           </h2>
+      <div className="container max-w-6xl mx-auto px-4 sm:px-6 z-10 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center">
+
+        {/* Left: identity + intro + actions */}
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-6 sm:gap-8">
+          <h1 className={cn(internSans.className, "flex flex-col items-center lg:items-start select-none")}>
+            <span className="text-[16vw] sm:text-8xl xl:text-9xl leading-[0.9] font-black italic text-primary-100 tracking-tighter animate-in fade-in slide-in-from-left-8 duration-700">
+              {PROFILE.firstName}
+            </span>
+            <span className="text-[7vw] sm:text-4xl xl:text-5xl leading-tight italic text-secondary-700 mt-2 sm:mt-3 tracking-[0.2em] sm:tracking-[0.3em] font-bold animate-in fade-in slide-in-from-left-12 duration-1000">
+              {PROFILE.lastName}
+            </span>
+          </h1>
+
+          <p className="max-w-xl text-lg sm:text-xl leading-relaxed text-primary-100/70 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
+            <span className="font-bold text-primary-100">Full-stack engineer</span> experienced in building modern web and mobile applications, now creating <span className="font-bold text-secondary-700">AI-powered products</span> built on that software engineering foundation.
+          </p>
+
+          <div className="flex justify-center lg:justify-start animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
+            <VisitorStats />
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
+            <Button onClick={handleHireMeClick} className="w-full sm:w-[180px] justify-center">
+              HIRE ME
+            </Button>
+            <Button onClick={handleViewResume} className="w-full sm:w-[180px] justify-center">
+              VIEW RESUME
+            </Button>
+          </div>
         </div>
 
-        <div className="max-w-xl text-center md:text-left flex flex-col items-center md:items-start gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
-           <p className="text-lg sm:text-xl md:text-2xl text-primary-500/80 font-light leading-relaxed">
-             I bring together <span className="font-semibold text-secondary-700">creativity</span>, <span className="font-semibold text-secondary-700">logic</span>, and <span className="font-semibold text-secondary-700">empathy</span> to build beautiful products.
-           </p>
-           
-           <div className="w-full flex justify-center md:justify-start">
-             <VisitorStats />
-           </div>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-4 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
-             <div className="w-full sm:w-[180px]">
-               <Button onClick={handleHireMeClick} className="w-full justify-center">
-                 HIRE ME
-               </Button>
-             </div>
-             <div className="w-full sm:w-[180px]">
-               <Button onClick={handleViewResume} className="w-full justify-center">
-                 VIEW RESUME
-               </Button>
-             </div>
-        </div>
-
+        {/* Right: portrait + pixel dialog */}
+        <ProfilePortrait className="mx-auto w-full max-w-[420px] animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200" />
       </div>
 
       <MarqueeSection data={marqueeData} className="absolute bottom-0 w-full bg-primary-100/90 backdrop-blur-sm text-secondary-50 border-t border-white/10 shadow-2xl py-3"/>
