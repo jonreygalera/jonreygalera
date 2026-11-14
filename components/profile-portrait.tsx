@@ -4,6 +4,7 @@ import Image from "next/image";
 import ProfileImage from '/public/Jon Rey Galera - Profile.png';
 import PixelDialog from "@/components/pixel-dialog";
 import ExperienceCounter from "@/components/experience-counter";
+import VisitorStats from "@/components/visitor-stats";
 import { cn } from "@/lib/utils";
 
 export default function ProfilePortrait({ className }: { className?: string }) {
@@ -24,6 +25,9 @@ export default function ProfilePortrait({ className }: { className?: string }) {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(11,15,16,0.55)_100%)] pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-secondary-500/15 mix-blend-soft-light pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary-100/85 via-primary-100/10 to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-700 pointer-events-none" />
+
+        {/* Livestream-style visitor badge */}
+        <VisitorStats className="absolute top-4 left-4 sm:top-5 sm:left-5 z-10" />
 
         {/* Pixel-game dialog with random facts from projects & timeline */}
         <div className="absolute inset-x-5 bottom-7 sm:inset-x-6 z-10">
