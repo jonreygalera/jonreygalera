@@ -2,6 +2,17 @@ import { TimelinePost } from "../timeline";
 
 const timeline: TimelinePost[] = [
     {
+        id: 36,
+        title: "Niyaw — Track. Save. Grow. An Offline-First Finance Tracker",
+        date: "2026",
+        fullDate: "November 2026",
+        description: "Built Niyaw, an offline-first personal finance tracker with a cat mascot: no account, no cloud, no bank connection. Built with Flutter, Riverpod and local SQLite, with loans, subscriptions, bills, goals and a PIN-protected vault. Live on Windows, in closed testing on Android.",
+        slug: "niyaw-offline-first-finance-tracker",
+        tags: ["Flutter", "Dart", "Riverpod", "SQLite", "Offline-First", "Personal Finance", "Privacy", "UI/UX", "Vibecoding"],
+        githubRawUrl: "https://raw.githubusercontent.com/jonreygalera/aboutme/refs/heads/main/devTimeline/2026/niyaw-offline-first-finance-tracker.md",
+        githubUrl: "https://github.com/jonreygalera/aboutme/blob/main/devTimeline/2026/niyaw-offline-first-finance-tracker.md"
+    },
+    {
         id: 35,
         title: "DuckPilot — A Desktop App to Tame the Developer Chaos",
         date: "2026",
